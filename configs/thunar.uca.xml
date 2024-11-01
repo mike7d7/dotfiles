@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1725569086689893-1</unique-id>
+	<command>foot</command>
+	<description>Open the foot terminal in the current directory</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>Unzip</name>
+	<submenu></submenu>
+	<unique-id>1726774470673524-1</unique-id>
+	<command>ripunzip unzip-file %F</command>
+	<description>Decompresses a zip file</description>
+	<range>*</range>
+	<patterns>*.zip</patterns>
+	<other-files/>
+</action>
+</actions>
