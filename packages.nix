@@ -61,6 +61,9 @@ in
     gvfs
     pipewire    
     libreoffice
+    hunspell
+    hunspellDicts.es_MX
+    hunspellDicts.en_US
     waybar
     yambar
     swww
