@@ -36,6 +36,9 @@ let
   '';
   aagl = import (builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
   navicat = pkgs.callPackage /home/mig/nixpkgs/pkgs/by-name/na/navicat-premium/package.nix {};
+  ciscoPacketTracer = pkgs.ciscoPacketTracer8.overrideAttrs (oldAttrs: {
+    src = /home/mig/Downloads/Packet_Tracer822_amd64_signed.deb;
+  });
 in
 {
   imports =
@@ -107,7 +110,7 @@ in
     
     wl-mirror
     ollama-cuda
-    ciscoPacketTracer8
+    ciscoPacketTracer
     navicat
     rsync
 
