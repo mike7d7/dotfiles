@@ -100,6 +100,7 @@ in
     sqlite
     sway
     wofi
+    tofi
     python3
     ripunzip
     amberol
