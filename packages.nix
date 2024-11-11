@@ -90,7 +90,7 @@ in
     grim
     obs-studio
     clang
-    rustc
+    rustup
     cargo
     appimage-run
     swaylock
