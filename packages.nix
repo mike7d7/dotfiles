@@ -117,6 +117,7 @@ in
     ciscoPacketTracer
     navicat
     rsync
+    _7zz
 
     dock-script
     undock-script
