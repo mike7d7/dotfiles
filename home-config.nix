@@ -60,6 +60,7 @@ in
     gtk.gtk3.bookmarks = [
       "file:///home/mig/Documents"
       "file:///home/mig/Videos"
+      "file:///home/mig/Music"
       "file:///home/mig/Images"
       "file:///home/mig/Downloads"
     ];
