@@ -98,7 +98,6 @@ in
     mysql-workbench
     php
     sqlite
-    sway
     wofi
     tofi
     python3
@@ -113,7 +112,6 @@ in
     phpactor
     
     wl-mirror
-    ollama-cuda
     ciscoPacketTracer
     navicat
     rsync
