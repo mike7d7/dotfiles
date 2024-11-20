@@ -117,6 +117,7 @@ in
     navicat
     rsync
     _7zz
+    zed-editor
 
     dock-script
     undock-script
