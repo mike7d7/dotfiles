@@ -65,6 +65,7 @@
     liberation_ttf
     dejavu_fonts
     nerdfonts
+    fira-code
   ];
   security.pam.services.swaylock = {};
   services.printing.enable = true;
