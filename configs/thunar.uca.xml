@@ -23,4 +23,20 @@
 	<patterns>*.zip</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>Zip</name>
+	<submenu></submenu>
+	<unique-id>1732070876103479-1</unique-id>
+	<command>7zz a %n.zip %f</command>
+	<description>Compress a folder as a .zip archive</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
