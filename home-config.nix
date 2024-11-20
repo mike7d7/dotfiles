@@ -15,7 +15,8 @@ in
     # Programs
     programs.bash.enable = true;
     programs.foot.enable = true;
-    programs.mpv.enable = true; 
+    programs.mpv.enable = true;
+    programs.tofi.enable = true;
     gtk.enable = true;
 
     # Configs
@@ -78,6 +79,22 @@ in
       hwdec = "vaapi";
       hwdec-codecs = "all";
       gpu-api = "opengl";
+    };
+    programs.tofi.settings = {
+      width = "100%";
+      height = "100%";
+      border-width = 0;
+      outline-width = 0;
+      padding-left = "35%";
+      padding-top = "35%";
+      result-spacing = 25;
+      num-results = 5;
+      font = "/nix/var/nix/profiles/system/sw/share/X11/fonts/JetBrainsMonoNerdFont-Medium.ttf";
+      hint-font = false;
+      background-color = "#000A";
+      ascii-input = true;
+      selection-color = "#7fc8ff";
+      drun-launch=true;
     };
     xdg.configFile."Thunar/uca.xml".source = ./configs/thunar.uca.xml;
   };

@@ -100,7 +100,6 @@ in
     php
     sqlite
     wofi
-    tofi
     python3
     ripunzip
     amberol
