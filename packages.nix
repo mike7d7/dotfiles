@@ -39,6 +39,7 @@ let
   ciscoPacketTracer = pkgs.ciscoPacketTracer8.overrideAttrs (oldAttrs: {
     src = /home/mig/Downloads/Packet_Tracer822_amd64_signed.deb;
   });
+  osu-lazer-local = pkgs.callPackage /home/mig/nixpkgs/pkgs/by-name/os/osu-lazer-bin/package.nix {};
 in
 {
   imports =
@@ -73,7 +74,7 @@ in
     pavucontrol # test if pwvucontrol works as good as pavucontrol
     pwvucontrol
     ludusavi
-    osu-lazer-bin
+    osu-lazer-local
     keepassxc
     # mpv
     nvtopPackages.full
