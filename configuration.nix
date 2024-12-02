@@ -64,7 +64,7 @@
     noto-fonts-cjk-sans
     liberation_ttf
     dejavu_fonts
-    nerdfonts
+    nerd-fonts.jetbrains-mono
     fira-code
   ];
   security.pam.services.swaylock = {};
