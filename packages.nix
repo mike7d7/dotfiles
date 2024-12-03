@@ -109,7 +109,9 @@ in
     # dependencies for nvchad
     unzip
     clang-tools
+    # lsp servers
     phpactor
+    nil
     
     wl-mirror
     ciscoPacketTracer
