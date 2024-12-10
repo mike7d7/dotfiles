@@ -116,6 +116,8 @@ in
     rsync
     _7zz
     zed-editor
+    typstwriter
+    typst
 
     dock-script
     undock-script
