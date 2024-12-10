@@ -17,7 +17,7 @@
 	<name>Unzip</name>
 	<submenu></submenu>
 	<unique-id>1726774470673524-1</unique-id>
-	<command>ripunzip unzip-file %F</command>
+	<command>mkdir -p &quot;$(basename &quot;%n&quot; .zip)&quot; &amp;&amp; cd &quot;$(basename &quot;%n&quot; .zip)&quot; &amp;&amp; ripunzip unzip-file %F</command>
 	<description>Decompresses a zip file</description>
 	<range>*</range>
 	<patterns>*.zip</patterns>
