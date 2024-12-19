@@ -18,6 +18,7 @@ in
     programs.mpv.enable = true;
     programs.tofi.enable = true;
     gtk.enable = true;
+    services.swayosd.enable = true;
 
     # Configs
     programs.git = {

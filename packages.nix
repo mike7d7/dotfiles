@@ -67,7 +67,6 @@ in
     yambar
     swww
     xwayland-satellite
-    swayosd
     htop
     pavucontrol # test if pwvucontrol works as good as pavucontrol
     pwvucontrol
