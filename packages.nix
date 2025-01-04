@@ -35,8 +35,6 @@ let
     fi
   '';
   aagl = import (builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
-  ciscoPacketTracer = pkgs.ciscoPacketTracer8.overrideAttrs (oldAttrs: {
-    src = /home/mig/Downloads/Packet_Tracer822_amd64_signed.deb;
   });
 in
 {
@@ -93,7 +91,6 @@ in
     appimage-run
     swaylock
     jellyfin-media-player
-    mysql-workbench
     php
     sqlite
     wofi
@@ -111,7 +108,6 @@ in
     nil
     
     wl-mirror
-    ciscoPacketTracer
     rsync
     _7zz
     zed-editor
