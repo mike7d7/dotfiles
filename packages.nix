@@ -113,6 +113,8 @@ in
     zed-editor
     typstwriter
     typst
+    gnupg
+    pinentry-tty
 
     dock-script
     undock-script
