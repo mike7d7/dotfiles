@@ -60,6 +60,7 @@ in
     };
 
     gtk.gtk3.bookmarks = [
+      "file:///home/mig/Desktop"
       "file:///home/mig/Documents"
       "file:///home/mig/Videos"
       "file:///home/mig/Music"
