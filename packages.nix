@@ -35,7 +35,6 @@ let
     fi
   '';
   aagl = import (builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz");
-  });
 in
 {
   imports =
