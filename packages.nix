@@ -60,6 +60,7 @@ in
     hunspell
     hunspellDicts.es_MX
     hunspellDicts.en_US
+    dconf
     waybar
     yambar
     swww
@@ -114,6 +115,7 @@ in
     typst
     gnupg
     pinentry-tty
+    apple-cursor
 
     dock-script
     undock-script

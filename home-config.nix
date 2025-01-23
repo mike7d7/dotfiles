@@ -58,6 +58,11 @@ in
         bright7="ffffff";   # bright white
       };
     };
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        cursor-theme = "macOS";
+      };
+    };
 
     gtk.gtk3.bookmarks = [
       "file:///home/mig/Desktop"
@@ -71,11 +76,19 @@ in
       gtk-icon-theme-name = "Adwaita";
       gtk-theme-name = "Adwaita-dark";
       gtk-application-prefer-dark-theme = 1;
+      gtk-cursor-theme-name = "macOS";
     };
     gtk.gtk4.extraConfig = {
       gtk-icon-theme-name = "Adwaita";
       gtk-theme-name = "Adwaita-dark";
       gtk-application-prefer-dark-theme = 1;
+      gtk-cursor-theme-name = "macOS";
+    };
+    home.pointerCursor = {
+      gtk.enable = true;
+      name = "macOS";
+      package = pkgs.apple-cursor;
+      size = 30;
     };
     programs.mpv.config = {
       hwdec = "vaapi";
