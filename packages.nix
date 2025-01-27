@@ -62,7 +62,6 @@ in
     hunspellDicts.en_US
     dconf
     waybar
-    yambar
     swww
     xwayland-satellite
     htop
