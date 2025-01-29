@@ -60,7 +60,6 @@ in
     hunspell
     hunspellDicts.es_MX
     hunspellDicts.en_US
-    dconf
     waybar
     swww
     xwayland-satellite
@@ -115,6 +114,7 @@ in
     gnupg
     pinentry-tty
     apple-cursor
+    nautilus # Needed for gtk4 FileChooserNative
 
     dock-script
     undock-script
