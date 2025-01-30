@@ -94,7 +94,7 @@ in
     wofi
     python3
     ripunzip
-    amberol
+    gapless
     joplin-desktop
     tenacity
     bluetuith
