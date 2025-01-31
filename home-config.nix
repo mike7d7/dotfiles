@@ -109,7 +109,7 @@ in
       background-color = "#000A";
       ascii-input = true;
       selection-color = "#7fc8ff";
-      drun-launch=true;
+      drun-launch=false;
     };
     xdg.configFile."Thunar/uca.xml".source = ./configs/thunar.uca.xml;
   };
