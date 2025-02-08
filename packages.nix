@@ -115,6 +115,7 @@ in
     pinentry-tty
     apple-cursor
     nautilus # Needed for gtk4 FileChooserNative
+    yazi
 
     dock-script
     undock-script
