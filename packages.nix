@@ -109,8 +109,6 @@ in
     rsync
     _7zz
     zed-editor
-    typstwriter
-    typst
     gnupg
     pinentry-tty
     apple-cursor
