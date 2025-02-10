@@ -88,7 +88,6 @@ in
     cargo
     appimage-run
     swaylock
-    jellyfin-media-player
     php
     sqlite
     wofi
