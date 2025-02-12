@@ -88,7 +88,6 @@ in
     cargo
     appimage-run
     swaylock
-    php
     sqlite
     wofi
     python3
@@ -101,7 +100,6 @@ in
     unzip
     clang-tools
     # lsp servers
-    phpactor
     nil
     
     wl-mirror
