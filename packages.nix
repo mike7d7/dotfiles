@@ -88,7 +88,6 @@ in
     cargo
     appimage-run
     swaylock
-    sqlite
     wofi
     python3
     ripunzip
