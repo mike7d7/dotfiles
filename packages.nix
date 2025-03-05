@@ -100,6 +100,7 @@ in
     clang-tools
     # lsp servers
     nil
+    tinymist
     
     wl-mirror
     rsync
