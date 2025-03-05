@@ -88,7 +88,7 @@ in
       gtk.enable = true;
       name = "macOS";
       package = pkgs.apple-cursor;
-      size = 30;
+      size = 32;
     };
     programs.mpv.config = {
       hwdec = "vaapi";
