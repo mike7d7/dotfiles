@@ -100,6 +100,7 @@ in
     clang-tools
     # lsp servers
     nil
+    nixfmt-rfc-style
     tinymist
     
     wl-mirror
