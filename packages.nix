@@ -102,6 +102,7 @@ in
     nil
     nixfmt-rfc-style
     tinymist
+    typstyle
     
     wl-mirror
     rsync
