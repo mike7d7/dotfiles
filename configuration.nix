@@ -119,7 +119,7 @@
     enableSSHSupport = true;
   };
   services.pcscd.enable = true;
-  xdg.portal.config.common.default = "*";
+  xdg.portal.configPackages = with pkgs; [ niri ];
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
