@@ -2,24 +2,29 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./packages.nix
-      ./graphics.nix
-      ./home-config.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./packages.nix
+    ./graphics.nix
+    ./home-config.nix
+  ];
   hardware.bluetooth.enable = true; # enables support for bluetooth
   hardware.bluetooth.powerOnBoot = false; # powers up the default Bluetooth controller on boot
-  
+
   services.scx.enable = true;
   services.scx.scheduler = "scx_lavd"; # default is "scx_rustland"
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "nowatchdog" ];
-  
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -38,7 +43,9 @@
     enable = true;
     networks = {
       "90-interfaces" = {
-        matchConfig = { Name = "*"; };
+        matchConfig = {
+          Name = "*";
+        };
         DHCP = "yes";
       };
     };
@@ -63,14 +70,20 @@
   users.users.mig = {
     isNormalUser = true;
     description = "mig";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -80,7 +93,7 @@
     nerd-fonts.jetbrains-mono
     fira-code
   ];
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.epson-escpr2 ];
   services.avahi = {
@@ -88,7 +101,6 @@
     nssmdns4 = true;
     openFirewall = true;
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -159,15 +171,17 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-  services.udev.packages = lib.singleton (pkgs.writeTextFile
-      { name = "my-rules";
-        text = ''
-	  KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
-	  SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
-        '';
-        destination = "/etc/udev/rules.d/70-opentabletdriver.rules";
-      });
-  programs.bash.promptInit =  ''
-      PS1='\[\e[0m\][\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;36m\]\h\[\e[0m\] \W]\$ '
+  services.udev.packages = lib.singleton (
+    pkgs.writeTextFile {
+      name = "my-rules";
+      text = ''
+        	  KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
+        	  SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
+      '';
+      destination = "/etc/udev/rules.d/70-opentabletdriver.rules";
+    }
+  );
+  programs.bash.promptInit = ''
+    PS1='\[\e[0m\][\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;36m\]\h\[\e[0m\] \W]\$ '
   '';
 }
