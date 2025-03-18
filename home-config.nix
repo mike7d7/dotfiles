@@ -59,22 +59,25 @@ in
         bright7 = "ffffff"; # bright white
       };
     };
-    programs.zed-editor.extensions = [
-      "log"
-      "nix"
-      "basher"
-      "typst"
-    ];
-    programs.zed-editor.userKeymaps = builtins.fromJSON (builtins.readFile ./configs/keymap.json);
-    programs.zed-editor.userSettings = builtins.fromJSON (builtins.readFile ./configs/settings.json);
+    programs.zed-editor = {
+      extensions = [
+        "log"
+        "nix"
+        "basher"
+        "typst"
+      ];
+      userKeymaps = builtins.fromJSON (builtins.readFile ./configs/keymap.json);
+      userSettings = builtins.fromJSON (builtins.readFile ./configs/settings.json);
+      extraPackages = with pkgs; [
+        nil
+        nixfmt-rfc-style
+        tinymist
+        typstyle
+        clang-tools
+      ];
+    };
     xdg.configFile."zed/tasks.json".source = ./configs/tasks.json;
-    programs.zed-editor.extraPackages = with pkgs; [
-      nil
-      nixfmt-rfc-style
-      tinymist
-      typstyle
-      clang-tools
-    ];
+
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         cursor-theme = "macOS";
