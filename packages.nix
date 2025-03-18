@@ -89,7 +89,7 @@ in
     lazygit
     grim
     obs-studio
-    clang
+    # clang
     rustup
     cargo
     appimage-run
@@ -103,17 +103,12 @@ in
     bluetuith
     # dependencies for nvchad
     unzip
-    clang-tools
+    # clang-tools
     # lsp servers
-    nil
-    nixfmt-rfc-style
-    tinymist
-    typstyle
 
     wl-mirror
     rsync
     _7zz
-    zed-editor
     gnupg
     pinentry-tty
     apple-cursor

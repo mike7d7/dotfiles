@@ -17,6 +17,7 @@ in
     programs.foot.enable = true;
     programs.mpv.enable = true;
     programs.tofi.enable = true;
+    programs.zed-editor.enable = true;
     gtk.enable = true;
     services.swayosd.enable = true;
 
@@ -58,6 +59,22 @@ in
         bright7 = "ffffff"; # bright white
       };
     };
+    programs.zed-editor.extensions = [
+      "log"
+      "nix"
+      "basher"
+      "typst"
+    ];
+    programs.zed-editor.userKeymaps = builtins.fromJSON (builtins.readFile ./configs/keymap.json);
+    programs.zed-editor.userSettings = builtins.fromJSON (builtins.readFile ./configs/settings.json);
+    xdg.configFile."zed/tasks.json".source = ./configs/tasks.json;
+    programs.zed-editor.extraPackages = with pkgs; [
+      nil
+      nixfmt-rfc-style
+      tinymist
+      typstyle
+      clang-tools
+    ];
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         cursor-theme = "macOS";

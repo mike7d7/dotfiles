@@ -1,0 +1,58 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift-tab": "pane::ActivatePreviousItem",
+      "alt-i": "workspace::ToggleBottomDock",
+      "ctrl-n": "project_panel::ToggleFocus",
+      "alt-l": ["task::Spawn", { "task_name": "lazygit" }],
+      "alt-v": "workspace::NewCenterTerminal"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "ctrl-n": "project_panel::ToggleFocus",
+      "a": "project_panel::NewFile",
+      "d": "project_panel::Trash",
+      "D": "project_panel::Delete",
+      "r": "project_panel::Rename",
+      "x": "project_panel::Cut",
+      "p": "project_panel::Paste"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {}
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "shift-tab": "editor::ContextMenuPrevious",
+      "tab": "editor::ContextMenuNext",
+      "pageup": "editor::ContextMenuFirst",
+      "pagedown": "editor::ContextMenuLast"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "tab": "pane::ActivateNextItem",
+      "shift-tab": "pane::ActivatePreviousItem",
+      "space /": "vim::ToggleComments",
+      "space x": ["pane::CloseActiveItem", { "save_intent": "skip" }],
+      "space f m": "editor::Format",
+      "alt-i": "terminal_panel::ToggleFocus",
+      "h": "vim::Backspace",
+      "j": ["vim::Down", { "display_lines": true }],
+      "k": ["vim::Up", { "display_lines": true }],
+      "l": "vim::Space"
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "shift-n": "pane::CloseItemsToTheLeft"
+    }
+  }
+]

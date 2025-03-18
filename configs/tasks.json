@@ -1,0 +1,11 @@
+[
+  {
+    "label": "lazygit",
+    "command": "lazygit",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal_target": "center",
+    "reveal": "always",
+    "hide": "on_success"
+  }
+]
