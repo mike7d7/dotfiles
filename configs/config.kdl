@@ -1,0 +1,271 @@
+input {
+    keyboard {
+        xkb {
+          layout "latam"
+        }
+    }
+
+    touchpad {
+        tap
+        accel-speed 0.3
+        accel-profile "flat"
+    }
+
+    mouse {
+        accel-speed 0.3
+        accel-profile "flat"
+    }
+
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+output "eDP-1" {
+    scale 1.25
+    mode "2560x1600@240.000"
+    variable-refresh-rate
+}
+
+layout {
+    focus-ring {
+        width 3
+
+        active-color "#8839ef"
+        inactive-color "#505050"
+    }
+
+    border {
+        off
+    }
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+    gaps 10
+    center-focused-column "never"
+}
+
+spawn-at-startup "waybar"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "bluetoothctl" "power" "off"
+spawn-at-startup "dbus-update-activation-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri" "DISPLAY"
+
+environment {
+    DISPLAY ":0"
+}
+
+cursor {
+    xcursor-theme "macOS"
+    xcursor-size 32
+    hide-when-typing
+}
+
+prefer-no-csd
+
+screenshot-path "~/Images/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+animations {
+    window-close {
+    duration-ms 300
+        custom-shader r"
+            vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+            float progress = niri_clamped_progress * niri_clamped_progress;
+            vec2 coords = (coords_geo.xy - vec2(0.5, 1.0)) * size_geo.xy;
+            coords.y -= progress * 200.0;
+            float random = (niri_random_seed - 0.5) / 2.0;
+            random = sign(random) - random;
+            float max_angle = 0.05 * random;
+            float angle = progress * max_angle;
+            mat2 rotate = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+            coords = rotate * coords;
+            coords_geo = vec3(coords / size_geo.xy + vec2(0.5, 1.0), 1.0);
+            vec3 coords_tex = niri_geo_to_tex * coords_geo;
+            vec4 color = texture2D(niri_tex, coords_tex.st);
+            return color * (1.0 - niri_clamped_progress);
+            }
+        "
+    }
+}
+
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+    match app-id="firefox"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="org.keepassxc.KeePassXC"
+    block-out-from "screen-capture"
+}
+
+window-rule {
+    match app-id="dev.zed.Zed"
+    draw-border-with-background false
+}
+
+window-rule {
+  match app-id="waypaper"
+  open-floating true
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    Mod+Shift+Return { spawn "foot"; }
+    Mod+P { spawn "sh" "-c" "niri msg action spawn -- $(tofi-drun)"; }
+    Mod+Alt+L { spawn "swaylock" "-c" "222222"; }
+    Mod+E { spawn "foot" "yazi"; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "2"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "-2"; }
+    XF86AudioMute allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+
+    XF86MonBrightnessUp { spawn "swayosd-client" "--brightness" "raise" ; } 
+    XF86MonBrightnessDown { spawn "swayosd-client" "--brightness" "lower" ; }
+
+    Mod+Shift+C { close-window; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+H     { move-column-left; }
+    Mod+Ctrl+J     { move-window-down; }
+    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+L     { move-column-right; }
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+
+    Mod+Shift+Left  { focus-monitor-left; }
+    Mod+Shift+Down  { focus-monitor-down; }
+    Mod+Shift+Up    { focus-monitor-up; }
+    Mod+Shift+Right { focus-monitor-right; }
+    Mod+Shift+H     { focus-monitor-left; }
+    Mod+Shift+J     { focus-monitor-down; }
+    Mod+Shift+K     { focus-monitor-up; }
+    Mod+Shift+L     { focus-monitor-right; }
+
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+    Mod+U              { focus-workspace-down; }
+    Mod+I              { focus-workspace-up; }
+    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Mod+Ctrl+U         { move-column-to-workspace-down; }
+    Mod+Ctrl+I         { move-column-to-workspace-up; }
+
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+    Mod+Shift+U         { move-workspace-down; }
+    Mod+Shift+I         { move-workspace-up; }
+
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    Mod+TouchpadScrollDown { spawn "swayosd-client" "--output-volume" "-2"; }
+    Mod+TouchpadScrollUp   { spawn "swayosd-client" "--output-volume" "2"; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+Tab { focus-workspace-previous; }
+
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+C { center-column; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Plus { set-column-width "+10%"; }
+
+    Mod+Shift+V { toggle-window-floating; }
+    Mod+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+W { spawn "waypaper"; }
+
+    Print { screenshot; }
+    Mod+Shift+S { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    Mod+Shift+E { spawn "niri" "msg" "action" "quit";}
+
+    Mod+Shift+P { power-off-monitors; }
+    Mod+Ctrl+P { spawn "niri" "msg" "output" "HDMI-A-1" "off"; }
+    Mod+Alt+P { spawn "niri" "msg" "output" "HDMI-A-1" "on"; }
+    Mod+Ctrl+Shift+P { spawn "niri" "msg" "output" "eDP-1" "on"; }
+}
+
+debug {
+  // render-drm-device "/dev/dri/renderD128"
+}

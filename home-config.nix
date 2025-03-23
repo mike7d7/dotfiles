@@ -132,5 +132,6 @@ in
       drun-launch = false;
     };
     xdg.configFile."Thunar/uca.xml".source = ./configs/thunar.uca.xml;
+    xdg.configFile."niri/config.kdl".source = ./configs/config.kdl;
   };
 }
