@@ -50,9 +50,6 @@ in
   programs.anime-game-launcher.enable = true;
 
   environment.systemPackages = with pkgs; [
-    (pkgs.python3.withPackages (python-pkgs: [
-      python-pkgs.psutil
-    ]))
     git
     niri
     # foot
@@ -92,10 +89,7 @@ in
     # clang
     rustup
     cargo
-    appimage-run
     swaylock
-    wofi
-    python3
     ripunzip
     gapless
     joplin-desktop
