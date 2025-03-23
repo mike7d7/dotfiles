@@ -114,6 +114,7 @@ in
     apple-cursor
     nautilus # Needed for gtk4 FileChooserNative
     yazi
+    waypaper
 
     dock-script
     undock-script
