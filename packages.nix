@@ -52,7 +52,6 @@ in
   environment.systemPackages = with pkgs; [
     git
     niri
-    # foot
     neovim
     firefox
     xfce.thunar
@@ -72,7 +71,6 @@ in
     ludusavi
     osu-lazer-bin
     keepassxc
-    # mpv
     nvtopPackages.full
     nomacs
     wl-clipboard
@@ -86,7 +84,6 @@ in
     lazygit
     grim
     obs-studio
-    # clang
     rustup
     cargo
     swaylock
@@ -97,8 +94,6 @@ in
     bluetuith
     # dependencies for nvchad
     unzip
-    # clang-tools
-    # lsp servers
 
     wl-mirror
     rsync
