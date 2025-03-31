@@ -58,4 +58,5 @@
     enable = true;
     enableUserService = true;
   };
+  services.upower.enable = true;
 }
