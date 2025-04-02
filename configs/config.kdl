@@ -48,7 +48,7 @@ layout {
     center-focused-column "never"
 }
 
-spawn-at-startup "waybar"
+spawn-at-startup "eww" "o" "statusbar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "bluetoothctl" "power" "off"

@@ -63,6 +63,8 @@ in
     hunspellDicts.es_MX
     hunspellDicts.en_US
     waybar
+    eww
+    jq
     swww
     xwayland-satellite
     htop
