@@ -1,0 +1,5 @@
+(defwidget temp []
+  (box :class "module"
+    :space-evenly false
+    (label :class "icon" :text " ")
+    (label :text "${EWW_TEMPS["CORETEMP_PACKAGE_ID_0"]}°C")))

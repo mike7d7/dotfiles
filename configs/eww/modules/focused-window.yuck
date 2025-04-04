@@ -1,0 +1,6 @@
+(deflisten niri-focused-window :initial "" `bash ./scripts/niri-focused-window.sh`)
+(defwidget niri-focused-window []
+  (box :class "module ${niri-focused-window == "" ? "empty" : ""}"
+    (label :limit-width 150 :text niri-focused-window) 
+  )
+)
