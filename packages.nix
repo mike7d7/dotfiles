@@ -68,7 +68,6 @@ in
     swww
     xwayland-satellite
     htop
-    pavucontrol # test if pwvucontrol works as good as pavucontrol
     pwvucontrol
     ludusavi
     osu-lazer-bin
