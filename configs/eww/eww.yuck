@@ -6,6 +6,7 @@
 (include "./modules/cpu.yuck")
 (include "./modules/focused-window.yuck")
 (include "./modules/network.yuck")
+(include "./modules/calendar.yuck")
 
 (defwidget statusbar []
 (box :orientation "h" :space-evenly true :class "statusbar"

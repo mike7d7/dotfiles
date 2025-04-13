@@ -1,0 +1,18 @@
+(defwidget cal []
+    (eventbox :class "cal-window" :onhoverlost "./scripts/calendar.sh"
+      (calendar :halign "center" :valign "center" :class "cal" :month current_month :year current_year :day current_day)
+    )
+
+)
+
+;;  Calendar vars
+(defpoll current_year :interval "1h" "date +'%Y'")
+(defpoll current_month :interval "1h" "date +'%m'")
+(defpoll current_day :interval "1h" "date +'%d'")
+
+(defwindow calendar
+    :windowtype "dock"
+    :monitor 0
+    :geometry (geometry :x "0px" :y "6px" :anchor "top center")
+            (cal)
+)

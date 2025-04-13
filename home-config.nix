@@ -153,9 +153,11 @@ in
       ./configs/eww/modules/niri-workspaces.yuck;
     xdg.configFile."eww/modules/ram.yuck".source = ./configs/eww/modules/ram.yuck;
     xdg.configFile."eww/modules/temp.yuck".source = ./configs/eww/modules/temp.yuck;
+    xdg.configFile."eww/modules/calendar.yuck".source = ./configs/eww/modules/calendar.yuck;
     xdg.configFile."eww/scripts/niri-focused-window.sh".source =
       ./configs/eww/scripts/niri-focused-window.sh;
     xdg.configFile."eww/scripts/niri-workspaces.sh".source = ./configs/eww/scripts/niri-workspaces.sh;
     xdg.configFile."eww/scripts/nmcli-monitor.sh".source = ./configs/eww/scripts/nmcli-monitor.sh;
+    xdg.configFile."eww/scripts/calendar.sh".source = ./configs/eww/scripts/calendar.sh;
   };
 }
