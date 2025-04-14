@@ -159,5 +159,6 @@ in
     xdg.configFile."eww/scripts/niri-workspaces.sh".source = ./configs/eww/scripts/niri-workspaces.sh;
     xdg.configFile."eww/scripts/nmcli-monitor.sh".source = ./configs/eww/scripts/nmcli-monitor.sh;
     xdg.configFile."eww/scripts/calendar.sh".source = ./configs/eww/scripts/calendar.sh;
+    xdg.configFile."eww/scripts/multimonitor.sh".source = ./configs/eww/scripts/multimonitor.sh;
   };
 }

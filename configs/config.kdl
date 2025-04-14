@@ -48,7 +48,8 @@ layout {
     center-focused-column "never"
 }
 
-spawn-at-startup "eww" "o" "statusbar"
+spawn-at-startup "eww" "daemon"
+spawn-at-startup "sh" "-c" "$HOME/.config/eww/scripts/multimonitor.sh"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "bluetoothctl" "power" "off"
