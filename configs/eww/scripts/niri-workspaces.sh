@@ -7,5 +7,7 @@ spaces() {
 
 spaces
 niri msg event-stream | while read -r line; do
-    spaces
+    if [[ "$line" == "Workspace focused:"* ]]; then
+        spaces
+    fi
 done

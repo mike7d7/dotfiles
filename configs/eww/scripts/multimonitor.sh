@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 current_monitors=()
-mapfile -t current_monitors < <( niri msg -j outputs | jq -SMcr '[ map(select(.current_mode != null))[] | .model ] | sort[]' )
+mapfile -t current_monitors < <( niri msg -j outputs | jq -Mcr '[ map(select(.current_mode != null))[] | .model ] | sort[]' )
 
 check_monitors() {
   id_number=0
@@ -15,7 +15,7 @@ check_monitors
 niri msg event-stream | while read -r line; do
   if [[ "$line" == "Workspaces changed:"* ]]; then
     new_monitors=()
-    mapfile -t new_monitors < <( niri msg -j outputs | jq -SMcr '[ map(select(.current_mode != null))[] | .model ] | sort[]' )
+    mapfile -t new_monitors < <( niri msg -j outputs | jq -Mcr '[ map(select(.current_mode != null))[] | .model ] | sort[]' )
 
     if [[ "${current_monitors[*]}" != "${new_monitors[*]}" ]]; then
         # echo "reloading"
