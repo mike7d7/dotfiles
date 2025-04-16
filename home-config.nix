@@ -75,8 +75,8 @@ in
         "basher"
         "typst"
       ];
-      userKeymaps = builtins.fromJSON (builtins.readFile ./configs/keymap.json);
-      userSettings = builtins.fromJSON (builtins.readFile ./configs/settings.json);
+      userKeymaps = builtins.fromJSON (builtins.readFile ./configs/zed/keymap.json);
+      userSettings = builtins.fromJSON (builtins.readFile ./configs/zed/settings.json);
       extraPackages = with pkgs; [
         nil
         nixfmt-rfc-style
@@ -85,7 +85,8 @@ in
         clang-tools
       ];
     };
-    xdg.configFile."zed/tasks.json".source = ./configs/tasks.json;
+    xdg.configFile."zed/tasks.json".source = ./configs/zed/tasks.json;
+    xdg.configFile."zed/themes/custom-theme-1.json".source = ./configs/zed/themes/custom-theme-1.json;
 
     dconf.settings = {
       "org/gnome/desktop/interface" = {
