@@ -106,6 +106,7 @@ in
     nautilus # Needed for gtk4 FileChooserNative
     yazi
     waypaper
+    ripdrag
 
     dock-script
     undock-script
