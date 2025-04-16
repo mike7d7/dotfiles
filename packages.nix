@@ -65,6 +65,7 @@ in
     waybar
     eww
     jq
+    jaq
     swww
     xwayland-satellite
     htop
