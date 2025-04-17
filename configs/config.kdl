@@ -62,7 +62,6 @@ environment {
 cursor {
     xcursor-theme "macOS"
     xcursor-size 32
-    hide-when-typing
 }
 
 prefer-no-csd
