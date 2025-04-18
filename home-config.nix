@@ -9,6 +9,12 @@ let
       sha256 = "sha256-GuzFqaHl7W5Vrjalb0Wl6iKmY/xWZ7Dbuyo0X7NN7R4=";
     };
   });
+  yazi-flavors = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "flavors";
+    rev = "68326b4ca4b5b66da3d4a4cce3050e5e950aade5";
+    hash = "sha256-nhIhCMBqr4VSzesplQRF6Ik55b3Ljae0dN+TYbzQb5s=";
+  };
 in
 {
   imports = [
@@ -26,6 +32,7 @@ in
     programs.mpv.enable = true;
     programs.tofi.enable = true;
     programs.zed-editor.enable = true;
+    programs.yazi.enable = true;
     gtk.enable = true;
     services.swayosd.enable = true;
     services.swayosd.package = swayosd-fixed;
@@ -87,6 +94,15 @@ in
     };
     xdg.configFile."zed/tasks.json".source = ./configs/zed/tasks.json;
     xdg.configFile."zed/themes/custom-theme-1.json".source = ./configs/zed/themes/custom-theme-1.json;
+
+    programs.yazi = {
+      plugins = {
+        mount = pkgs.yaziPlugins.mount;
+      };
+      flavors = {
+        catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
+      };
+    };
 
     dconf.settings = {
       "org/gnome/desktop/interface" = {

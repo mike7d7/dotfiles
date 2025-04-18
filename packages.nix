@@ -104,7 +104,6 @@ in
     pinentry-tty
     apple-cursor
     nautilus # Needed for gtk4 FileChooserNative
-    yazi
     waypaper
     ripdrag
 
