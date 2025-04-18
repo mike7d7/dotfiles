@@ -98,6 +98,7 @@ in
     programs.yazi = {
       plugins = {
         mount = pkgs.yaziPlugins.mount;
+        ouch = pkgs.yaziPlugins.ouch;
       };
       flavors = {
         catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
