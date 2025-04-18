@@ -103,6 +103,34 @@ in
       flavors = {
         catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
       };
+      keymap = {
+        manager.prepend_keymap = [
+          {
+            on = "M";
+            run = "plugin mount";
+            desc = "Open mount plugin";
+          }
+          {
+            on = "<S-j>";
+            run = "arrow 5";
+            desc = "Move cursor down 5 positions";
+          }
+          {
+            on = "<S-k>";
+            run = "arrow -5";
+            desc = "Move cursor up 5 positions";
+          }
+          {
+            on = [ "<C-n>" ];
+            run = "shell 'ripdrag \"$@\" -dx 2>/dev/null &' --confirm";
+          }
+          {
+            on = "C";
+            run = "plugin ouch";
+            desc = "Compress with ouch";
+          }
+        ];
+      };
     };
 
     dconf.settings = {
