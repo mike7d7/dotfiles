@@ -106,6 +106,7 @@ in
     nautilus # Needed for gtk4 FileChooserNative
     waypaper
     ripdrag
+    jftui
     ouch
 
     dock-script
