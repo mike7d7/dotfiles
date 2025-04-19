@@ -161,6 +161,14 @@ in
             }
           ];
         };
+        open = {
+          prepend_rules = [
+            {
+              name = "*.zip";
+              use = "extract";
+            }
+          ];
+        };
         plugin = {
           prepend_previewers = [
             {
