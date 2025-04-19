@@ -202,6 +202,11 @@ in
           ];
         };
       };
+      theme = {
+        flavor = {
+          dark = "catppuccin-mocha";
+        };
+      };
     };
 
     dconf.settings = {
