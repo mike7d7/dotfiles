@@ -62,7 +62,6 @@ in
     hunspell
     hunspellDicts.es_MX
     hunspellDicts.en_US
-    waybar
     eww
     jq
     jaq
