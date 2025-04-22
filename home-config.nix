@@ -90,6 +90,8 @@ in
         tinymist
         typstyle
         clang-tools
+        python313Packages.python-lsp-server
+        python313Packages.pylint
       ];
     };
     xdg.configFile."zed/tasks.json".source = ./configs/zed/tasks.json;
