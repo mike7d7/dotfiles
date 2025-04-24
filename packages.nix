@@ -107,6 +107,7 @@ in
     ripdrag
     jftui
     ouch
+    rquickshare
 
     dock-script
     undock-script

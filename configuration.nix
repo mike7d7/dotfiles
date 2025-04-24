@@ -156,6 +156,7 @@
     58396
     631
     53317
+    12345
   ];
   networking.firewall.allowedUDPPorts = [
     631
