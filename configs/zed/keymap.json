@@ -23,7 +23,9 @@
   },
   {
     "context": "Editor",
-    "bindings": {}
+    "bindings": {
+      "ctrl-d": ["editor::SelectNext", { "replace_newest": false }]
+    }
   },
   {
     "context": "Editor && (showing_code_actions || showing_completions)",
