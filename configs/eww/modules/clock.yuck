@@ -2,7 +2,6 @@
 (defwidget clock []
   (eventbox :class "htime" :space-evenly false :halign "center"
     :onhover "./scripts/calendar.sh"
-    :onhoverlost "./scripts/calendar.sh"
     (label :text htime)
   )
 )
