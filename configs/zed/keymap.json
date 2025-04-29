@@ -24,11 +24,7 @@
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
-      "i": "vim::InsertBefore",
-      "shift-i": "vim::InsertFirstNonWhitespace",
-      "a": "vim::InsertAfter",
-      "shift-a": "vim::InsertEndOfLine"
+      "ctrl-d": ["editor::SelectNext", { "replace_newest": false }]
     }
   },
   {
