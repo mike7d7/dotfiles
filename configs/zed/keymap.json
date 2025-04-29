@@ -45,10 +45,10 @@
       "space x": ["pane::CloseActiveItem", { "save_intent": "skip" }],
       "space f m": "editor::Format",
       "alt-i": "terminal_panel::ToggleFocus",
-      "h": "vim::Backspace",
+      "h": "vim::WrappingLeft",
       "j": ["vim::Down", { "display_lines": true }],
       "k": ["vim::Up", { "display_lines": true }],
-      "l": "vim::Space"
+      "l": "vim::WrappingRight"
     }
   },
   {
