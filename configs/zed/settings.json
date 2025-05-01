@@ -42,7 +42,7 @@
       }
     },
     "tinymist": {
-      "initialization_options": {
+      "settings": {
         "exportPdf": "onSave",
         "outputPath": "$root/$dir/$name",
         "formatterMode": "typstyle"
