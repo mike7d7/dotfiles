@@ -2,10 +2,10 @@
   (box :class "battery" :class "module"
     :space-evenly false
     (label :class "battery-icon ${ EWW_BATTERY["BAT0"].capacity <= 10 ? 'critical' : '' }"
-           :text "${  EWW_BATTERY["BAT0"].status == "Charging" ? '󱊦 '
-                    : EWW_BATTERY["BAT0"].capacity > 80 ? '󱊣 ' 
-                    : EWW_BATTERY["BAT0"].capacity > 60 ? '󱊢 ' 
-                    : EWW_BATTERY["BAT0"].capacity > 40 ? '󱊢 ' 
-                    : EWW_BATTERY["BAT0"].capacity > 20 ? '󱊡 ' 
-                    : '󰂎' }")
+           :text "${  EWW_BATTERY["BAT0"].status == "Charging" ? '󱊦 '
+                    : EWW_BATTERY["BAT0"].capacity > 80 ? '󱊣 '
+                    : EWW_BATTERY["BAT0"].capacity > 60 ? '󱊢 '
+                    : EWW_BATTERY["BAT0"].capacity > 40 ? '󱊢 '
+                    : EWW_BATTERY["BAT0"].capacity > 20 ? '󱊡 '
+                    : '󰂎 ' }")
     (label :text "${EWW_BATTERY["BAT0"].capacity}%" :halign "center" :xalign 0.5 :justify "right")))

@@ -1,5 +1,5 @@
 (defwidget ram []
   (box :class "module"
     :space-evenly false
-    (label :class "icon" :text " ")
+    (label :class "icon" :text "  ")
     (label :text "${round(EWW_RAM.used_mem_perc,2)}%")))
