@@ -1,8 +1,8 @@
 (deflisten nmcli-monitor :initial "" `bash ./scripts/nmcli-monitor.sh`)
 (defwidget network []
-(box :class "module"
-        (label :class "icon" 
+(box :class "module ${nmcli-monitor == "802-3-ethernet" ? "ethernet" : ""}"
+        (label :class "icon"
             :text {
                 nmcli-monitor == "802-11-wireless" ? " " :
-                nmcli-monitor == "802-3-ethernet" ? "󰈀 " :
+                nmcli-monitor == "802-3-ethernet" ? "󰈀" :
                 "󰖪 " })))
