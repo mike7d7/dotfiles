@@ -26,6 +26,9 @@
     "metrics": false
   },
   "languages": {
+    "C": {
+      "format_on_save": "on"
+    },
     "Markdown": {
       "format_on_save": "on"
     },
