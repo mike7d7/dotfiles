@@ -47,7 +47,7 @@ in
   imports = [
     aagl.module
   ];
-  programs.anime-games-launcher.enable = true;
+  programs.anime-game-launcher.enable = true;
 
   environment.systemPackages = with pkgs; [
     git
