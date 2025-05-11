@@ -39,16 +39,8 @@ let
     	    touch $link/.unpacked
         fi
   '';
-  aagl = import (
-    builtins.fetchTarball "https://github.com/ezKEa/aagl-gtk-on-nix/archive/main.tar.gz"
-  );
 in
 {
-  imports = [
-    aagl.module
-  ];
-  programs.anime-game-launcher.enable = true;
-
   environment.systemPackages = with pkgs; [
     git
     niri
