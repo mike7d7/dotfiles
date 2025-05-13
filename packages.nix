@@ -100,6 +100,7 @@ in
     jftui
     ouch
     rquickshare
+    wineWow64Packages.unstableFull
 
     dock-script
     undock-script
