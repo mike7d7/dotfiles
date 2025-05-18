@@ -23,7 +23,10 @@
   services.scx.enable = true;
   services.scx.scheduler = "scx_lavd"; # default is "scx_rustland"
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "nowatchdog" ];
+  boot.kernelParams = [
+    "nowatchdog"
+    "preempt=full"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
