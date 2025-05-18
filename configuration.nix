@@ -138,6 +138,14 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
+  services.pipewire.extraConfig.pipewire."92-low-latency" = {
+    "context.properties" = {
+      "default.clock.rate" = 48000;
+      "default.clock.quantum" = 64;
+      "default.clock.min-quantum" = 64;
+      "default.clock.max-quantum" = 64;
+    };
+  };
   services.pipewire.wireplumber.extraConfig."10-bluez" = {
     "monitor.bluez.properties" = {
       "bluez5.enable-sbc-xq" = true;
