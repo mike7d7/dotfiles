@@ -144,9 +144,9 @@
   services.pipewire.extraConfig.pipewire."92-low-latency" = {
     "context.properties" = {
       "default.clock.rate" = 48000;
-      "default.clock.quantum" = 76;
-      "default.clock.min-quantum" = 76;
-      "default.clock.max-quantum" = 76;
+      "default.clock.quantum" = 128;
+      "default.clock.min-quantum" = 32;
+      "default.clock.max-quantum" = 256;
     };
   };
   services.pipewire.wireplumber.extraConfig."10-bluez" = {
