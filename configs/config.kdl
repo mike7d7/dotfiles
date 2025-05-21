@@ -145,6 +145,8 @@ binds {
     XF86MonBrightnessUp { spawn "swayosd-client" "--brightness" "raise" ; }
     XF86MonBrightnessDown { spawn "swayosd-client" "--brightness" "lower" ; }
 
+    Mod+Escape repeat=false { toggle-overview; }
+
     Mod+Shift+C { close-window; }
 
     Mod+Left  { focus-column-left; }
@@ -247,6 +249,7 @@ binds {
     Mod+R { switch-preset-column-width; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
     Mod+C { center-column; }
 
     Mod+Minus { set-column-width "-10%"; }
