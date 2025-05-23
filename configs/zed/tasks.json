@@ -7,5 +7,13 @@
     "reveal_target": "center",
     "reveal": "always",
     "hide": "on_success"
+  },
+  {
+    "label": "Typst Preview",
+    "command": "xdg-open http://127.0.0.1:23635/",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "hide": "always"
   }
 ]
