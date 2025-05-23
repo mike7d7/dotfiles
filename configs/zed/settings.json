@@ -1,29 +1,23 @@
 {
-  "assistant": {
+  "agent": {
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "model": "claude-3-5-sonnet-latest",
+      "provider": "zed.dev"
     },
     "version": "2"
   },
+  "auto_install_extensions": {
+    "basher": true,
+    "log": true,
+    "nix": true,
+    "typst": true
+  },
+  "buffer_font_family": "Fira Code",
+  "buffer_font_size": 16,
   "git": {
     "inline_blame": {
       "enabled": false
     }
-  },
-  "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "buffer_font_family": "Fira Code",
-  "soft_wrap": "editor_width",
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Custom 1 Dark"
-  },
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
   },
   "languages": {
     "C": {
@@ -47,9 +41,21 @@
     "tinymist": {
       "settings": {
         "exportPdf": "onSave",
-        "outputPath": "$root/$dir/$name",
-        "formatterMode": "typstyle"
+        "formatterMode": "typstyle",
+        "outputPath": "$root/$dir/$name"
       }
     }
-  }
+  },
+  "soft_wrap": "editor_width",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "theme": {
+    "dark": "Custom 1 Dark",
+    "light": "One Light",
+    "mode": "system"
+  },
+  "ui_font_size": 16,
+  "vim_mode": true
 }
