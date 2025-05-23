@@ -39,6 +39,13 @@
       }
     },
     "tinymist": {
+      "initialization_options": {
+        "preview": {
+          "background": {
+            "enabled": true
+          }
+        }
+      },
       "settings": {
         "exportPdf": "onSave",
         "formatterMode": "typstyle",
