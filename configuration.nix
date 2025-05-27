@@ -196,4 +196,10 @@
   programs.bash.promptInit = ''
     PS1='\[\e[0m\][\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;36m\]\h\[\e[0m\] \W]\$ '
   '';
+  services.logind.lidSwitchExternalPower = "ignore";
+  services.asusd = {
+    enable = true;
+    enableUserService = true;
+  };
+  services.upower.enable = true;
 }
