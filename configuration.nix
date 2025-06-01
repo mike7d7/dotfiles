@@ -122,12 +122,25 @@
     enableSSHSupport = true;
   };
   services.pcscd.enable = true;
-  xdg.portal.configPackages = with pkgs; [ niri ];
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
       xdg-desktop-portal-gnome
     ];
+  };
+  # Most of this is copied from niri's config, except the KDE FileChooser
+  xdg.portal.config = {
+    niri = {
+      default = [
+        "gnome"
+        "gtk"
+      ];
+      "org.freedesktop.impl.portal.Access" = [ "gtk" ];
+      "org.freedesktop.impl.portal.Notification" = [ "gtk" ];
+      "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
+    };
   };
   programs.dconf.enable = true;
   services.gvfs.enable = true;
