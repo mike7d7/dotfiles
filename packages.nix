@@ -45,7 +45,6 @@ in
     git
     niri
     neovim
-    firefox
     pipewire
     libreoffice
     hunspell
