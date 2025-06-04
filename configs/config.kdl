@@ -258,6 +258,8 @@ binds {
     Mod+Shift+V { toggle-window-floating; }
     Mod+V { switch-focus-between-floating-and-tiling; }
 
+    Mod+Shift+W { toggle-column-tabbed-display; }
+
     Mod+W { spawn "waypaper"; }
 
     Print { screenshot; }
