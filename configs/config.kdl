@@ -122,6 +122,11 @@ window-rule {
 }
 
 window-rule {
+  match app-id="clay-paper-debug"
+  open-floating true
+}
+
+window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
