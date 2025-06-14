@@ -37,6 +37,9 @@ let
     	    touch $link/.unpacked
         fi
   '';
+  nixpkgsPinned = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/f64072cc7ad8341df63a6f2f095c961a7050dbc0.tar.gz";
+  }) { };
 in
 {
   environment.systemPackages = with pkgs; [
@@ -51,7 +54,7 @@ in
     eww
     jq
     jaq
-    swww
+    nixpkgsPinned.swww
     xwayland-satellite
     htop
     pwvucontrol
