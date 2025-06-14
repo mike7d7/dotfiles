@@ -19,8 +19,6 @@
   hardware.bluetooth.enable = true; # enables support for bluetooth
   hardware.bluetooth.powerOnBoot = false; # powers up the default Bluetooth controller on boot
 
-  services.scx.enable = true;
-  services.scx.scheduler = "scx_bpfland"; # default is "scx_rustland"
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "nowatchdog"
