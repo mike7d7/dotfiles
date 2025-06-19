@@ -48,6 +48,7 @@ in
     neovim
     pipewire
     libreoffice
+    onlyoffice-desktopeditors
     hunspell
     hunspellDicts.es_MX
     hunspellDicts.en_US
