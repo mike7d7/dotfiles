@@ -220,4 +220,5 @@
     enableUserService = true;
   };
   services.upower.enable = true;
+  hardware.logitech.wireless.enable = true;
 }

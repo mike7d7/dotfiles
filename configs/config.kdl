@@ -54,6 +54,7 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "bluetoothctl" "power" "off"
 spawn-at-startup "dbus-update-activation-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri" "DISPLAY"
+spawn-at-startup "solaar" "--window=hide"
 
 environment {
     DISPLAY ":0"
@@ -267,8 +268,8 @@ binds {
 
     Mod+W { spawn "waypaper"; }
 
+    Mod+Shift+S { spawn "systemctl" "suspend"; }
     Print { screenshot; }
-    Mod+Shift+S { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 

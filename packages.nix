@@ -103,6 +103,7 @@ in
     ouch
     rquickshare
     wineWow64Packages.stagingFull
+    solaar
 
     dock-script
     undock-script
