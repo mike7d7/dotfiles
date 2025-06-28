@@ -104,6 +104,9 @@ in
     rquickshare
     wineWow64Packages.stagingFull
     solaar
+    epsonscan2
+    mcpelauncher-ui-qt
+    discord
 
     dock-script
     undock-script

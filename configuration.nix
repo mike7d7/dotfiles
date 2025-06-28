@@ -149,7 +149,7 @@
     };
   };
   services.gvfs.enable = true;
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
