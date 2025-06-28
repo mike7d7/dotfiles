@@ -93,6 +93,7 @@
     nerd-fonts.jetbrains-mono
     fira-code
   ];
+  fonts.fontDir.enable = true;
   security.pam.services.swaylock = { };
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.epson-escpr2 ];
