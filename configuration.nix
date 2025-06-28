@@ -220,5 +220,9 @@
     enableUserService = true;
   };
   services.upower.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+  };
   hardware.logitech.wireless.enable = true;
 }
