@@ -42,6 +42,11 @@ let
   # }) { };
 in
 {
+  nixpkgs.overlays = [
+    (final: prev: {
+      ouch = prev.ouch.override { enableUnfree = true; };
+    })
+  ];
   environment.systemPackages = with pkgs; [
     git
     niri
