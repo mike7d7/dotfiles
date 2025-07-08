@@ -108,7 +108,7 @@ in
     ouch
     rquickshare
     wineWow64Packages.stagingFull
-    solaar
+    solaar # fixes bug with wireless logitech keyboard
     epsonscan2
     mcpelauncher-ui-qt
     discord
