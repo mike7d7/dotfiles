@@ -52,8 +52,7 @@ in
     niri
     neovim
     pipewire
-    libreoffice
-    onlyoffice-desktopeditors
+    libreoffice-qt6-fresh
     hunspell
     hunspellDicts.es_MX
     hunspellDicts.en_US
