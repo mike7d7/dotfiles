@@ -45,6 +45,11 @@ in
   nixpkgs.overlays = [
     (final: prev: {
       ouch = prev.ouch.override { enableUnfree = true; };
+      prismlauncher = prev.prismlauncher.override {
+        jdks = with pkgs; [
+          graalvm-oracle
+        ];
+      };
     })
   ];
   environment.systemPackages = with pkgs; [
