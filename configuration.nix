@@ -24,6 +24,7 @@
     "nowatchdog"
     "preempt=full"
   ];
+  boot.kernelModules = [ "ntsync" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
