@@ -268,7 +268,7 @@ binds {
 
     Mod+W { spawn "waypaper"; }
 
-    Mod+Shift+S { spawn "systemctl" "suspend"; }
+    Mod+Shift+S allow-when-locked=true { spawn "systemctl" "suspend"; }
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
