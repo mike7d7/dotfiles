@@ -1,14 +1,6 @@
 { pkgs, ... }:
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  swayosd-fixed = pkgs.swayosd.overrideAttrs (oldAttrs: {
-    src = pkgs.fetchFromGitHub {
-      owner = "soraxas";
-      repo = "SwayOSD";
-      rev = "20f834e1e563c603d456b2e5da05a4e65b6e3e10";
-      sha256 = "sha256-GuzFqaHl7W5Vrjalb0Wl6iKmY/xWZ7Dbuyo0X7NN7R4=";
-    };
-  });
   yazi-flavors = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "flavors";
@@ -35,7 +27,6 @@ in
     programs.yazi.enable = true;
     gtk.enable = true;
     services.swayosd.enable = true;
-    services.swayosd.package = swayosd-fixed;
 
     # Configs
     programs.git = {
