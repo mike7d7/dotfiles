@@ -84,8 +84,6 @@ in
     lazygit
     grim
     obs-studio
-    rustup
-    cargo
     swaylock
     ripunzip
     gapless
