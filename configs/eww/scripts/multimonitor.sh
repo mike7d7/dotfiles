@@ -22,6 +22,7 @@ niri msg event-stream | while read -r line; do
         # echo "reloading"
         # echo "${current_monitors[*]}"
         # echo "${new_monitors[*]}"
+        eww close-all
         current_monitors=("${new_monitors[@]}")
         check_monitors
     fi
