@@ -1,8 +1,8 @@
 {
   "agent": {
     "default_model": {
-      "model": "claude-3-5-sonnet-latest",
-      "provider": "zed.dev"
+      "model": "tngtech/deepseek-r1t2-chimera:free",
+      "provider": "openrouter"
     },
     "version": "2"
   },
