@@ -148,6 +148,8 @@
     enable = true;
     preferences = {
       "widget.use-xdg-desktop-portal.file-picker" = 1;
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      "svg.context-properties.content.enabled" = true;
     };
   };
   services.gvfs.enable = true;
