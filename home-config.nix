@@ -16,7 +16,12 @@ in
   home-manager.users.mig = {
     # The home.stateVersion option does not have a default and must be set
     home.stateVersion = "24.05";
-    # Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
+    home.packages = with pkgs; [
+      (catppuccin-kvantum.override {
+        accent = "mauve";
+        variant = "mocha";
+      })
+    ];
 
     # Programs
     programs.bash.enable = true;
@@ -228,6 +233,16 @@ in
       gtk-application-prefer-dark-theme = 1;
       gtk-cursor-theme-name = "macOS";
     };
+    qt = {
+      enable = true;
+      platformTheme = "qtct";
+      style.name = "kvantum";
+    };
+    xdg.configFile."Kvantum/kvantum.kvconfig".source =
+      (pkgs.formats.ini { }).generate "kvantum.kvconfig"
+        {
+          General.theme = "Catppuccin-Mocha-Mauve";
+        };
     home.pointerCursor = {
       gtk.enable = true;
       name = "macOS";
