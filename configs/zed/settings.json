@@ -3,8 +3,7 @@
     "default_model": {
       "model": "tngtech/deepseek-r1t2-chimera:free",
       "provider": "openrouter"
-    },
-    "version": "2"
+    }
   },
   "auto_install_extensions": {
     "basher": true,
