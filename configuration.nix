@@ -96,6 +96,7 @@
   ];
   fonts.fontDir.enable = true;
   security.pam.services.swaylock = { };
+  security.pam.services."cthulock" = { };
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.epson-escpr2 ];
   services.avahi = {
