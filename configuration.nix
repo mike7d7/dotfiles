@@ -13,7 +13,6 @@
     ./hardware-configuration.nix
     ./packages.nix
     ./graphics.nix
-    ./home-config.nix
   ];
   hardware.bluetooth.enable = true; # enables support for bluetooth
   hardware.bluetooth.powerOnBoot = false; # powers up the default Bluetooth controller on boot
