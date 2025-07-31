@@ -241,7 +241,7 @@ in
     xdg.configFile."Kvantum/kvantum.kvconfig".source =
       (pkgs.formats.ini { }).generate "kvantum.kvconfig"
         {
-          General.theme = "Catppuccin-Mocha-Mauve";
+          General.theme = "catppuccin-mocha-mauve";
         };
     home.pointerCursor = {
       gtk.enable = true;
