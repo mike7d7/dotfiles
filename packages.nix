@@ -120,6 +120,7 @@ in
     epsonscan2
     mcpelauncher-ui-qt
     discord
+    reaper
 
     dock-script
     undock-script
