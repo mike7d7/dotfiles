@@ -88,7 +88,6 @@ in
     lazygit
     grim
     obs-studio
-    swaylock
     ripunzip
     gapless
     joplin-desktop
