@@ -137,7 +137,7 @@ binds {
 
     Mod+Shift+Return { spawn "foot"; }
     Mod+P { spawn "sh" "-c" "niri msg action spawn -- $(tofi-drun)"; }
-    Mod+Alt+L { spawn "swaylock" "-c" "222222"; }
+    Mod+Alt+L { spawn "cthulock"; }
     Mod+E { spawn "foot" "yazi"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "2"; }
