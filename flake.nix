@@ -2,6 +2,7 @@
   description = "NixOS Config";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    cthulock.url = "github:FriederHannenheim/cthulock";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,6 +22,7 @@
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
+          inputs.cthulock.nixosModules.x86_64-linux.default
           {
             home-manager = {
               useGlobalPkgs = true;

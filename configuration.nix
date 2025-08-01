@@ -97,7 +97,6 @@
   ];
   fonts.fontDir.enable = true;
   security.pam.services.swaylock = { };
-  security.pam.services."cthulock" = { };
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.epson-escpr2 ];
   services.avahi = {
@@ -239,4 +238,5 @@
   };
   hardware.logitech.wireless.enable = true;
   hardware.new-lg4ff.enable = true;
+  programs.cthulock.enable = true;
 }
