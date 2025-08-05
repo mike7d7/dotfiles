@@ -116,7 +116,7 @@ in
     rquickshare
     wineWow64Packages.stagingFull
     solaar # fixes bug with wireless logitech keyboard
-    epsonscan2
+    (pkgs.epsonscan2.override { withNonFreePlugins = true; })
     mcpelauncher-ui-qt
     discord
     reaper
