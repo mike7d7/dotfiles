@@ -37,9 +37,6 @@ let
     	    touch $link/.unpacked
         fi
   '';
-  ciscoPacketTracer = pkgs.ciscoPacketTracer8.overrideAttrs (oldAttrs: {
-    src = /home/mig/Downloads/CiscoPacketTracer822_amd64_signed.deb;
-  });
   # nixpkgsPinned = import (builtins.fetchTarball {
   #   url = "https://github.com/NixOS/nixpkgs/archive/f64072cc7ad8341df63a6f2f095c961a7050dbc0.tar.gz";
   # }) { };
@@ -56,7 +53,6 @@ in
     })
   ];
   environment.systemPackages = with pkgs; [
-    ciscoPacketTracer
     git
     niri
     neovim
