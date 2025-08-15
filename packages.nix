@@ -116,6 +116,7 @@ in
     mcpelauncher-ui-qt
     discord
     reaper
+    python3
 
     dock-script
     undock-script
