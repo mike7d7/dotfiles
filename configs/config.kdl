@@ -277,8 +277,8 @@ binds {
 
     Mod+Shift+P { power-off-monitors; }
     Mod+Ctrl+P { spawn "niri" "msg" "output" "HDMI-A-1" "off"; }
-    Mod+Alt+P { spawn "niri" "msg" "output" "HDMI-A-1" "on"; }
-    Mod+Ctrl+Shift+P { spawn "niri" "msg" "output" "eDP-1" "on"; }
+    Mod+Alt+P allow-when-locked=true { spawn "niri" "msg" "output" "HDMI-A-1" "on"; }
+    Mod+Ctrl+Shift+P allow-when-locked=true { spawn "niri" "msg" "output" "eDP-1" "on"; }
 }
 
 debug {
