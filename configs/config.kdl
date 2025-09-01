@@ -1,7 +1,8 @@
 input {
     keyboard {
         xkb {
-          layout "latam"
+          layout "latam,latam"
+          variant ",colemak"
         }
     }
 
@@ -267,6 +268,8 @@ binds {
     Mod+Shift+W { toggle-column-tabbed-display; }
 
     Mod+W { spawn "waypaper"; }
+
+    Mod+Space { switch-layout "next"; }
 
     Mod+Shift+S allow-when-locked=true { spawn "systemctl" "suspend"; }
     Print { screenshot; }
