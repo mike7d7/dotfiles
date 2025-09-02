@@ -117,6 +117,8 @@ in
     discord
     reaper
     python3
+    matugen
+    tofi
 
     dock-script
     undock-script

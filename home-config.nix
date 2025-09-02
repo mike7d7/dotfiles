@@ -1,12 +1,4 @@
 { pkgs, inputs, ... }:
-let
-  yazi-flavors = pkgs.fetchFromGitHub {
-    owner = "yazi-rs";
-    repo = "flavors";
-    rev = "68326b4ca4b5b66da3d4a4cce3050e5e950aade5";
-    hash = "sha256-nhIhCMBqr4VSzesplQRF6Ik55b3Ljae0dN+TYbzQb5s=";
-  };
-in
 {
   # The home.stateVersion option does not have a default and must be set
   home.stateVersion = "24.05";
@@ -16,7 +8,6 @@ in
   programs.bash.enable = true;
   programs.foot.enable = true;
   programs.mpv.enable = true;
-  programs.tofi.enable = true;
   programs.zed-editor.enable = true;
   programs.yazi.enable = true;
   gtk.enable = true;
@@ -86,9 +77,6 @@ in
     plugins = {
       mount = pkgs.yaziPlugins.mount;
       ouch = pkgs.yaziPlugins.ouch;
-    };
-    flavors = {
-      catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
     };
     keymap = {
       mgr.prepend_keymap = [
@@ -189,11 +177,6 @@ in
         ];
       };
     };
-    theme = {
-      flavor = {
-        dark = "catppuccin-mocha";
-      };
-    };
   };
 
   dconf.settings = {
@@ -225,7 +208,7 @@ in
   qt = {
     enable = true;
     platformTheme.name = "qtct";
-    style.name = "kvantum";
+    # style.name = "kvantum";
   };
   xdg.configFile."Kvantum/kvantum.kvconfig".source =
     (pkgs.formats.ini { }).generate "kvantum.kvconfig"
@@ -242,22 +225,6 @@ in
     hwdec = "vaapi";
     hwdec-codecs = "all";
     gpu-api = "opengl";
-  };
-  programs.tofi.settings = {
-    width = "100%";
-    height = "100%";
-    border-width = 0;
-    outline-width = 0;
-    padding-left = "35%";
-    padding-top = "35%";
-    result-spacing = 25;
-    num-results = 5;
-    font = "/nix/var/nix/profiles/system/sw/share/X11/fonts/JetBrainsMonoNerdFont-Medium.ttf";
-    hint-font = false;
-    background-color = "#000A";
-    ascii-input = true;
-    selection-color = "#7fc8ff";
-    drun-launch = false;
   };
   xdg.configFile."Thunar/uca.xml".source = ./configs/thunar.uca.xml;
   xdg.configFile."niri/config.kdl".source = ./configs/config.kdl;
@@ -279,4 +246,6 @@ in
   xdg.configFile."eww/scripts/nmcli-monitor.sh".source = ./configs/eww/scripts/nmcli-monitor.sh;
   xdg.configFile."eww/scripts/calendar.sh".source = ./configs/eww/scripts/calendar.sh;
   xdg.configFile."eww/scripts/multimonitor.sh".source = ./configs/eww/scripts/multimonitor.sh;
+  xdg.configFile."matugen/config.toml".source = ./configs/matugen/config.toml;
+  xdg.configFile."matugen/templates/tofi-config".source = ./configs/matugen/templates/tofi-config;
 }
