@@ -75,7 +75,7 @@ in
     nomacs
     wl-clipboard
     xorg.xeyes
-    qalculate-gtk
+    qalculate-qt
     localsend
     heroic
     gnome-themes-extra
