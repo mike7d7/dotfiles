@@ -227,7 +227,7 @@
     gpu-api = "opengl";
   };
   xdg.configFile."Thunar/uca.xml".source = ./configs/thunar.uca.xml;
-  xdg.configFile."niri/config.kdl".source = ./configs/config.kdl;
+  # xdg.configFile."niri/config.kdl".source = ./configs/config.kdl;
   xdg.configFile."eww/eww.scss".source = ./configs/eww/eww.scss;
   xdg.configFile."eww/eww.yuck".source = ./configs/eww/eww.yuck;
   xdg.configFile."eww/modules/battery.yuck".source = ./configs/eww/modules/battery.yuck;
@@ -248,4 +248,6 @@
   xdg.configFile."eww/scripts/multimonitor.sh".source = ./configs/eww/scripts/multimonitor.sh;
   xdg.configFile."matugen/config.toml".source = ./configs/matugen/config.toml;
   xdg.configFile."matugen/templates/tofi-config".source = ./configs/matugen/templates/tofi-config;
+  xdg.configFile."matugen/templates/niri-config.kdl".source =
+    ./configs/matugen/templates/niri-config.kdl;
 }

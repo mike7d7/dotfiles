@@ -30,7 +30,7 @@ layout {
     focus-ring {
         width 3
 
-        active-color "#8839ef"
+        active-color "{{colors.primary.default.hex}}"
         inactive-color "#505050"
     }
 
@@ -52,13 +52,11 @@ layout {
 spawn-at-startup "eww" "daemon"
 spawn-at-startup "sh" "-c" "$HOME/.config/eww/scripts/multimonitor.sh"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "xwayland-satellite"
 spawn-at-startup "bluetoothctl" "power" "off"
 spawn-at-startup "dbus-update-activation-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri" "DISPLAY"
 spawn-at-startup "solaar" "--window=hide"
 
 environment {
-    DISPLAY ":0"
 }
 
 cursor {

@@ -36,3 +36,7 @@ output_path = '~/.config/qt6ct/colors/matugen.conf'
 [templates.tofi]
 input_path = '~/.config/matugen/templates/tofi-config'
 output_path = '~/.config/tofi/config'
+
+[templates.niri]
+input_path = '~/.config/matugen/templates/niri-config.kdl'
+output_path = '~/.config/niri/config.kdl'
