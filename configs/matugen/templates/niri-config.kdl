@@ -109,6 +109,8 @@ window-rule {
 window-rule {
     match app-id="org.keepassxc.KeePassXC"
     block-out-from "screen-capture"
+    open-floating true
+    default-floating-position x=10 y=0 relative-to="right"
 }
 
 window-rule {
