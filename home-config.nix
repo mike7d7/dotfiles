@@ -250,4 +250,6 @@
   xdg.configFile."matugen/templates/tofi-config".source = ./configs/matugen/templates/tofi-config;
   xdg.configFile."matugen/templates/niri-config.kdl".source =
     ./configs/matugen/templates/niri-config.kdl;
+  xdg.configFile."matugen/templates/_eww-colors.scss".source =
+    ./configs/matugen/templates/_eww-colors.scss;
 }

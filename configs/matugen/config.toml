@@ -40,3 +40,7 @@ output_path = '~/.config/tofi/config'
 [templates.niri]
 input_path = '~/.config/matugen/templates/niri-config.kdl'
 output_path = '~/.config/niri/config.kdl'
+
+[templates.eww]
+input_path = '~/.config/matugen/templates/_eww-colors.scss'
+output_path = '~/.config/eww/_eww-colors.scss'
