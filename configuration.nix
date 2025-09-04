@@ -222,7 +222,7 @@
   programs.bash.promptInit = ''
     PS1='\[\e[0m\][\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;36m\]\h\[\e[0m\] \W]\$ '
   '';
-  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
   services.asusd = {
     enable = true;
     enableUserService = true;
