@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -119,6 +120,7 @@ in
     python3
     matugen
     tofi
+    inputs.claypaper.packages.x86_64-linux.default
 
     dock-script
     undock-script

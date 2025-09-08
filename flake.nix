@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     cthulock.url = "github:FriederHannenheim/cthulock";
+    claypaper.url = "github:mike7d7/clay-paper";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,6 +19,7 @@
     }:
     {
       nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+        specialArgs.inputs = inputs;
         system = "x86_64-linux";
         modules = [
           ./configuration.nix

@@ -124,7 +124,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id="clay-paper-debug"
+  match app-id=r#"clay-paper.*"#
   open-floating true
 }
 
@@ -273,7 +273,7 @@ binds {
 
     Mod+Shift+W { toggle-column-tabbed-display; }
 
-    Mod+W { spawn "waypaper"; }
+    Mod+W { spawn "clay-paper"; }
 
     Mod+Space { switch-layout "next"; }
 
