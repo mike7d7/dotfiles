@@ -273,7 +273,7 @@ binds {
 
     Mod+Shift+W { toggle-column-tabbed-display; }
 
-    Mod+W { spawn "clay-paper"; }
+    Mod+W { spawn-sh "SDL_VIDEODRIVER=wayland clay-paper"; }
     Mod+Q { spawn "qalculate-qt"; }
 
     Mod+Space { switch-layout "next"; }
