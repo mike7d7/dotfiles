@@ -119,6 +119,7 @@ in
     reaper
     python3
     matugen
+    zoom-us
     tofi
     inputs.claypaper.packages.x86_64-linux.default
 
