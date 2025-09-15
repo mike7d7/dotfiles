@@ -104,6 +104,14 @@
           run = "plugin ouch";
           desc = "Compress with ouch";
         }
+        {
+          on = [
+            "g"
+            "t"
+          ];
+          run = "cd ~/Documents/Tarea";
+          desc = "Go to homework folder";
+        }
       ];
     };
     settings = {
