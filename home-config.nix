@@ -112,6 +112,11 @@
           run = "cd ~/Documents/Tarea";
           desc = "Go to homework folder";
         }
+        {
+          on = [ "<A-i>" ];
+          run = "shell 'foot -d none' --orphan";
+          desc = "Open terminal at current dir";
+        }
       ];
     };
     settings = {
