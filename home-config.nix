@@ -77,7 +77,9 @@
     plugins = {
       mount = pkgs.yaziPlugins.mount;
       ouch = pkgs.yaziPlugins.ouch;
+      recycle-bin = pkgs.yaziPlugins.recycle-bin;
     };
+    initLua = "require(\"recycle-bin\"):setup()";
     keymap = {
       mgr.prepend_keymap = [
         {
@@ -117,6 +119,52 @@
           run = "shell 'foot -d none' --orphan";
           desc = "Open terminal at current dir";
         }
+
+        {
+          on = [
+            "R"
+            "o"
+          ];
+          run = "plugin recycle-bin -- open";
+          desc = "Open Trash";
+        }
+
+        {
+          on = [
+            "R"
+            "e"
+          ];
+          run = "plugin recycle-bin -- empty";
+          desc = "Empty Trash";
+        }
+
+        {
+          on = [
+            "R"
+            "D"
+          ];
+          run = "plugin recycle-bin -- emptyDays";
+          desc = "Empty by days deleted";
+        }
+
+        {
+          on = [
+            "R"
+            "d"
+          ];
+          run = "plugin recycle-bin -- delete";
+          desc = "Delete from Trash";
+        }
+
+        {
+          on = [
+            "R"
+            "r"
+          ];
+          run = "plugin recycle-bin -- restore";
+          desc = "Restore from Trash";
+        }
+
       ];
     };
     settings = {

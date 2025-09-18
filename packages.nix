@@ -110,6 +110,7 @@ in
     ripdrag
     jftui
     ouch
+    trash-cli
     rquickshare
     wineWow64Packages.stagingFull
     solaar # fixes bug with wireless logitech keyboard
