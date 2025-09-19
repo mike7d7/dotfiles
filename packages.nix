@@ -83,7 +83,6 @@ in
     transmission_4-gtk
     prismlauncher
     lazygit
-    grim
     obs-studio
     ripunzip
     gapless
