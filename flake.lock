@@ -91,6 +91,27 @@
         "type": "github"
       }
     },
+    "nix-matlab": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1758734864,
+        "narHash": "sha256-zq+p2FzcWfexBfy9tH6VLa/7cEUoRiJGlXteXURudy8=",
+        "owner": "mike7d7",
+        "repo": "nix-matlab",
+        "rev": "f6b2b4aa4e0f3365c418700ad8d10145a5d6592b",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "mike7d7",
+        "repo": "nix-matlab",
+        "type": "gitlab"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1757068644,

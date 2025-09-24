@@ -122,6 +122,7 @@ in
     zoom-us
     tofi
     inputs.claypaper.packages.x86_64-linux.default
+    inputs.nix-matlab.packages.x86_64-linux.matlab
 
     dock-script
     undock-script
