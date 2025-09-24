@@ -115,6 +115,14 @@
           desc = "Go to homework folder";
         }
         {
+          on = [
+            "g"
+            "l"
+          ];
+          run = "cd ~/.local";
+          desc = "Go to ~/.local";
+        }
+        {
           on = [ "<A-i>" ];
           run = "shell 'foot -d none' --orphan";
           desc = "Open terminal at current dir";
