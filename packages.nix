@@ -110,11 +110,8 @@ in
     jftui
     ouch
     trash-cli
-    rquickshare
-    wineWow64Packages.stagingFull
     solaar # fixes bug with wireless logitech keyboard
     (pkgs.epsonscan2.override { withNonFreePlugins = true; })
-    mcpelauncher-ui-qt
     discord
     reaper
     python3
