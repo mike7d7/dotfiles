@@ -60,7 +60,7 @@ environment {
 }
 
 cursor {
-    xcursor-theme "macOS"
+    xcursor-theme "graphite-dark"
     xcursor-size 32
 }
 

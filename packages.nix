@@ -97,7 +97,7 @@ in
     _7zz
     gnupg
     pinentry-tty
-    apple-cursor
+    graphite-cursors
     kdePackages.dolphin
     kdePackages.qtsvg
     kdePackages.kio-fuse # to mount remote filesystems via FUSE

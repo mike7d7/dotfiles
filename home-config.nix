@@ -250,7 +250,7 @@
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      cursor-theme = "macOS";
+      cursor-theme = "graphite-dark";
     };
   };
 
@@ -266,13 +266,13 @@
     gtk-icon-theme-name = "Adwaita";
     gtk-theme-name = "Adwaita-dark";
     gtk-application-prefer-dark-theme = 1;
-    gtk-cursor-theme-name = "macOS";
+    gtk-cursor-theme-name = "graphite-dark";
   };
   gtk.gtk4.extraConfig = {
     gtk-icon-theme-name = "Adwaita";
     gtk-theme-name = "Adwaita-dark";
     gtk-application-prefer-dark-theme = 1;
-    gtk-cursor-theme-name = "macOS";
+    gtk-cursor-theme-name = "graphite-dark";
   };
   qt = {
     enable = true;
@@ -286,8 +286,8 @@
       };
   home.pointerCursor = {
     gtk.enable = true;
-    name = "macOS";
-    package = pkgs.apple-cursor;
+    name = "graphite-dark";
+    package = pkgs.graphite-cursors;
     size = 32;
   };
   programs.mpv.config = {
