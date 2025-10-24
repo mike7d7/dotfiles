@@ -119,7 +119,9 @@ in
     zoom-us
     tofi
     inputs.claypaper.packages.x86_64-linux.default
+    halloy
     inputs.nix-matlab.packages.x86_64-linux.matlab
+    aisleriot
 
     dock-script
     undock-script
