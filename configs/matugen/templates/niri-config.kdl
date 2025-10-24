@@ -17,6 +17,10 @@ input {
         accel-profile "flat"
     }
 
+    tablet {
+        off
+    }
+
     focus-follows-mouse max-scroll-amount="0%"
 }
 
