@@ -16,8 +16,12 @@
   # Configs
   programs.git = {
     enable = true;
-    userName = "mike7d7";
-    userEmail = "mike7d7@proton.me";
+    settings = {
+      user = {
+        name = "mike7d7";
+        email = "mike7d7@proton.me";
+      };
+    };
   };
 
   programs.foot.settings = {
