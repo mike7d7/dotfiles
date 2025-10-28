@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 {
   # The home.stateVersion option does not have a default and must be set
   home.stateVersion = "24.05";
@@ -63,7 +68,80 @@
       "typst"
     ];
     userKeymaps = builtins.fromJSON (builtins.readFile ./configs/zed/keymap.json);
-    userSettings = builtins.fromJSON (builtins.readFile ./configs/zed/settings.json);
+    userSettings = {
+      agent = {
+        enabled = false;
+      };
+
+      buffer_font_family = "Fira Code";
+      buffer_font_size = 16;
+
+      git = {
+        inline_blame = {
+          enabled = false;
+        };
+      };
+
+      languages = {
+        "C" = {
+          format_on_save = "on";
+        };
+        "Markdown" = {
+          format_on_save = "on";
+        };
+        "Nix" = {
+          language_servers = [
+            "nil"
+            "!nixd"
+          ];
+        };
+      };
+
+      lsp = {
+        slint = {
+          binary = {
+            path = lib.getExe pkgs.slint-lsp;
+          };
+        };
+        nil = {
+          initialization_options = {
+            formatting = {
+              command = [ "nixfmt" ];
+            };
+          };
+        };
+        tinymist = {
+          initialization_options = {
+            preview = {
+              background = {
+                enabled = true;
+              };
+            };
+          };
+          settings = {
+            exportPdf = "onSave";
+            formatterMode = "typstyle";
+            outputPath = "$root/$dir/$name";
+          };
+        };
+      };
+
+      soft_wrap = "editor_width";
+
+      telemetry = {
+        diagnostics = false;
+        metrics = false;
+      };
+
+      theme = {
+        dark = "Custom 1 Dark";
+        light = "One Light";
+        mode = "system";
+      };
+
+      ui_font_size = 16;
+      vim_mode = true;
+    };
     extraPackages = with pkgs; [
       nil
       nixfmt-rfc-style
