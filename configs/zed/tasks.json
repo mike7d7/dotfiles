@@ -15,5 +15,13 @@
     "allow_concurrent_runs": false,
     "reveal": "never",
     "hide": "always"
+  },
+  {
+    "label": "Slint Preview",
+    "command": "slint-viewer $ZED_RELATIVE_FILE --auto-reload",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "hide": "always"
   }
 ]
