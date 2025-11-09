@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "gitlab:mike7d7/nix-matlab";
     };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       nixpkgs,
       home-manager,
       nix-matlab,
+      chaotic,
       ...
     }:
     {
@@ -28,6 +30,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+          chaotic.nixosModules.default
           home-manager.nixosModules.home-manager
           inputs.cthulock.nixosModules.x86_64-linux.default
           {
