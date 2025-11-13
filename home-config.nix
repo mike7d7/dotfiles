@@ -165,6 +165,11 @@
     keymap = {
       mgr.prepend_keymap = [
         {
+          on = "T";
+          run = "shell --confirm -- foot -D .";
+          desc = "Open mount plugin";
+        }
+        {
           on = "M";
           run = "plugin mount";
           desc = "Open mount plugin";
