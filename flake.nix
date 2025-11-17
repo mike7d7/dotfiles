@@ -13,6 +13,10 @@
       url = "gitlab:mike7d7/nix-matlab";
     };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -22,9 +26,15 @@
       home-manager,
       nix-matlab,
       chaotic,
+      nvf,
       ...
     }:
     {
+      packages."x86_64-linux".default =
+        (nvf.lib.neovimConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [ ./nvf-config.nix ];
+        }).neovim;
       nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
         system = "x86_64-linux";
@@ -33,6 +43,7 @@
           chaotic.nixosModules.default
           home-manager.nixosModules.home-manager
           inputs.cthulock.nixosModules.x86_64-linux.default
+          inputs.nvf.nixosModules.default
           {
             home-manager = {
               useGlobalPkgs = true;
