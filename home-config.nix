@@ -85,6 +85,10 @@
         "C" = {
           format_on_save = "on";
         };
+        "C++" = {
+          format_on_save = "on";
+          tab_size = 2;
+        };
         "Markdown" = {
           format_on_save = "on";
         };
