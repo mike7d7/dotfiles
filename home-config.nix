@@ -385,7 +385,6 @@
     hwdec-codecs = "all";
     gpu-api = "opengl";
   };
-  xdg.configFile."Thunar/uca.xml".source = ./configs/thunar.uca.xml;
   # xdg.configFile."niri/config.kdl".source = ./configs/config.kdl;
   xdg.configFile."eww/eww.scss".source = ./configs/eww/eww.scss;
   xdg.configFile."eww/eww.yuck".source = ./configs/eww/eww.yuck;
