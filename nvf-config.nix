@@ -1,0 +1,130 @@
+{ pkgs, lib, ... }:
+
+{
+  vim = {
+    extraPackages = with pkgs; [
+      clang-tools
+      clang
+    ];
+    lineNumberMode = "number";
+    theme = {
+      enable = true;
+      name = "gruvbox";
+      style = "dark";
+    };
+    terminal.toggleterm = {
+      enable = true;
+      lazygit.enable = true;
+      mappings = {
+        open = "<A-i>";
+
+      };
+
+    };
+
+    maps.terminal = {
+      "<S-BS>" = {
+        action = "<BS>";
+      };
+      "<C-BS>" = {
+        action = "<BS>";
+      };
+      "<M-S-BS>" = {
+        action = "<BS>";
+      };
+      "<M-C-BS>" = {
+        action = "<BS>";
+      };
+      "<C-S-BS>" = {
+        action = "<BS>";
+      };
+      "<M-C-S-BS>" = {
+        action = "<BS>";
+      };
+      "<S-Space>" = {
+        action = "<Space>";
+      };
+      "<M-S-Space>" = {
+        action = "<Space>";
+      };
+      "<M-C-Space>" = {
+        action = "<Space>";
+      };
+      "<C-S-Space>" = {
+        action = "<Space>";
+      };
+      "<M-C-S-Space>" = {
+        action = "<Space>";
+      };
+      "<S-CR>" = {
+        action = "<CR>";
+      };
+      "<C-CR>" = {
+        action = "<CR>";
+      };
+      "<M-S-CR>" = {
+        action = "<CR>";
+      };
+      "<M-C-CR>" = {
+        action = "<CR>";
+      };
+      "<C-S-CR>" = {
+        action = "<CR>";
+      };
+      "<M-C-S-CR>" = {
+        action = "<CR>";
+      };
+      "<Esc>" = {
+        action = "<C-\\><C-n>";
+      };
+    };
+
+    statusline.lualine.enable = true;
+    telescope.enable = true;
+    autocomplete.nvim-cmp.enable = true;
+
+    lsp = {
+      formatOnSave = true;
+      mappings = {
+        format = "<leader>fm";
+      };
+      enable = true;
+      servers = {
+        clangd = {
+          # cmd = lib.mkForce [ "/run/current-system/sw/bin/clangd" ];
+          # cmd = lib.mkForce [ "${pkgs.llvmPackages_19.clang-tools}/bin/clangd" ];
+          # opts = [
+          #   "--resource-dir=/nix/store/0sq0a7z7170nxiiizqpjflqn6aangiwf-libcxx-21.1.2-dev/include/c++/v1"
+          # ];
+        };
+      };
+    };
+
+    languages = {
+      enableFormat = true;
+      enableExtraDiagnostics = true;
+      enableTreesitter = true;
+
+      nix.enable = true;
+      rust.enable = true;
+      clang.enable = true;
+      clang.lsp.servers = [ "clangd" ];
+      clang.cHeader = false;
+      bash.enable = true;
+    };
+    diagnostics = {
+      config = {
+        virtual_lines = true;
+        virtual_text = true;
+      };
+    };
+    filetree.nvimTree = {
+      enable = true;
+      openOnSetup = false;
+      mappings = {
+        toggle = "<C-n>";
+      };
+      setupOpts.actions.open_file.quit_on_open = true;
+    };
+  };
+}

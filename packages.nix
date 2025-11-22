@@ -56,7 +56,7 @@ in
   environment.systemPackages = with pkgs; [
     git
     niri
-    neovim
+    # neovim
     pipewire
     libreoffice-qt6-fresh
     hunspell

@@ -150,6 +150,10 @@
       "svg.context-properties.content.enabled" = true;
     };
   };
+  programs.nvf = {
+    enable = true;
+    settings = import ./nvf-config.nix;
+  };
   services.gvfs.enable = true;
   # services.flatpak.enable = true;
   security.rtkit.enable = true;
