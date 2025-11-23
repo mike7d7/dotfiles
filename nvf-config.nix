@@ -1,12 +1,13 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   vim = {
     extraPackages = with pkgs; [
       clang-tools
-      clang
     ];
     lineNumberMode = "number";
+    clipboard.enable = true;
+    clipboard.registers = "unnamedplus";
     theme = {
       enable = true;
       name = "gruvbox";
@@ -17,9 +18,7 @@
       lazygit.enable = true;
       mappings = {
         open = "<A-i>";
-
       };
-
     };
 
     maps.terminal = {
@@ -89,15 +88,6 @@
         format = "<leader>fm";
       };
       enable = true;
-      servers = {
-        clangd = {
-          # cmd = lib.mkForce [ "/run/current-system/sw/bin/clangd" ];
-          # cmd = lib.mkForce [ "${pkgs.llvmPackages_19.clang-tools}/bin/clangd" ];
-          # opts = [
-          #   "--resource-dir=/nix/store/0sq0a7z7170nxiiizqpjflqn6aangiwf-libcxx-21.1.2-dev/include/c++/v1"
-          # ];
-        };
-      };
     };
 
     languages = {
@@ -108,8 +98,6 @@
       nix.enable = true;
       rust.enable = true;
       clang.enable = true;
-      clang.lsp.servers = [ "clangd" ];
-      clang.cHeader = false;
       bash.enable = true;
     };
     diagnostics = {
