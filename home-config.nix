@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  pkgs-stable,
   ...
 }:
 {
@@ -145,15 +146,16 @@
       ui_font_size = 16;
       vim_mode = true;
     };
-    extraPackages = with pkgs; [
-      nil
-      nixfmt-rfc-style
-      tinymist
-      typstyle
-      clang-tools
-      python313Packages.python-lsp-server
-      python313Packages.pylint
-    ];
+    extraPackages =
+      (with pkgs; [
+        nil
+        nixfmt-rfc-style
+        tinymist
+        typstyle
+        python313Packages.python-lsp-server
+        python313Packages.pylint
+      ])
+      ++ (with pkgs-stable; [ clang-tools ]);
   };
   xdg.configFile."zed/tasks.json".source = ./configs/zed/tasks.json;
   xdg.configFile."zed/themes/custom-theme-1.json".source = ./configs/zed/themes/custom-theme-1.json;

@@ -2,6 +2,7 @@
   description = "NixOS Config";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     cthulock.url = "github:FriederHannenheim/cthulock";
     claypaper.url = "github:mike7d7/clay-paper";
     home-manager = {
@@ -23,6 +24,7 @@
     inputs@{
       self,
       nixpkgs,
+      nixpkgs-stable,
       home-manager,
       nix-matlab,
       chaotic,
@@ -48,6 +50,9 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = {
+                pkgs-stable = inputs.nixpkgs-stable.legacyPackages."x86_64-linux";
+              };
               users.mig = {
                 imports = [ ./home-config.nix ];
               };
