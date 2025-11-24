@@ -20,6 +20,9 @@
         open = "<A-i>";
       };
     };
+    options = {
+      whichwrap = "h,l";
+    };
 
     maps.terminal = {
       "<S-BS>" = {
