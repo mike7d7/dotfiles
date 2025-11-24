@@ -77,6 +77,20 @@
         action = "<C-\\><C-n>";
       };
     };
+    keymaps = [
+      {
+        key = "j";
+        mode = "n";
+        silent = true;
+        action = "gj";
+      }
+      {
+        key = "k";
+        mode = "n";
+        silent = true;
+        action = "gk";
+      }
+    ];
 
     statusline.lualine.enable = true;
     telescope.enable = true;
