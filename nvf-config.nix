@@ -2,9 +2,6 @@
 
 {
   vim = {
-    extraPackages = with pkgs; [
-      clang-tools
-    ];
     lineNumberMode = "number";
     clipboard.enable = true;
     clipboard.registers = "unnamedplus";
