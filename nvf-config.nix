@@ -128,5 +128,9 @@
       };
       setupOpts.actions.open_file.quit_on_open = true;
     };
+    tabline.nvimBufferline = {
+      enable = true;
+    };
+    autopairs.nvim-autopairs.enable = true;
   };
 }
