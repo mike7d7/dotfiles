@@ -95,6 +95,12 @@
         action = "gk";
       }
       {
+        key = "<C-S>";
+        mode = "n";
+        silent = true;
+        action = ":update<CR>";
+      }
+      {
         key = "<A-i>";
         mode = "t";
         silent = true;
