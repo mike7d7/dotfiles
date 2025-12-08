@@ -16,6 +16,10 @@
       mappings = {
         open = "<A-i>";
       };
+      setupOpts = {
+        start_in_insert = true;
+        direction = "float";
+      };
     };
     options = {
       whichwrap = "h,l";
