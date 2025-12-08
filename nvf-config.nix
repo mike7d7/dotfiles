@@ -94,6 +94,12 @@
         silent = true;
         action = "gk";
       }
+      {
+        key = "<A-i>";
+        mode = "t";
+        silent = true;
+        action = "<cmd>ToggleTerm<CR>";
+      }
     ];
 
     statusline.lualine.enable = true;
