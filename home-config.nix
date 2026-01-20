@@ -149,7 +149,7 @@
     extraPackages =
       (with pkgs; [
         nil
-        nixfmt-rfc-style
+        nixfmt
         tinymist
         typstyle
         python313Packages.python-lsp-server
