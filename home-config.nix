@@ -147,15 +147,15 @@
       vim_mode = true;
     };
     extraPackages =
-      (with pkgs; [
+      with pkgs; [
+        clang-tools
         nil
         nixfmt
         tinymist
         typstyle
         python313Packages.python-lsp-server
         python313Packages.pylint
-      ])
-      ++ (with pkgs-stable; [ clang-tools ]);
+      ];
   };
   xdg.configFile."zed/tasks.json".source = ./configs/zed/tasks.json;
   xdg.configFile."zed/themes/custom-theme-1.json".source = ./configs/zed/themes/custom-theme-1.json;
