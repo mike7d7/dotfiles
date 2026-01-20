@@ -228,10 +228,10 @@
     PS1='\[\e[0m\][\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;36m\]\h\[\e[0m\] \W]\$ '
   '';
   services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
-  # services.asusd = {
-  #   enable = true;
-  #   enableUserService = true;
-  # };
+  services.asusd = {
+    enable = true;
+    enableUserService = true;
+  };
   services.upower.enable = true;
   services.tlp = {
     enable = true;
@@ -246,12 +246,12 @@
       CPU_MIN_PERF_ON_AC = 0;
       CPU_MAX_PERF_ON_AC = 100;
       CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 50;
+      CPU_MAX_PERF_ON_BAT = 30;
       CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 0;
+      CPU_BOOST_ON_BAT = 1;
 
       CPU_HWP_DYN_BOOST_ON_AC = 1;
-      CPU_HWP_DYN_BOOST_ON_BAT = 0;
+      CPU_HWP_DYN_BOOST_ON_BAT = 1;
       PLATFORM_PROFILE_ON_AC = "balanced";
       PLATFORM_PROFILE_ON_BAT = "low-power";
 
