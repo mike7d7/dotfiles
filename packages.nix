@@ -85,7 +85,7 @@ in
     lazygit
     obs-studio
     ripunzip
-    gapless
+    kew
     joplin-desktop
     tenacity
     bluetuith
