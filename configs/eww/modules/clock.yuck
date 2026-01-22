@@ -1,7 +1,0 @@
-(defpoll htime :interval "1s" `echo " " $(date '+%a, %d %b %H:%M') " "`) ;; use U+2009 char as padding
-(defwidget clock []
-  (eventbox :class "htime" :space-evenly false :halign "center"
-    :onhover "./scripts/calendar.sh"
-    (label :text htime)
-  )
-)

@@ -62,10 +62,6 @@ in
     hunspell
     hunspellDicts.es_MX
     hunspellDicts.en_US
-    eww
-    jq
-    jaq
-    swww
     xwayland-satellite
     htop
     pwvucontrol
@@ -117,7 +113,6 @@ in
     python3
     matugen
     zoom-us
-    tofi
     halloy
     inputs.nix-matlab.packages.x86_64-linux.matlab
     aisleriot
