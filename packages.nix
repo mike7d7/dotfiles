@@ -118,11 +118,11 @@ in
     matugen
     zoom-us
     tofi
-    inputs.claypaper.packages.x86_64-linux.default
     halloy
     inputs.nix-matlab.packages.x86_64-linux.matlab
     aisleriot
     nchat
+    dgop
 
     dock-script
     undock-script

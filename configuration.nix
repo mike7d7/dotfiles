@@ -154,6 +154,10 @@
     enable = true;
     settings = import ./nvf-config.nix;
   };
+  programs.dank-material-shell = {
+    enable = true;
+    systemd.enable = true;
+  };
   services.gvfs.enable = true;
   # services.flatpak.enable = true;
   security.rtkit.enable = true;
@@ -234,7 +238,7 @@
   };
   services.upower.enable = true;
   services.tlp = {
-    enable = true;
+    enable = false;
     settings = {
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
@@ -275,5 +279,4 @@
   };
   hardware.logitech.wireless.enable = true;
   hardware.new-lg4ff.enable = true;
-  programs.cthulock.enable = true;
 }

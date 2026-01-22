@@ -3,8 +3,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-    cthulock.url = "github:FriederHannenheim/cthulock";
-    claypaper.url = "github:mike7d7/clay-paper";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,6 +16,10 @@
       url = "github:NotAShelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +31,7 @@
       nix-matlab,
       chaotic,
       nvf,
+      dms,
       ...
     }:
     {
@@ -44,8 +47,8 @@
           ./configuration.nix
           chaotic.nixosModules.default
           home-manager.nixosModules.home-manager
-          inputs.cthulock.nixosModules.x86_64-linux.default
           inputs.nvf.nixosModules.default
+          inputs.dms.nixosModules.dank-material-shell
           {
             home-manager = {
               useGlobalPkgs = true;

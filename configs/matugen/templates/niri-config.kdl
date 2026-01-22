@@ -1,3 +1,6 @@
+include "dms/colors.kdl"
+include "dms/wpblur.kdl"
+
 input {
     keyboard {
         xkb {
@@ -34,8 +37,8 @@ layout {
     focus-ring {
         width 3
 
-        active-color "{{colors.primary.default.hex}}"
-        inactive-color "#505050"
+        // active-color "{{colors.primary.default.hex}}"
+        // inactive-color "#505050"
     }
 
     border {
@@ -53,9 +56,9 @@ layout {
     center-focused-column "never"
 }
 
-spawn-at-startup "eww" "daemon"
-spawn-at-startup "sh" "-c" "$HOME/.config/eww/scripts/multimonitor.sh"
-spawn-at-startup "swww-daemon"
+// spawn-at-startup "eww" "daemon"
+// spawn-at-startup "sh" "-c" "$HOME/.config/eww/scripts/multimonitor.sh"
+// spawn-at-startup "swww-daemon"
 spawn-at-startup "bluetoothctl" "power" "off"
 spawn-at-startup "dbus-update-activation-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri" "DISPLAY"
 spawn-at-startup "solaar" "--window=hide"
@@ -147,20 +150,20 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Shift+Return { spawn "foot"; }
-    Mod+P { spawn "sh" "-c" "niri msg action spawn -- $(tofi-drun)"; }
-    Mod+Alt+L { spawn "cthulock"; }
+    Mod+P { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+Alt+L { spawn "dms" "ipc" "call" "lock" "lock"; }
     Mod+E { spawn "foot" "yazi"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "2"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "-2"; }
-    XF86AudioMute allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "2"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "2"; }
+    XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
 
-    XF86AudioNext allow-when-locked=true { spawn "swayosd-client" "--playerctl=next"; }
-    XF86AudioPrev allow-when-locked=true { spawn "swayosd-client" "--playerctl=prev"; }
-    XF86AudioPlay allow-when-locked=true { spawn "swayosd-client" "--playerctl=play-pause"; }
+    XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
+    XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
+    XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
 
-    XF86MonBrightnessUp { spawn "swayosd-client" "--brightness" "raise" ; }
-    XF86MonBrightnessDown { spawn "swayosd-client" "--brightness" "lower" ; }
+    XF86MonBrightnessUp { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
+    XF86MonBrightnessDown { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
 
     Mod+Escape repeat=false { toggle-overview; }
 
@@ -277,7 +280,7 @@ binds {
 
     Mod+Shift+W { toggle-column-tabbed-display; }
 
-    Mod+W { spawn-sh "SDL_VIDEODRIVER=wayland clay-paper"; }
+    Mod+W { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
     Mod+Q { spawn "qalculate-qt"; }
 
     Mod+Space { switch-layout "next"; }
