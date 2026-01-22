@@ -408,8 +408,8 @@
   xdg.configFile."eww/scripts/multimonitor.sh".source = ./configs/eww/scripts/multimonitor.sh;
   xdg.configFile."matugen/config.toml".source = ./configs/matugen/config.toml;
   xdg.configFile."matugen/templates/tofi-config".source = ./configs/matugen/templates/tofi-config;
-  xdg.configFile."matugen/templates/niri-config.kdl".source =
-    ./configs/matugen/templates/niri-config.kdl;
   xdg.configFile."matugen/templates/_eww-colors.scss".source =
     ./configs/matugen/templates/_eww-colors.scss;
+    xdg.configFile."niri/config.kdl".source =
+      ./configs/niri-config.kdl;
 }
