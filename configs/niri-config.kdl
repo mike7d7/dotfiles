@@ -1,4 +1,5 @@
 include "dms/colors.kdl"
+include "dms/outputs.kdl"
 include "dms/wpblur.kdl"
 
 input {
@@ -25,12 +26,6 @@ input {
     }
 
     focus-follows-mouse max-scroll-amount="0%"
-}
-
-output "eDP-1" {
-    scale 1.25
-    mode "2560x1600@240.000"
-    variable-refresh-rate
 }
 
 layout {
