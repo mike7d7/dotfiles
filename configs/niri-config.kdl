@@ -140,8 +140,8 @@ binds {
 
     Mod+Shift+Return { spawn "foot"; }
     Mod+P { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-    Mod+Alt+L { spawn "dms" "ipc" "call" "lock" "lock"; }
-    Mod+E { spawn "foot" "yazi"; }
+    Mod+Alt+I { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+F { spawn "foot" "yazi"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "2"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "2"; }
@@ -163,18 +163,18 @@ binds {
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
+    Mod+N     { focus-window-down; }
+    Mod+E     { focus-window-up; }
+    Mod+I     { focus-column-right; }
 
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
     Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    Mod+Ctrl+N     { move-window-down; }
+    Mod+Ctrl+E     { move-window-up; }
+    Mod+Ctrl+I     { move-column-right; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
@@ -186,32 +186,32 @@ binds {
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
     Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Shift+N     { focus-monitor-down; }
+    Mod+Shift+E     { focus-monitor-up; }
+    Mod+Shift+I     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
     Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+N     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+E     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+I     { move-column-to-monitor-right; }
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    Mod+L              { focus-workspace-down; }
+    Mod+U              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+Ctrl+L         { move-column-to-workspace-down; }
+    Mod+Ctrl+U         { move-column-to-workspace-up; }
 
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    Mod+Shift+L         { move-workspace-down; }
+    Mod+Shift+U         { move-workspace-up; }
 
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
@@ -255,10 +255,10 @@ binds {
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
 
-    Mod+R { switch-preset-column-width; }
-    Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
-    Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
+    Mod+G { switch-preset-column-width; }
+    Mod+T { maximize-column; }
+    Mod+Shift+T { fullscreen-window; }
+    Mod+Ctrl+Shift+T { toggle-windowed-fullscreen; }
     Mod+C { center-column; }
 
     Mod+Minus { set-column-width "-10%"; }
@@ -274,12 +274,12 @@ binds {
 
     Mod+Space { switch-layout "next"; }
 
-    Mod+Shift+S allow-when-locked=true { spawn "systemctl" "suspend"; }
+    Mod+Shift+R allow-when-locked=true { spawn "systemctl" "suspend"; }
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-    Mod+Shift+E { spawn "niri" "msg" "action" "quit";}
+    Mod+Shift+F { spawn "niri" "msg" "action" "quit";}
 
     Mod+Shift+P { power-off-monitors; }
     Mod+Ctrl+P { spawn "niri" "msg" "output" "HDMI-A-1" "off"; }
