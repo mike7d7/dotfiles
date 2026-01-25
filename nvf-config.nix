@@ -23,6 +23,7 @@
     };
     options = {
       whichwrap = "h,l";
+      langmap = "fe,pr,gt,jy,lu,ui,yo,ñp,rs,sd,tf,dg,nj,ek,il,oñ,kn";
     };
 
     maps.terminal = {
