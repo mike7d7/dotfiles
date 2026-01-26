@@ -171,7 +171,7 @@
         {
           on = "T";
           run = "shell --confirm -- foot -D .";
-          desc = "Open mount plugin";
+          desc = "Open terminal in current directory";
         }
         {
           on = "M";
