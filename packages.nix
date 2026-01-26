@@ -130,8 +130,8 @@ in
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStart = ''${firefox-sync}/bin/firefox-sync 0shu6evv.default'';
-      ExecStop = ''${firefox-sync}/bin/firefox-sync 0shu6evv.default'';
+      ExecStart = "${firefox-sync}/bin/firefox-sync 0shu6evv.default";
+      ExecStop = "${firefox-sync}/bin/firefox-sync 0shu6evv.default";
     };
   };
 }

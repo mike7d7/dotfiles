@@ -146,16 +146,15 @@
       ui_font_size = 16;
       vim_mode = true;
     };
-    extraPackages =
-      with pkgs; [
-        clang-tools
-        nil
-        nixfmt
-        tinymist
-        typstyle
-        python313Packages.python-lsp-server
-        python313Packages.pylint
-      ];
+    extraPackages = with pkgs; [
+      clang-tools
+      nil
+      nixfmt
+      tinymist
+      typstyle
+      python313Packages.python-lsp-server
+      python313Packages.pylint
+    ];
   };
   xdg.configFile."zed/tasks.json".source = ./configs/zed/tasks.json;
   xdg.configFile."zed/themes/custom-theme-1.json".source = ./configs/zed/themes/custom-theme-1.json;
@@ -389,6 +388,5 @@
   };
   # xdg.configFile."niri/config.kdl".source = ./configs/config.kdl;
   xdg.configFile."matugen/config.toml".source = ./configs/matugen/config.toml;
-    xdg.configFile."niri/config.kdl".source =
-      ./configs/niri-config.kdl;
+  xdg.configFile."niri/config.kdl".source = ./configs/niri-config.kdl;
 }

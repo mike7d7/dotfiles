@@ -21,38 +21,40 @@
     };
   };
 
-  outputs = inputs @ {
-    nixpkgs,
-    home-manager,
-    nvf,
-    ...
-  }: {
-    packages."x86_64-linux".default =
-      (nvf.lib.neovimConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        modules = [./nvf-config.nix];
-      }).neovim;
-    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
-      specialArgs.inputs = inputs;
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        inputs.nvf.nixosModules.default
-        inputs.dms.nixosModules.dank-material-shell
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = {
-              pkgs-stable = inputs.nixpkgs-stable.legacyPackages."x86_64-linux";
+  outputs =
+    inputs@{
+      nixpkgs,
+      home-manager,
+      nvf,
+      ...
+    }:
+    {
+      packages."x86_64-linux".default =
+        (nvf.lib.neovimConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [ ./nvf-config.nix ];
+        }).neovim;
+      nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+        specialArgs.inputs = inputs;
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          inputs.nvf.nixosModules.default
+          inputs.dms.nixosModules.dank-material-shell
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {
+                pkgs-stable = inputs.nixpkgs-stable.legacyPackages."x86_64-linux";
+              };
+              users.mig = {
+                imports = [ ./home-config.nix ];
+              };
             };
-            users.mig = {
-              imports = [./home-config.nix];
-            };
-          };
-        }
-      ];
+          }
+        ];
+      };
     };
-  };
 }

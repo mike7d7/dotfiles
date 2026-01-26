@@ -1,7 +1,8 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -17,7 +18,7 @@
     "preempt=full"
     "rcutree.enable_rcu_lazy=1"
   ];
-  boot.kernelModules = ["ntsync"];
+  boot.kernelModules = [ "ntsync" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -89,7 +90,7 @@
   ];
   fonts.fontDir.enable = true;
   services.printing.enable = true;
-  services.printing.drivers = [pkgs.epson-escpr2];
+  services.printing.drivers = [ pkgs.epson-escpr2 ];
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -127,10 +128,10 @@
         "gnome"
         "gtk"
       ];
-      "org.freedesktop.impl.portal.Access" = ["gtk"];
-      "org.freedesktop.impl.portal.Notification" = ["gtk"];
-      "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
-      "org.freedesktop.impl.portal.FileChooser" = ["kde"];
+      "org.freedesktop.impl.portal.Access" = [ "gtk" ];
+      "org.freedesktop.impl.portal.Notification" = [ "gtk" ];
+      "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
     };
   };
   programs.dconf.enable = true;
@@ -205,21 +206,20 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-  services.udev.packages =
-    [
-      (pkgs.writeTextFile {
-        name = "my-rules";
-        text = ''
-          KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
-          SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
-        '';
-        destination = "/etc/udev/rules.d/70-opentabletdriver.rules";
-      })
-    ]
-    ++ [
-      pkgs.oversteer
-      pkgs.usb-modeswitch-data
-    ];
+  services.udev.packages = [
+    (pkgs.writeTextFile {
+      name = "my-rules";
+      text = ''
+        KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
+      '';
+      destination = "/etc/udev/rules.d/70-opentabletdriver.rules";
+    })
+  ]
+  ++ [
+    pkgs.oversteer
+    pkgs.usb-modeswitch-data
+  ];
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c294", RUN+="${pkgs.usb-modeswitch}/bin/usb_modeswitch -v 046d -p c294 -m 01 -r 01 -C 03 -M '0f00010142'"
   '';
@@ -270,7 +270,7 @@
   };
   programs.steam = {
     enable = true;
-    extraCompatPackages = with pkgs; [proton-ge-bin];
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
   hardware.logitech.wireless.enable = true;
   hardware.new-lg4ff.enable = true;
