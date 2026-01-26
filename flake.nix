@@ -11,9 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "gitlab:mike7d7/nix-matlab";
     };
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nvf = {
-      url = "github:NotAShelf/nvf/v0.8";
+      url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dms = {
@@ -22,46 +21,42 @@
     };
   };
 
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      nixpkgs-stable,
-      home-manager,
-      nix-matlab,
-      chaotic,
-      nvf,
-      dms,
-      ...
-    }:
-    {
-      packages."x86_64-linux".default =
-        (nvf.lib.neovimConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          modules = [ ./nvf-config.nix ];
-        }).neovim;
-      nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
-        specialArgs.inputs = inputs;
-        system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
-          chaotic.nixosModules.default
-          home-manager.nixosModules.home-manager
-          inputs.nvf.nixosModules.default
-          inputs.dms.nixosModules.dank-material-shell
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {
-                pkgs-stable = inputs.nixpkgs-stable.legacyPackages."x86_64-linux";
-              };
-              users.mig = {
-                imports = [ ./home-config.nix ];
-              };
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    nix-matlab,
+    nvf,
+    dms,
+    ...
+  }: {
+    packages."x86_64-linux".default =
+      (nvf.lib.neovimConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        modules = [./nvf-config.nix];
+      }).neovim;
+    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      specialArgs.inputs = inputs;
+      system = "x86_64-linux";
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+        inputs.nvf.nixosModules.default
+        inputs.dms.nixosModules.dank-material-shell
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {
+              pkgs-stable = inputs.nixpkgs-stable.legacyPackages."x86_64-linux";
             };
-          }
-        ];
-      };
+            users.mig = {
+              imports = [./home-config.nix];
+            };
+          };
+        }
+      ];
     };
+  };
 }
