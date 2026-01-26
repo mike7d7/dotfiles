@@ -22,13 +22,9 @@
   };
 
   outputs = inputs @ {
-    self,
     nixpkgs,
-    nixpkgs-stable,
     home-manager,
-    nix-matlab,
     nvf,
-    dms,
     ...
   }: {
     packages."x86_64-linux".default =
