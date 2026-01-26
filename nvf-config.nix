@@ -124,7 +124,13 @@
       enableExtraDiagnostics = true;
       enableTreesitter = true;
 
-      nix.enable = true;
+      nix = {
+        enable = true;
+        format = {
+          enable = true;
+          type = [ "nixfmt" ];
+        };
+      };
       rust.enable = true;
       clang.enable = true;
       bash.enable = true;
