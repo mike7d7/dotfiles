@@ -5,8 +5,8 @@ include "dms/wpblur.kdl"
 input {
     keyboard {
         xkb {
-          layout "latam,latam"
-          variant ",colemak"
+          layout "latam,latam-code"
+          variant ","
         }
     }
 

@@ -56,6 +56,21 @@
   services.xserver.xkb = {
     layout = "latam";
     variant = "";
+    extraLayouts.latam-code = rec {
+      description = "Programmers Colemak with less and greater than mapped to AltGr + z/x";
+      languages = [ "latam" ];
+      symbolsFile = builtins.toFile "symbols-latam-code" ''
+        partial alphanumeric_keys
+        xkb_symbols "latam-code" {
+            include "latam(colemak)"
+
+            name[Group1]="${description}";
+
+            key <AB01>	{ [         z,          Z, guillemotleft,        less ]	};
+            key <AB02>	{ [         x,          X, guillemotright,    greater ]	};
+        };
+      '';
+    };
   };
 
   # Configure console keymap
