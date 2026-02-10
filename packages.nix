@@ -71,7 +71,7 @@ in
     nvtopPackages.full
     nomacs
     wl-clipboard
-    xorg.xeyes
+    xeyes
     qalculate-qt
     localsend
     heroic
