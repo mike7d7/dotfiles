@@ -24,62 +24,6 @@
       langmap = "fe,pr,gt,jy,lu,ui,yo,ñp,rs,sd,tf,dg,nj,ek,il,oñ,kn,FE,PR,GT,JY,LU,UI,YO,ÑP,RS,SD,TF,DG,NJ,EK,IL,OÑ,KN";
     };
 
-    maps.terminal = {
-      "<S-BS>" = {
-        action = "<BS>";
-      };
-      "<C-BS>" = {
-        action = "<BS>";
-      };
-      "<M-S-BS>" = {
-        action = "<BS>";
-      };
-      "<M-C-BS>" = {
-        action = "<BS>";
-      };
-      "<C-S-BS>" = {
-        action = "<BS>";
-      };
-      "<M-C-S-BS>" = {
-        action = "<BS>";
-      };
-      "<S-Space>" = {
-        action = "<Space>";
-      };
-      "<M-S-Space>" = {
-        action = "<Space>";
-      };
-      "<M-C-Space>" = {
-        action = "<Space>";
-      };
-      "<C-S-Space>" = {
-        action = "<Space>";
-      };
-      "<M-C-S-Space>" = {
-        action = "<Space>";
-      };
-      "<S-CR>" = {
-        action = "<CR>";
-      };
-      "<C-CR>" = {
-        action = "<CR>";
-      };
-      "<M-S-CR>" = {
-        action = "<CR>";
-      };
-      "<M-C-CR>" = {
-        action = "<CR>";
-      };
-      "<C-S-CR>" = {
-        action = "<CR>";
-      };
-      "<M-C-S-CR>" = {
-        action = "<CR>";
-      };
-      "<Esc>" = {
-        action = "<C-\\><C-n>";
-      };
-    };
     keymaps = [
       {
         key = "j";
