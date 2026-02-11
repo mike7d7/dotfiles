@@ -21,7 +21,7 @@
     };
     options = {
       whichwrap = "h,l";
-      langmap = "fe,pr,gt,jy,lu,ui,yo,ñp,rs,sd,tf,dg,nj,ek,il,oñ,kn";
+      langmap = "fe,pr,gt,jy,lu,ui,yo,ñp,rs,sd,tf,dg,nj,ek,il,oñ,kn,FE,PR,GT,JY,LU,UI,YO,ÑP,RS,SD,TF,DG,NJ,EK,IL,OÑ,KN";
     };
 
     maps.terminal = {
