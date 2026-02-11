@@ -44,6 +44,12 @@
         action = ":update<CR>";
       }
       {
+        key = "<leader>x";
+        mode = "n";
+        silent = true;
+        action = ":bd<CR>";
+      }
+      {
         key = "<A-i>";
         mode = "t";
         silent = true;
