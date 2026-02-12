@@ -169,96 +169,223 @@
     keymap = {
       mgr.prepend_keymap = [
         {
+          on = "n";
+          run = "arrow next";
+        }
+        {
+          on = "e";
+          run = "arrow prev";
+        }
+        {
+          on = "N";
+          run = "arrow 5";
+        }
+        {
+          on = "E";
+          run = "arrow -5";
+        }
+
+        {
+          on = "<C-l>";
+          run = "arrow -50%";
+        }
+        {
+          on = "<C-s>";
+          run = "arrow 50%";
+        }
+        {
+          on = "<C-t>";
+          run = "arrow 100%";
+        }
+
+        {
+          on = [
+            "d"
+            "d"
+          ];
+          run = "arrow top";
+        }
+        {
+          on = "D";
+          run = "arrow bot";
+        }
+
+        {
+          on = "i";
+          run = "enter";
+        }
+        {
+          on = "I";
+          run = "forward";
+        }
+
+        {
+          on = "<C-y>";
+          run = "toggle_all --state=on";
+        }
+        {
+          on = "<C-p>";
+          run = "toggle_all";
+        }
+
+        {
+          on = "y";
+          run = "open";
+        }
+        {
+          on = "Y";
+          run = "open --interactive";
+        }
+
+        {
+          on = "ñ";
+          run = "paste";
+        }
+        {
+          on = "Ñ";
+          run = "paste --force";
+        }
+
+        {
+          on = "s";
+          run = "remove";
+        }
+        {
+          on = "S";
+          run = "remove --permanently";
+        }
+
+        {
+          on = "p";
+          run = "rename --cursor=before_ext";
+        }
+
+        {
+          on = "f";
+          run = "filter --smart";
+          desc = "Filter files";
+        }
+
+        {
+          on = "F";
+          run = "search --via=fd";
+        }
+
+        {
+          on = "g";
+          run = "tab_create --current";
+        }
+        {
+          on = "j";
+          run = "yank";
+        }
+        {
+          on = "J";
+          run = "unyank";
+        }
+
+        {
           on = "M";
           run = "plugin mount";
           desc = "Open mount plugin";
         }
+
         {
-          on = "<S-j>";
-          run = "arrow 5";
-          desc = "Move cursor down 5 positions";
-        }
-        {
-          on = "<S-k>";
-          run = "arrow -5";
-          desc = "Move cursor up 5 positions";
-        }
-        {
-          on = [ "<C-n>" ];
+          on = "<C-k>";
           run = "shell 'ripdrag \"$@\" -dx 2>/dev/null &' --confirm";
         }
+
         {
           on = "C";
           run = "plugin ouch";
           desc = "Compress with ouch";
         }
+
         {
           on = [
+            "d"
             "g"
-            "t"
           ];
           run = "cd ~/Documents/Tarea";
-          desc = "Go to homework folder";
         }
         {
           on = [
-            "g"
+            "d"
             "l"
           ];
           run = "cd ~/.local";
-          desc = "Go to ~/.local";
         }
         {
-          on = [ "<A-i>" ];
+          on = [
+            "d"
+            "c"
+          ];
+          run = "cd ~/.config";
+        }
+        {
+          on = [
+            "d"
+            "h"
+          ];
+          run = "cd ~/";
+        }
+        {
+          on = [
+            "d"
+            "s"
+          ];
+          run = "cd ~/Downloads";
+        }
+
+        {
+          on = [
+            "d"
+            "<Space>"
+          ];
+          run = "cd --interactive";
+          desc = "Jump interactively";
+        }
+
+        {
+          on = "<A-u>";
           run = "shell 'foot -d none' --orphan";
-          desc = "Open terminal at current dir";
         }
 
         {
           on = [
             "R"
-            "o"
+            "y"
           ];
           run = "plugin recycle-bin -- open";
-          desc = "Open Trash";
         }
-
         {
           on = [
             "R"
-            "e"
+            "f"
           ];
           run = "plugin recycle-bin -- empty";
-          desc = "Empty Trash";
         }
-
         {
           on = [
             "R"
-            "D"
+            "S"
           ];
           run = "plugin recycle-bin -- emptyDays";
-          desc = "Empty by days deleted";
         }
-
-        {
-          on = [
-            "R"
-            "d"
-          ];
-          run = "plugin recycle-bin -- delete";
-          desc = "Delete from Trash";
-        }
-
         {
           on = [
             "R"
             "r"
           ];
-          run = "plugin recycle-bin -- restore";
-          desc = "Restore from Trash";
+          run = "plugin recycle-bin -- delete";
         }
-
+        {
+          on = [
+            "R"
+            "p"
+          ];
+          run = "plugin recycle-bin -- restore";
+        }
       ];
     };
     settings = {
