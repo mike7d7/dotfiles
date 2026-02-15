@@ -9,36 +9,45 @@
     ./packages.nix
     ./graphics.nix
   ];
-  hardware.bluetooth.enable = true; # enables support for bluetooth
-  hardware.bluetooth.powerOnBoot = false; # powers up the default Bluetooth controller on boot
+  hardware = {
+    bluetooth = {
 
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
-  boot.kernelParams = [
-    "nowatchdog"
-    "preempt=full"
-    "rcutree.enable_rcu_lazy=1"
-  ];
-  boot.kernelModules = [ "ntsync" ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager = {
-    enable = true;
-    plugins = with pkgs; [
-      networkmanager-openvpn
-    ];
+      enable = true; # enables support for bluetooth
+      powerOnBoot = false; # powers up the default Bluetooth controller on boot
+    };
   };
-  networking.useDHCP = false;
+
+  boot = {
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
+    kernelParams = [
+      "nowatchdog"
+      "preempt=full"
+      "rcutree.enable_rcu_lazy=1"
+    ];
+    kernelModules = [ "ntsync" ];
+
+    # Bootloader.
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+  };
+
+  networking = {
+    hostName = "nixos"; # Define your hostname.
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+    # Enable networking
+    networkmanager = {
+      enable = true;
+      plugins = with pkgs; [
+        networkmanager-openvpn
+      ];
+    };
+    useDHCP = false;
+  };
   systemd.network = {
     enable = true;
     networks = {
