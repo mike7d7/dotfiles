@@ -84,6 +84,7 @@
       rust.enable = true;
       clang.enable = true;
       bash.enable = true;
+      python.enable = true;
     };
     diagnostics = {
       config = {
