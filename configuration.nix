@@ -118,12 +118,70 @@
     fira-code
   ];
   fonts.fontDir.enable = true;
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.epson-escpr2 ];
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
+  services = {
+    printing.enable = true;
+    printing.drivers = [ pkgs.epson-escpr2 ];
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+    pcscd.enable = true;
+    gvfs.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+      extraConfig.pipewire."92-low-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 128;
+          "default.clock.min-quantum" = 32;
+          "default.clock.max-quantum" = 256;
+        };
+      };
+      wireplumber.extraConfig."10-bluez" = {
+        "monitor.bluez.properties" = {
+          "bluez5.enable-sbc-xq" = true;
+          "bluez5.enable-msbc" = true;
+          "bluez5.enable-hw-volume" = true;
+          "bluez5.headset-roles" = [
+            "hsp_hs"
+            "hsp_ag"
+            "hfp_hf"
+            "hfp_ag"
+          ];
+        };
+      };
+    };
+    udev = {
+      packages = [
+        (pkgs.writeTextFile {
+          name = "my-rules";
+          text = ''
+            KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
+            SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
+          '';
+          destination = "/etc/udev/rules.d/70-opentabletdriver.rules";
+        })
+      ]
+      ++ [
+        pkgs.oversteer
+        pkgs.usb-modeswitch-data
+      ];
+      extraRules = ''
+        ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c294", RUN+="${pkgs.usb-modeswitch}/bin/usb_modeswitch -v 046d -p c294 -m 01 -r 01 -C 03 -M '0f00010142'"
+      '';
+    };
+    logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
+    asusd = {
+      enable = true;
+      enableUserService = true;
+    };
+    upower.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -138,11 +196,31 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    dconf.enable = true;
+    # Make Firefox use the KDE file picker.
+    # Preferences source: https://wiki.archlinux.org/title/firefox#KDE_integration
+    firefox = {
+      enable = true;
+      preferences = {
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "svg.context-properties.content.enabled" = true;
+      };
+    };
+    nvf = {
+      enable = true;
+      settings = import ./nvf-config.nix;
+    };
+    dank-material-shell = {
+      enable = true;
+      systemd.enable = true;
+    };
   };
-  services.pcscd.enable = true;
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -163,57 +241,8 @@
       "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
     };
   };
-  programs.dconf.enable = true;
-  # Make Firefox use the KDE file picker.
-  # Preferences source: https://wiki.archlinux.org/title/firefox#KDE_integration
-  programs.firefox = {
-    enable = true;
-    preferences = {
-      "widget.use-xdg-desktop-portal.file-picker" = 1;
-      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-      "svg.context-properties.content.enabled" = true;
-    };
-  };
-  programs.nvf = {
-    enable = true;
-    settings = import ./nvf-config.nix;
-  };
-  programs.dank-material-shell = {
-    enable = true;
-    systemd.enable = true;
-  };
-  services.gvfs.enable = true;
   # services.flatpak.enable = true;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-  };
-  services.pipewire.extraConfig.pipewire."92-low-latency" = {
-    "context.properties" = {
-      "default.clock.rate" = 48000;
-      "default.clock.quantum" = 128;
-      "default.clock.min-quantum" = 32;
-      "default.clock.max-quantum" = 256;
-    };
-  };
-  services.pipewire.wireplumber.extraConfig."10-bluez" = {
-    "monitor.bluez.properties" = {
-      "bluez5.enable-sbc-xq" = true;
-      "bluez5.enable-msbc" = true;
-      "bluez5.enable-hw-volume" = true;
-      "bluez5.headset-roles" = [
-        "hsp_hs"
-        "hsp_ag"
-        "hfp_hf"
-        "hfp_ag"
-      ];
-    };
-  };
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     58396
@@ -235,32 +264,10 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-  services.udev.packages = [
-    (pkgs.writeTextFile {
-      name = "my-rules";
-      text = ''
-        KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
-        SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
-      '';
-      destination = "/etc/udev/rules.d/70-opentabletdriver.rules";
-    })
-  ]
-  ++ [
-    pkgs.oversteer
-    pkgs.usb-modeswitch-data
-  ];
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c294", RUN+="${pkgs.usb-modeswitch}/bin/usb_modeswitch -v 046d -p c294 -m 01 -r 01 -C 03 -M '0f00010142'"
-  '';
+
   programs.bash.promptInit = ''
     PS1='\[\e[0m\][\[\e[1;36m\]\u\[\e[0m\]@\[\e[1;36m\]\h\[\e[0m\] \W]\$ '
   '';
-  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
-  services.asusd = {
-    enable = true;
-    enableUserService = true;
-  };
-  services.upower.enable = true;
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
