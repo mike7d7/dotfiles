@@ -19,6 +19,7 @@
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =
@@ -26,6 +27,7 @@
       nixpkgs,
       home-manager,
       nvf,
+      nix-cachyos-kernel,
       ...
     }:
     {
@@ -38,6 +40,13 @@
         specialArgs.inputs = inputs;
         system = "x86_64-linux";
         modules = [
+          {
+            nixpkgs.overlays = [
+              nix-cachyos-kernel.overlays.pinned
+            ];
+            nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" ];
+            nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+          }
           ./configuration.nix
           home-manager.nixosModules.home-manager
           inputs.nvf.nixosModules.default

@@ -12,7 +12,7 @@
   hardware.bluetooth.enable = true; # enables support for bluetooth
   hardware.bluetooth.powerOnBoot = false; # powers up the default Bluetooth controller on boot
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
   boot.kernelParams = [
     "nowatchdog"
     "preempt=full"
