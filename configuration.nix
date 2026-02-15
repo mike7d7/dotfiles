@@ -252,42 +252,6 @@
     enableUserService = true;
   };
   services.upower.enable = true;
-  services.tlp = {
-    enable = false;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      # CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-
-      CPU_MIN_PERF_ON_AC = 0;
-      CPU_MAX_PERF_ON_AC = 100;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 30;
-      CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 1;
-
-      CPU_HWP_DYN_BOOST_ON_AC = 1;
-      CPU_HWP_DYN_BOOST_ON_BAT = 1;
-      PLATFORM_PROFILE_ON_AC = "balanced";
-      PLATFORM_PROFILE_ON_BAT = "low-power";
-
-      INTEL_GPU_MIN_FREQ_ON_AC = 0;
-      INTEL_GPU_MIN_FREQ_ON_BAT = 0;
-      INTEL_GPU_MAX_FREQ_ON_AC = 1500;
-      INTEL_GPU_MAX_FREQ_ON_BAT = 750;
-      INTEL_GPU_BOOST_FREQ_ON_BAT = 0;
-
-      RUNTIME_PM_DRIVER_DENYLIST = "mei_me";
-
-      WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "on";
-
-      STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
-    };
-  };
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
