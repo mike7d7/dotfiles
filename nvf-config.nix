@@ -7,6 +7,7 @@
       enable = true;
       name = "gruvbox";
       style = "dark";
+      transparent = true;
     };
     terminal.toggleterm = {
       enable = true;
