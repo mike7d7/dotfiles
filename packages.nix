@@ -118,6 +118,7 @@ in
     aisleriot
     nchat
     dgop
+    typst
 
     dock-script
     undock-script
