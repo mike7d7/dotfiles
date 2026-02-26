@@ -219,6 +219,7 @@
     dank-material-shell = {
       enable = true;
       systemd.enable = true;
+      enableCalendarEvents = false;
     };
   };
   xdg.portal = {
