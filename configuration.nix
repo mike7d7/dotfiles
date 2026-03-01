@@ -179,7 +179,6 @@
     logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
     asusd = {
       enable = true;
-      enableUserService = true;
     };
     upower.enable = true;
   };
