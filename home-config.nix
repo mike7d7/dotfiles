@@ -13,7 +13,6 @@
   programs.bash.enable = true;
   programs.foot.enable = true;
   programs.mpv.enable = true;
-  programs.zed-editor.enable = true;
   programs.yazi.enable = true;
   gtk.enable = true;
   services.swayosd.enable = true;
@@ -60,104 +59,6 @@
       bright7 = "ffffff"; # bright white
     };
   };
-  programs.zed-editor = {
-    extensions = [
-      "log"
-      "nix"
-      "basher"
-      "typst"
-    ];
-    userKeymaps = builtins.fromJSON (builtins.readFile ./configs/zed/keymap.json);
-    userSettings = {
-      agent = {
-        enabled = false;
-      };
-
-      buffer_font_family = "Fira Code";
-      buffer_font_size = 16;
-
-      git = {
-        inline_blame = {
-          enabled = false;
-        };
-      };
-
-      languages = {
-        "C" = {
-          format_on_save = "on";
-        };
-        "C++" = {
-          format_on_save = "on";
-          tab_size = 2;
-        };
-        "Markdown" = {
-          format_on_save = "on";
-        };
-        "Nix" = {
-          language_servers = [
-            "nil"
-            "!nixd"
-          ];
-        };
-      };
-
-      lsp = {
-        slint = {
-          binary = {
-            path = lib.getExe pkgs.slint-lsp;
-          };
-        };
-        nil = {
-          initialization_options = {
-            formatting = {
-              command = [ "nixfmt" ];
-            };
-          };
-        };
-        tinymist = {
-          initialization_options = {
-            preview = {
-              background = {
-                enabled = true;
-              };
-            };
-          };
-          settings = {
-            exportPdf = "onSave";
-            formatterMode = "typstyle";
-            outputPath = "$root/$dir/$name";
-          };
-        };
-      };
-
-      soft_wrap = "editor_width";
-
-      telemetry = {
-        diagnostics = false;
-        metrics = false;
-      };
-
-      theme = {
-        dark = "Custom 1 Dark";
-        light = "One Light";
-        mode = "system";
-      };
-
-      ui_font_size = 16;
-      vim_mode = true;
-    };
-    extraPackages = with pkgs; [
-      clang-tools
-      nil
-      nixfmt
-      tinymist
-      typstyle
-      python313Packages.python-lsp-server
-      python313Packages.pylint
-    ];
-  };
-  xdg.configFile."zed/tasks.json".source = ./configs/zed/tasks.json;
-  xdg.configFile."zed/themes/custom-theme-1.json".source = ./configs/zed/themes/custom-theme-1.json;
 
   programs.yazi = {
     plugins = {
