@@ -55,7 +55,7 @@ in
   ];
   environment.systemPackages = with pkgs; [
     git
-    niri
+    # niri
     # neovim
     pipewire
     libreoffice-qt6-fresh

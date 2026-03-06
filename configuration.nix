@@ -196,6 +196,9 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   programs = {
+    niri = {
+      enable = true;
+    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
