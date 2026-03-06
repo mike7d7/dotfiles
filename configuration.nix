@@ -187,7 +187,7 @@
       compositor.name = "niri";
       configHome = "/home/mig";
       logs = {
-        save = true;
+        save = false;
         path = "/tmp/dms-greeter.log";
       };
     };
