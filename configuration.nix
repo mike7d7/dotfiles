@@ -215,9 +215,12 @@
       enable = true;
       settings = import ./nvf-config.nix;
     };
-    dank-material-shell = {
+    dms-shell = {
       enable = true;
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
       enableCalendarEvents = false;
     };
   };

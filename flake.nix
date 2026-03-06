@@ -15,10 +15,6 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
@@ -50,7 +46,6 @@
           ./configuration.nix
           home-manager.nixosModules.home-manager
           inputs.nvf.nixosModules.default
-          inputs.dms.nixosModules.dank-material-shell
           {
             home-manager = {
               useGlobalPkgs = true;
