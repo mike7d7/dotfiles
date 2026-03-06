@@ -119,7 +119,8 @@ in
     nchat
     dgop
     typst
-
+    wineWow64Packages.yabridge # needed for AMS2 mods
+    winetricks
     dock-script
     undock-script
     firefox-sync
