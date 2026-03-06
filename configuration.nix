@@ -181,6 +181,16 @@
       enable = true;
     };
     upower.enable = true;
+
+    displayManager.dms-greeter = {
+      enable = true;
+      compositor.name = "niri";
+      configHome = "/home/mig";
+      logs = {
+        save = true;
+        path = "/tmp/dms-greeter.log";
+      };
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
