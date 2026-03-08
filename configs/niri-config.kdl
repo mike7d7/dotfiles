@@ -46,6 +46,7 @@ layout {
     default-column-width { proportion 0.5; }
     gaps 10
     center-focused-column "never"
+    background-color "transparent"
 }
 
 spawn-at-startup "bluetoothctl" "power" "off"
@@ -133,6 +134,11 @@ window-rule {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="quickshell"
+    place-within-backdrop true
 }
 
 binds {
