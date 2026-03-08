@@ -119,6 +119,11 @@
   ];
   fonts.fontDir.enable = true;
   services = {
+    howdy = {
+      enable = true;
+      control = "sufficient";
+    };
+    linux-enable-ir-emitter.enable = true;
     printing.enable = true;
     printing.drivers = [ pkgs.epson-escpr2 ];
     avahi = {
@@ -259,6 +264,9 @@
   };
   # services.flatpak.enable = true;
   security.rtkit.enable = true;
+  security = {
+    pam.howdy.enable = true;
+  };
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     58396
