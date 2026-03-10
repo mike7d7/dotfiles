@@ -121,6 +121,8 @@ in
     typst
     wineWow64Packages.yabridge # needed for AMS2 mods
     winetricks
+    inputs.handy.packages.x86_64-linux.default
+
     dock-script
     undock-script
     firefox-sync
