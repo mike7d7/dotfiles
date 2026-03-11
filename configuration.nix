@@ -18,7 +18,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-lto;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-lts-x86_64-v3;
     kernelParams = [
       "nowatchdog"
       "preempt=full"
