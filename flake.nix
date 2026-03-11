@@ -18,6 +18,7 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     # handy.url = "github:cjpais/Handy";
     handy.url = "github:xilec/Handy/fix/nix-update-hashes";
+    quickshell.url = "github:quickshell-mirror/quickshell";
   };
 
   outputs =
