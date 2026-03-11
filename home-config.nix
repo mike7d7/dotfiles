@@ -34,7 +34,7 @@
       dpi-aware = false;
     };
 
-    colors = {
+    colors-dark = {
       alpha = 0.7;
       background = "000000";
       foreground = "FFFFFF";
