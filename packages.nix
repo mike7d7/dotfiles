@@ -55,8 +55,6 @@ in
   ];
   environment.systemPackages = with pkgs; [
     git
-    # niri
-    # neovim
     pipewire
     libreoffice-qt6-fresh
     hunspell
@@ -83,14 +81,10 @@ in
     ripunzip
     kew
     joplin-desktop
-    tenacity
     bluetuith
-    # dependencies for nvchad
-    unzip
 
     wl-mirror
     rsync
-    _7zz
     gnupg
     pinentry-tty
     graphite-cursors
@@ -112,11 +106,9 @@ in
     reaper
     python3
     matugen
-    zoom-us
     halloy
     inputs.nix-matlab.packages.x86_64-linux.matlab
     aisleriot
-    nchat
     dgop
     typst
     wineWow64Packages.yabridge # needed for AMS2 mods
