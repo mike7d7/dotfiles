@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }:
 let
@@ -38,6 +39,32 @@ let
      touch $link/.unpacked
     fi
   '';
+  rpcs3-latest = pkgs.rpcs3.overrideAttrs (old: {
+    NIX_CFLAGS_COMPILE = toString (old.NIX_CFLAGS_COMPILE or "") + " -march=x86-64-v3 -O3";
+
+    version = "0.0.40";
+    src = pkgs.fetchFromGitHub {
+      owner = "RPCS3";
+      repo = "rpcs3";
+      rev = "e6cf05cfb73e156818685495814b0b7b8edaa97b";
+      postCheckout = ''
+        cd $out/3rdparty
+        git submodule update --init \
+          fusion/fusion asmjit/asmjit yaml-cpp/yaml-cpp SoundTouch/soundtouch stblib/stb \
+          feralinteractive/feralinteractive
+      '';
+      hash = "sha256-KrWsiDQcdbBBDQlui9bXWsxit/fiv7mQoJA2VQlu9fU=";
+    };
+    buildInputs = old.buildInputs ++ [
+      pkgs.protobuf
+      pkgs.llvm
+    ];
+    cmakeFlags = old.cmakeFlags ++ [
+      (lib.cmakeBool "USE_SYSTEM_PROTOBUF" true)
+      (lib.cmakeBool "USE_SYSTEM_FLATBUFFERS" false)
+
+    ];
+  });
   # nixpkgsPinned = import (builtins.fetchTarball {
   #   url = "https://github.com/NixOS/nixpkgs/archive/f64072cc7ad8341df63a6f2f095c961a7050dbc0.tar.gz";
   # }) { };
@@ -114,6 +141,7 @@ in
     wineWow64Packages.yabridge # needed for AMS2 mods
     winetricks
     inputs.handy.packages.x86_64-linux.default
+    rpcs3-latest
 
     dock-script
     undock-script
