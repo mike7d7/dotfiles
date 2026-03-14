@@ -16,8 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    # handy.url = "github:cjpais/Handy";
-    handy.url = "github:xilec/Handy/fix/nix-update-hashes";
+    handy.url = "github:cjpais/Handy";
     quickshell.url = "github:quickshell-mirror/quickshell";
   };
 
