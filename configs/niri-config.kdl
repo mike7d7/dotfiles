@@ -291,7 +291,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
     Mod+Ctrl+P { spawn "dms" "ipc" "outputs" "setProfile" "Docked"; }
     Mod+Ctrl+Shift+P allow-when-locked=true { spawn "dms" "ipc" "outputs" "setProfile" "Undocked"; }
-    Ctrl+Space { spawn "handy" "--toggle-transcription";}
+    Alt+Space { spawn "handy" "--toggle-transcription";}
 }
 
 debug {
