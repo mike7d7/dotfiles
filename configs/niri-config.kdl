@@ -284,6 +284,7 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    Mod+R { screenshot; }
 
     Mod+Shift+F { spawn "niri" "msg" "action" "quit";}
 
