@@ -5,14 +5,6 @@
   ...
 }:
 let
-  dock-script = pkgs.writeShellScriptBin "dock-sh" ''
-    niri msg output eDP-1 off
-    niri msg output DP-1 vrr on
-  '';
-  undock-script = pkgs.writeShellScriptBin "undock-sh" ''
-    niri msg output eDP-1 on
-    niri msg output eDP-1 vrr on
-  '';
   firefox-sync = pkgs.writeShellScriptBin "firefox-sync" ''
     static=static-$1
     link=$1
@@ -65,9 +57,6 @@ let
 
     ];
   });
-  # nixpkgsPinned = import (builtins.fetchTarball {
-  #   url = "https://github.com/NixOS/nixpkgs/archive/f64072cc7ad8341df63a6f2f095c961a7050dbc0.tar.gz";
-  # }) { };
 in
 {
   nixpkgs.overlays = [
@@ -143,8 +132,6 @@ in
     inputs.handy.packages.x86_64-linux.default
     rpcs3-latest
 
-    dock-script
-    undock-script
     firefox-sync
   ];
   systemd.user.services.firefox-profile-memory-cache = {
