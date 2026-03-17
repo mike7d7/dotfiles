@@ -234,8 +234,8 @@ binds {
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    Mod+TouchpadScrollDown { spawn "swayosd-client" "--output-volume" "-2"; }
-    Mod+TouchpadScrollUp   { spawn "swayosd-client" "--output-volume" "2"; }
+    Mod+TouchpadScrollUp { spawn "dms" "ipc" "call" "audio" "decrement" "2"; }
+    Mod+TouchpadScrollDown { spawn "dms" "ipc" "call" "audio" "increment" "2"; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }

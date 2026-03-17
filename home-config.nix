@@ -15,7 +15,6 @@
   programs.mpv.enable = true;
   programs.yazi.enable = true;
   gtk.enable = true;
-  services.swayosd.enable = true;
 
   # Configs
   programs.git = {
