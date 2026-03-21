@@ -292,6 +292,8 @@ binds {
     Mod+Ctrl+P { spawn "dms" "ipc" "outputs" "setProfile" "Docked"; }
     Mod+Ctrl+Shift+P allow-when-locked=true { spawn "dms" "ipc" "outputs" "setProfile" "Undocked"; }
     Alt+Space { spawn "handy" "--toggle-transcription";}
+
+    Mod+M { spawn "foot" "-e" "kew";}
 }
 
 debug {
