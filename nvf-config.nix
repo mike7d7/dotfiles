@@ -87,6 +87,7 @@
       bash.enable = true;
       python.enable = true;
       typst.enable = true;
+      r.enable = true;
     };
     diagnostics = {
       config = {

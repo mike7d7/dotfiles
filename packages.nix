@@ -129,7 +129,6 @@ in
     typst
     wineWow64Packages.yabridge # needed for AMS2 mods
     winetricks
-    rstudio
     inputs.handy.packages.x86_64-linux.default
     rpcs3-latest
 
