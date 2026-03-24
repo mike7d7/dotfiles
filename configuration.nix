@@ -25,8 +25,6 @@
     kernelPackages =
       let
         kernel = pkgs.cachyosKernels.linux-cachyos-latest.override {
-          version = "6.19.8";
-
           # Customize CachyOS settings
           cpusched = "bore";
           lto = "full";
