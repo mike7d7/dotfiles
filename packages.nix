@@ -62,6 +62,19 @@ let
       ggplot2
       dplyr
       dslabs
+      base64enc
+      digest
+      evaluate
+      highr
+      htmltools
+      jsonlite
+      knitr
+      mime
+      rmarkdown
+      stringi
+      stringr
+      xfun
+      yaml
     ];
   };
 in
