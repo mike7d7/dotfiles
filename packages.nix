@@ -59,6 +59,9 @@ let
   });
 in
 {
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-38.8.4"
+  ];
   nixpkgs.overlays = [
     (final: prev: {
       ouch = prev.ouch.override { enableUnfree = true; };
@@ -129,6 +132,8 @@ in
     typst
     wineWow64Packages.yabridge # needed for AMS2 mods
     winetricks
+    rstudio
+
     inputs.handy.packages.x86_64-linux.default
     rpcs3-latest
 
