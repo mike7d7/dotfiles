@@ -1,5 +1,9 @@
 {
   vim = {
+    debugger.nvim-dap = {
+      enable = true;
+      ui.enable = true;
+    };
     lineNumberMode = "number";
     clipboard.enable = true;
     clipboard.registers = "unnamedplus";
@@ -74,6 +78,7 @@
       enableFormat = true;
       enableExtraDiagnostics = true;
       enableTreesitter = true;
+      enableDAP = true;
 
       nix = {
         enable = true;
