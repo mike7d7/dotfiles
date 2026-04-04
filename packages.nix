@@ -5,6 +5,9 @@
   ...
 }:
 let
+  backup-script = pkgs.writeShellScriptBin "backup-script" ''
+    restic -r rclone:o-pi:Restic backup /home/mig/Documents /home/mig/Games/Savefiles --skip-if-unchanged
+  '';
   firefox-sync = pkgs.writeShellScriptBin "firefox-sync" ''
     static=static-$1
     link=$1
@@ -159,6 +162,7 @@ in
     inputs.handy.packages.x86_64-linux.default
     rpcs3-latest
 
+    backup-script
     firefox-sync
   ];
   systemd.user.services.firefox-profile-memory-cache = {
