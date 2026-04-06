@@ -159,6 +159,7 @@ in
     restic
 
     RStudio-with-my-packages
+    texlive.combined.scheme-full # needed for exporting PDF in r
     inputs.handy.packages.x86_64-linux.default
     rpcs3-latest
 
