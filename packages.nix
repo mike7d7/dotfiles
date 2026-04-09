@@ -78,6 +78,9 @@ let
       stringr
       xfun
       yaml
+      ggrepel
+      ggthemes
+      gridExtra
     ];
   };
 in
