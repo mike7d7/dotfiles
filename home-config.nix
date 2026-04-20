@@ -19,6 +19,7 @@
   # Configs
   programs.git = {
     enable = true;
+    signing.format = "openpgp";
     settings = {
       user = {
         name = "mike7d7";
@@ -60,6 +61,7 @@
   };
 
   programs.yazi = {
+    shellWrapperName = "y";
     plugins = {
       mount = pkgs.yaziPlugins.mount;
       ouch = pkgs.yaziPlugins.ouch;
@@ -367,25 +369,35 @@
     };
   };
 
-  gtk.gtk3.bookmarks = [
-    "file:///home/mig/Desktop"
-    "file:///home/mig/Documents"
-    "file:///home/mig/Videos"
-    "file:///home/mig/Music"
-    "file:///home/mig/Images"
-    "file:///home/mig/Downloads"
-  ];
-  gtk.gtk3.extraConfig = {
-    gtk-icon-theme-name = "Adwaita";
-    gtk-theme-name = "Adwaita-dark";
-    gtk-application-prefer-dark-theme = 1;
-    gtk-cursor-theme-name = "graphite-dark";
-  };
-  gtk.gtk4.extraConfig = {
-    gtk-icon-theme-name = "Adwaita";
-    gtk-theme-name = "Adwaita-dark";
-    gtk-application-prefer-dark-theme = 1;
-    gtk-cursor-theme-name = "graphite-dark";
+  gtk = {
+    gtk3 = {
+      bookmarks = [
+        "file:///home/mig/Desktop"
+        "file:///home/mig/Documents"
+        "file:///home/mig/Videos"
+        "file:///home/mig/Music"
+        "file:///home/mig/Images"
+        "file:///home/mig/Downloads"
+      ];
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+        gtk-cursor-theme-name = "graphite-dark";
+      };
+      theme = {
+        name = "fluent-gtk-theme";
+        package = pkgs.fluent-gtk-theme;
+      };
+    };
+    gtk4 = {
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+        gtk-cursor-theme-name = "graphite-dark";
+      };
+      theme = {
+        name = "fluent-gtk-theme";
+        package = pkgs.fluent-gtk-theme;
+      };
+    };
   };
   qt = {
     enable = true;
