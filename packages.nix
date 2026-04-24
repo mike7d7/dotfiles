@@ -78,6 +78,7 @@ in
       matugen
       halloy
       inputs.nix-matlab.packages.x86_64-linux.matlab
+      inputs.handy.packages.x86_64-linux.default
       aisleriot
       dgop
       typst
