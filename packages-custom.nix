@@ -77,6 +77,7 @@ let
       ggrepel
       ggthemes
       gridExtra
+      Biostrings
     ];
   };
 in
