@@ -86,6 +86,7 @@ in
       winetricks
       rclone
       restic
+      stirling-pdf-desktop
     ]
     ++ custom-packages.packages;
   systemd.user.services.firefox-profile-memory-cache = {
