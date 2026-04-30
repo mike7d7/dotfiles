@@ -30,32 +30,6 @@ let
      touch $link/.unpacked
     fi
   '';
-  rpcs3-latest = pkgs.rpcs3.overrideAttrs (old: {
-    NIX_CFLAGS_COMPILE = toString (old.NIX_CFLAGS_COMPILE or "") + " -march=x86-64-v3 -O3";
-
-    version = "0.0.40";
-    src = pkgs.fetchFromGitHub {
-      owner = "RPCS3";
-      repo = "rpcs3";
-      rev = "e6cf05cfb73e156818685495814b0b7b8edaa97b";
-      postCheckout = ''
-        cd $out/3rdparty
-        git submodule update --init \
-          fusion/fusion asmjit/asmjit yaml-cpp/yaml-cpp SoundTouch/soundtouch stblib/stb \
-          feralinteractive/feralinteractive
-      '';
-      hash = "sha256-KrWsiDQcdbBBDQlui9bXWsxit/fiv7mQoJA2VQlu9fU=";
-    };
-    buildInputs = old.buildInputs ++ [
-      pkgs.protobuf
-      pkgs.llvm
-    ];
-    cmakeFlags = old.cmakeFlags ++ [
-      (lib.cmakeBool "USE_SYSTEM_PROTOBUF" true)
-      (lib.cmakeBool "USE_SYSTEM_FLATBUFFERS" false)
-
-    ];
-  });
   RStudio-with-my-packages = pkgs.rstudioWrapper.override {
     packages = with pkgs.rPackages; [
       ggplot2
@@ -85,7 +59,6 @@ in
   packages = [
     RStudio-with-my-packages
     pkgs.texlive.combined.scheme-full
-    rpcs3-latest
     backup-script
     firefox-sync
   ];

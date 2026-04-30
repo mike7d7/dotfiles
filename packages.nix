@@ -87,6 +87,7 @@ in
       rclone
       restic
       stirling-pdf-desktop
+      rpcs3
     ]
     ++ custom-packages.packages;
   systemd.user.services.firefox-profile-memory-cache = {
