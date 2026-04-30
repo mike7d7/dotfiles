@@ -22,25 +22,9 @@
   };
 
   boot = {
-    kernelPackages =
-      let
-        kernel = pkgs.cachyosKernels.linux-cachyos-latest.override {
-          # Customize CachyOS settings
-          cpusched = "bore";
-          lto = "full";
-          processorOpt = "x86_64-v3";
-          hzTicks = "1000";
-          bbr3 = true;
-          hardened = false;
-          autofdo = true;
-          autoModules = false;
-          # Additional args are available. See kernel-cachyos/mkCachyKernel.nix
-        };
-        # helpers.nix provides a few utilities for building kernel with LTO.
-        # I haven't figured out a clean way to expose it in flakes.
-        helpers = pkgs.callPackage "${inputs.nix-cachyos-kernel.outPath}/helpers.nix" { };
-      in
-      helpers.kernelModuleLLVMOverride (pkgs.linuxKernel.packagesFor kernel);
+    kernelPackages = pkgs.linuxKernel.packagesFor (
+      inputs.custom-kernel.packages."x86_64-linux".default
+    );
     kernelParams = [
       "nowatchdog"
       "preempt=full"

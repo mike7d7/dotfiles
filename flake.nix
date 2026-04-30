@@ -15,7 +15,7 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    custom-kernel.url = "github:mike7d7/custom-kernel";
     handy.url = "github:cjpais/Handy";
     quickshell.url = "github:quickshell-mirror/quickshell";
   };
@@ -25,7 +25,7 @@
       nixpkgs,
       home-manager,
       nvf,
-      nix-cachyos-kernel,
+      custom-kernel,
       ...
     }:
     {
@@ -39,9 +39,6 @@
         system = "x86_64-linux";
         modules = [
           {
-            nixpkgs.overlays = [
-              nix-cachyos-kernel.overlays.pinned
-            ];
             nix.settings.substituters = [ "https://cache.garnix.io" ];
             nix.settings.trusted-public-keys = [
               "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
