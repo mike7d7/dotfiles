@@ -8,9 +8,6 @@ let
   custom-packages = import ./packages-custom.nix { inherit pkgs lib; };
 in
 {
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-38.8.4"
-  ];
   nixpkgs.overlays = [
     (final: prev: {
       ouch = prev.ouch.override { enableUnfree = true; };
