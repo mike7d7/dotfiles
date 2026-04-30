@@ -17,7 +17,10 @@
     };
     custom-kernel.url = "github:mike7d7/custom-kernel";
     handy.url = "github:cjpais/Handy";
-    quickshell.url = "github:quickshell-mirror/quickshell";
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/quickshell/quickshell?rev=783c953987dc56ff0601abe6845ed96f1d00495a";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
