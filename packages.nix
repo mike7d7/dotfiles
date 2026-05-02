@@ -85,6 +85,7 @@ in
       restic
       stirling-pdf-desktop
       rpcs3
+      davinci-resolve
     ]
     ++ custom-packages.packages;
   systemd.user.services.firefox-profile-memory-cache = {
