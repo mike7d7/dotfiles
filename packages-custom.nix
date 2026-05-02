@@ -52,6 +52,10 @@ let
       ggthemes
       gridExtra
       Biostrings
+      DECIPHER
+      ape
+      ade4
+      ggtree
     ];
   };
 in
