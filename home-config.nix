@@ -35,6 +35,7 @@
     };
 
     colors-dark = {
+      blur = true;
       alpha = 0.7;
       background = "000000";
       foreground = "FFFFFF";
