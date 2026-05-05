@@ -23,7 +23,7 @@ in
     [
       git
       pipewire
-      libreoffice-qt6-fresh
+      libreoffice-fresh
       hunspell
       hunspellDicts.es_MX
       hunspellDicts.en_US
