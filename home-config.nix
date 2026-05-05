@@ -32,58 +32,12 @@
     main = {
       font = "liberation mono:size=14";
       dpi-aware = false;
+      include = "/home/mig/.config/foot/dank-colors.ini";
     };
-    colors-light = {
-      blur = true;
-      alpha = 0.7;
-      background = "FFFFFF"; # white
-      foreground = "000000"; # black
-
-      ## Normal/regular colors (color palette 0-7)
-      regular0 = "E5E5E5"; # light gray (former dark black)
-      regular1 = "CD0000"; # red
-      regular2 = "00CD00"; # green
-      regular3 = "CDCD00"; # yellow
-      regular4 = "0000EE"; # blue
-      regular5 = "CD00CD"; # magenta
-      regular6 = "00CDCD"; # cyan
-      regular7 = "000000"; # black (for strong contrast text)
-
-      ## Bright colors (color palette 8-15)
-      bright0 = "7F7F7F"; # dark gray
-      bright1 = "FF0000"; # bright red
-      bright2 = "00FF00"; # bright green
-      bright3 = "FFFF00"; # bright yellow
-      bright4 = "5C5CFF"; # bright blue
-      bright5 = "FF00FF"; # bright magenta
-      bright6 = "00FFFF"; # bright cyan
-      bright7 = "000000"; # black
-    };
-
     colors-dark = {
       blur = true;
       alpha = 0.7;
       background = "000000";
-      foreground = "FFFFFF";
-      ## Normal/regular colors (color palette 0-7)
-      regular0 = "000000"; # black
-      regular1 = "cd0000"; # red
-      regular2 = "00cd00"; # green
-      regular3 = "cdcd00"; # yellow
-      regular4 = "0000ee"; # blue
-      regular5 = "cd00cd"; # magenta
-      regular6 = "00cdcd"; # cyan
-      regular7 = "e5e5e5"; # white
-
-      ## Bright colors (color palette 8-15)
-      bright0 = "7f7f7f"; # bright black
-      bright1 = "ff0000"; # bright red
-      bright2 = "00ff00"; # bright green
-      bright3 = "ffff00"; # bright yellow
-      bright4 = "5c5cff"; # bright blue
-      bright5 = "ff00ff"; # bright magenta
-      bright6 = "00ffff"; # bright cyan
-      bright7 = "ffffff"; # bright white
     };
   };
 
