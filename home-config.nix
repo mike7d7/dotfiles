@@ -33,6 +33,32 @@
       font = "liberation mono:size=14";
       dpi-aware = false;
     };
+    colors-light = {
+      blur = true;
+      alpha = 0.7;
+      background = "FFFFFF"; # white
+      foreground = "000000"; # black
+
+      ## Normal/regular colors (color palette 0-7)
+      regular0 = "E5E5E5"; # light gray (former dark black)
+      regular1 = "CD0000"; # red
+      regular2 = "00CD00"; # green
+      regular3 = "CDCD00"; # yellow
+      regular4 = "0000EE"; # blue
+      regular5 = "CD00CD"; # magenta
+      regular6 = "00CDCD"; # cyan
+      regular7 = "000000"; # black (for strong contrast text)
+
+      ## Bright colors (color palette 8-15)
+      bright0 = "7F7F7F"; # dark gray
+      bright1 = "FF0000"; # bright red
+      bright2 = "00FF00"; # bright green
+      bright3 = "FFFF00"; # bright yellow
+      bright4 = "5C5CFF"; # bright blue
+      bright5 = "FF00FF"; # bright magenta
+      bright6 = "00FFFF"; # bright cyan
+      bright7 = "000000"; # black
+    };
 
     colors-dark = {
       blur = true;
@@ -381,23 +407,25 @@
         "file:///home/mig/Downloads"
       ];
       extraConfig = {
-        gtk-application-prefer-dark-theme = 1;
+        # gtk-application-prefer-dark-theme = 1;
         gtk-cursor-theme-name = "graphite-dark";
       };
       theme = {
         name = "fluent-gtk-theme";
         package = pkgs.fluent-gtk-theme;
       };
+      extraCss = "@import url(\"dank-colors.css\");";
     };
     gtk4 = {
       extraConfig = {
-        gtk-application-prefer-dark-theme = 1;
+        # gtk-application-prefer-dark-theme = 1;
         gtk-cursor-theme-name = "graphite-dark";
       };
       theme = {
         name = "fluent-gtk-theme";
         package = pkgs.fluent-gtk-theme;
       };
+      extraCss = "@import url(\"dank-colors.css\");";
     };
   };
   qt = {
