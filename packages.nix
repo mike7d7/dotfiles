@@ -85,6 +85,7 @@ in
       restic
       stirling-pdf-desktop
       rpcs3
+      starsector
     ]
     ++ custom-packages.packages;
   systemd.user.services.firefox-profile-memory-cache = {
