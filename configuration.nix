@@ -174,6 +174,38 @@
           ];
         };
       };
+      wireplumber.configPackages = [
+        (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/alsa.conf" ''
+          monitor.alsa.rules = [
+            {
+              matches = [
+                {
+                  device.name = "~alsa_card.*"
+                }
+              ]
+              actions = {
+                update-props = {
+                  # Device settings
+                  api.alsa.use-acp = true
+                }
+              }
+            }
+            {
+              matches = [
+                {
+                  node.name = "~alsa_input.pci.*"
+                }
+              ]
+              actions = {
+              # Node settings
+                update-props = {
+                  session.suspend-timeout-seconds = 0
+                }
+              }
+            }
+          ]
+        '')
+      ];
     };
     udev = {
       packages = [
