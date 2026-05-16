@@ -141,6 +141,13 @@ window-rule {
 }
 
 window-rule {
+    match app-id="osu!"
+    open-fullscreen true
+    default-column-width { proportion 1.0; }
+    default-window-height { proportion 1.0; }
+}
+
+window-rule {
     match app-id="org.keepassxc.KeePassXC"
     block-out-from "screen-capture"
     open-floating true
