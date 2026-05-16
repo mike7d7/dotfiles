@@ -86,6 +86,10 @@ in
       stirling-pdf-desktop
       rpcs3
       starsector
+
+      virtio-win
+      win-spice
+      dnsmasq
     ]
     ++ custom-packages.packages;
   systemd.user.services.firefox-profile-memory-cache = {

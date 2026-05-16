@@ -4,6 +4,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }:
 {
@@ -12,6 +13,7 @@
     ./hardware-configuration.nix
     ./packages.nix
     ./graphics.nix
+    inputs.nixvirt.nixosModules.default
   ];
   hardware = {
     bluetooth = {
@@ -35,6 +37,9 @@
     # Bootloader.
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    extraModprobeConfig = ''
+      options kvm_intel nested=1
+    '';
   };
 
   networking = {
@@ -103,9 +108,11 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "libvirtd"
     ];
     # packages = with pkgs; [ ];
   };
+  users.groups.libvirtd.members = [ "mig" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -207,6 +214,34 @@
     };
   };
 
+  virtualisation = {
+    libvirt = {
+      enable = true;
+      connections."qemu:///system" = {
+        networks = [
+          {
+            active = true;
+            definition = inputs.nixvirt.lib.network.writeXML (
+              inputs.nixvirt.lib.network.templates.bridge {
+                uuid = "6bbe6459-51b6-4fa8-849e-eb0179523243";
+                subnet_byte = 122;
+              }
+            );
+          }
+        ];
+      };
+    };
+    libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+      qemu.swtpm.enable = true;
+    };
+    spiceUSBRedirection.enable = true;
+    libvirtd.allowedBridges = [
+      "virbr0"
+    ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -220,6 +255,7 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   programs = {
+    virt-manager.enable = true;
     niri = {
       enable = true;
     };
@@ -280,16 +316,29 @@
     pam.howdy.enable = true;
   };
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    58396
-    631
-    53317
-    12345
-  ];
-  networking.firewall.allowedUDPPorts = [
-    631
-    53317
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      58396
+      631
+      53317
+      12345
+    ];
+    allowedUDPPorts = [
+      631
+      53317
+    ];
+    interfaces."virbr0" = {
+      allowedUDPPorts = [
+        53
+        67
+        68
+      ];
+      allowedTCPPorts = [ 53 ];
+    };
+    trustedInterfaces = [
+      "virbr0"
+    ];
+  };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

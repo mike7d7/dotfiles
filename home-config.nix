@@ -348,6 +348,10 @@
     "org/gnome/desktop/interface" = {
       cursor-theme = "graphite-dark";
     };
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
+    };
   };
 
   gtk = {
