@@ -404,7 +404,7 @@
     gpu-api = "opengl";
   };
   # xdg.configFile."niri/config.kdl".source = ./configs/config.kdl;
-  xdg.configfile = {
+  xdg.configFile = {
     "matugen/config.toml".source = ./configs/matugen/config.toml;
     "niri/config.kdl".source = ./configs/niri-config.kdl;
     "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
