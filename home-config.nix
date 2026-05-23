@@ -1,7 +1,5 @@
 {
   pkgs,
-  lib,
-  pkgs-stable,
   ...
 }:
 {
@@ -10,23 +8,26 @@
   # home.packages = with pkgs; [];
 
   # Programs
-  programs.bash.enable = true;
-  programs.foot.enable = true;
-  programs.mpv.enable = true;
-  programs.yazi.enable = true;
-  gtk.enable = true;
+  programs = {
+    bash.enable = true;
+    foot.enable = true;
+    mpv.enable = true;
+    yazi.enable = true;
 
-  # Configs
-  programs.git = {
-    enable = true;
-    signing.format = "openpgp";
-    settings = {
-      user = {
-        name = "mike7d7";
-        email = "mike7d7@proton.me";
+    git = {
+      enable = true;
+      signing.format = "openpgp";
+      settings = {
+        user = {
+          name = "mike7d7";
+          email = "mike7d7@proton.me";
+        };
       };
     };
+
   };
+
+  gtk.enable = true;
 
   programs.foot.settings = {
     main = {
@@ -391,11 +392,6 @@
     platformTheme.name = "qtct";
     # style.name = "kvantum";
   };
-  xdg.configFile."Kvantum/kvantum.kvconfig".source =
-    (pkgs.formats.ini { }).generate "kvantum.kvconfig"
-      {
-        General.theme = "KvAdaptaDark";
-      };
   home.pointerCursor = {
     gtk.enable = true;
     name = "graphite-dark";
@@ -408,6 +404,11 @@
     gpu-api = "opengl";
   };
   # xdg.configFile."niri/config.kdl".source = ./configs/config.kdl;
-  xdg.configFile."matugen/config.toml".source = ./configs/matugen/config.toml;
-  xdg.configFile."niri/config.kdl".source = ./configs/niri-config.kdl;
+  xdg.configfile = {
+    "matugen/config.toml".source = ./configs/matugen/config.toml;
+    "niri/config.kdl".source = ./configs/niri-config.kdl;
+    "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
+      General.theme = "KvAdaptaDark";
+    };
+  };
 }

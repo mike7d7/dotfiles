@@ -4,7 +4,6 @@
 {
   pkgs,
   inputs,
-  lib,
   ...
 }:
 {
@@ -24,9 +23,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packagesFor (
-      inputs.custom-kernel.packages."x86_64-linux".default
-    );
+    kernelPackages = pkgs.linuxKernel.packagesFor inputs.custom-kernel.packages."x86_64-linux".default;
     kernelParams = [
       "nowatchdog"
       "preempt=full"
