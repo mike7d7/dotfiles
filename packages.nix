@@ -45,7 +45,6 @@ in
       prismlauncher
       lazygit
       obs-studio
-      ripunzip
       kew
       joplin-desktop
       bluetuith
@@ -62,7 +61,6 @@ in
       kdePackages.qtstyleplugin-kvantum
       libsForQt5.qtstyleplugin-kvantum
 
-      waypaper
       ripdrag
       jftui
       ouch
@@ -70,13 +68,11 @@ in
       solaar # fixes bug with wireless logitech keyboard
       (pkgs.epsonscan2.override { withNonFreePlugins = true; })
       discord
-      reaper
       python3
       matugen
       halloy
       inputs.nix-matlab.packages.x86_64-linux.matlab
       inputs.handy.packages.x86_64-linux.default
-      aisleriot
       dgop
       typst
       wineWow64Packages.yabridge # needed for AMS2 mods
