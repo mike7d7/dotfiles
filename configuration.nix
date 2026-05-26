@@ -268,6 +268,7 @@
     spiceUSBRedirection.enable = true;
     libvirtd.allowedBridges = [
       "virbr0"
+      "virbr1"
     ];
   };
 
