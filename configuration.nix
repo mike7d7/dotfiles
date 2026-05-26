@@ -357,7 +357,7 @@
       631
       53317
     ];
-    interfaces."virbr0" = {
+    interfaces.virbr0 = {
       allowedUDPPorts = [
         53
         67
