@@ -305,7 +305,7 @@
       open = {
         prepend_rules = [
           {
-            name = "*.zip";
+            mime = "application/zip";
             use = "extract";
           }
         ];
