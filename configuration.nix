@@ -106,6 +106,7 @@
       "networkmanager"
       "wheel"
       "libvirtd"
+      "podman"
     ];
     # packages = with pkgs; [ ];
   };
@@ -244,32 +245,7 @@
   };
 
   virtualisation = {
-    libvirt = {
-      enable = true;
-      connections."qemu:///system" = {
-        networks = [
-          {
-            active = true;
-            definition = inputs.nixvirt.lib.network.writeXML (
-              inputs.nixvirt.lib.network.templates.bridge {
-                uuid = "6bbe6459-51b6-4fa8-849e-eb0179523243";
-                subnet_byte = 122;
-              }
-            );
-          }
-        ];
-      };
-    };
-    libvirtd = {
-      enable = true;
-      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
-      qemu.swtpm.enable = true;
-    };
-    spiceUSBRedirection.enable = true;
-    libvirtd.allowedBridges = [
-      "virbr0"
-      "virbr1"
-    ];
+    podman.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -352,21 +328,12 @@
       631
       53317
       12345
+      8006
     ];
     allowedUDPPorts = [
       631
       53317
-    ];
-    interfaces.virbr0 = {
-      allowedUDPPorts = [
-        53
-        67
-        68
-      ];
-      allowedTCPPorts = [ 53 ];
-    };
-    trustedInterfaces = [
-      "virbr0"
+      8006
     ];
   };
   # Or disable the firewall altogether.

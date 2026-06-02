@@ -86,6 +86,8 @@ in
       virtio-win
       win-spice
       dnsmasq
+
+      winboat
     ]
     ++ custom-packages.packages;
   systemd.user.services.firefox-profile-memory-cache = {
