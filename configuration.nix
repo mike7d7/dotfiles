@@ -107,6 +107,7 @@
       "wheel"
       "libvirtd"
       "podman"
+      "kvm"
     ];
     # packages = with pkgs; [ ];
   };
