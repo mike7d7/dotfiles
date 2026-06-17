@@ -5,7 +5,7 @@ include "dms/wpblur.kdl"
 input {
     keyboard {
         xkb {
-          layout "latam-code,latam"
+          layout "latam,latam-code"
           variant ","
         }
     }
@@ -52,6 +52,7 @@ layout {
 spawn-at-startup "bluetoothctl" "power" "off"
 spawn-at-startup "dbus-update-activation-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri" "DISPLAY"
 spawn-at-startup "solaar" "--window=hide"
+spawn-at-startup "niri" "msg" "action" "switch-layout" "next"
 
 environment {
 }
