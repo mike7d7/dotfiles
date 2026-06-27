@@ -56,17 +56,6 @@
     };
     useDHCP = false;
   };
-  systemd.network = {
-    enable = true;
-    networks = {
-      "90-interfaces" = {
-        matchConfig = {
-          Name = "*";
-        };
-        DHCP = "yes";
-      };
-    };
-  };
 
   # Set your time zone.
   time.timeZone = "America/Mexico_City";
