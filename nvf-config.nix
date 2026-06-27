@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
   vim = {
+    utility = {
+      multicursors.enable = true;
+    };
     debugger.nvim-dap = {
       enable = true;
       ui.enable = true;
@@ -89,6 +92,15 @@
         mode = "t";
         silent = true;
         action = "<cmd>ToggleTerm<CR>";
+      }
+      {
+        key = "<leader>m";
+        mode = [
+          "n"
+          "v"
+        ];
+        silent = true;
+        action = "<cmd>MCstart<CR>";
       }
     ];
 
