@@ -79,7 +79,6 @@ in
       winetricks
       rclone
       restic
-      stirling-pdf-desktop
       rpcs3
       starsector
 
