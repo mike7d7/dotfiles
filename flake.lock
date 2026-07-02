@@ -451,7 +451,8 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvirt": "nixvirt",
         "nvf": "nvf",
-        "quickshell": "quickshell"
+        "quickshell": "quickshell",
+        "waylandar": "waylandar"
       }
     },
     "systems": {
@@ -503,6 +504,26 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "waylandar": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782755706,
+        "narHash": "sha256-EgDSeiJl1dbzdbMH1kLptfhIRHXYJ9V4DUcr4Op1HVA=",
+        "owner": "samjoshuadud",
+        "repo": "waylandar",
+        "rev": "682581c1670ef9e786ce46941d62cc23d9e5b199",
+        "type": "github"
+      },
+      "original": {
+        "owner": "samjoshuadud",
+        "repo": "waylandar",
         "type": "github"
       }
     }
