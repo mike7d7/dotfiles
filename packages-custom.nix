@@ -61,8 +61,8 @@ let
 in
 {
   packages = [
-    RStudio-with-my-packages
-    pkgs.texlive.combined.scheme-full
+    # RStudio-with-my-packages
+    # pkgs.texlive.combined.scheme-full
     backup-script
     firefox-sync
   ];

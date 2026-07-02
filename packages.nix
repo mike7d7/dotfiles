@@ -80,7 +80,7 @@ in
       winetricks
       rclone
       restic
-      rpcs3
+      # rpcs3
       starsector
 
       virtio-win
