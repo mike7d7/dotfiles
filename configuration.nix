@@ -387,7 +387,6 @@
       };
 
       enableCalendarEvents = false;
-      quickshell.package = inputs.quickshell.packages.${pkgs.system}.default;
     };
   };
   xdg.portal = {
