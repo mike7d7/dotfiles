@@ -88,6 +88,7 @@ in
       dnsmasq
 
       winboat
+      davinci-resolve
     ]
     ++ custom-packages.packages;
   systemd.user.services.firefox-profile-memory-cache = {
