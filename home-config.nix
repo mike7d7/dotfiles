@@ -393,6 +393,7 @@
     # style.name = "kvantum";
   };
   home.pointerCursor = {
+    enable = true;
     gtk.enable = true;
     name = "graphite-dark";
     package = pkgs.graphite-cursors;
