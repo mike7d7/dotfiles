@@ -11,7 +11,6 @@
     ./hardware-configuration.nix
     ./packages.nix
     ./graphics.nix
-    inputs.nixvirt.nixosModules.default
   ];
   hardware = {
     bluetooth = {

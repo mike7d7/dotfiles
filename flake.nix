@@ -23,10 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:cjpais/Handy";
     };
-    nixvirt = {
-      url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     waylandar = {
       url = "github:samjoshuadud/waylandar";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +33,6 @@
     nixpkgs,
     home-manager,
     nvf,
-    custom-kernel,
     ...
   }: {
     packages."x86_64-linux".default =
