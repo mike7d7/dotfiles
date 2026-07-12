@@ -2,8 +2,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   hardware.graphics = {
     enable = true;
     #driSupport = true;
@@ -15,11 +14,11 @@
       # intel-media-sdk   # for older GPUs
     ];
   };
-  boot.kernelParams = [ "i915.force_probe=a7a0" ];
-  boot.kernelModules = [ "nvidia_uvm" ];
+  boot.kernelParams = ["i915.force_probe=a7a0"];
+  boot.kernelModules = ["nvidia_uvm"];
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     # Modesetting is required.
@@ -60,5 +59,4 @@
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:01:0:0";
   };
-
 }

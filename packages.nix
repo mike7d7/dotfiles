@@ -3,14 +3,12 @@
   inputs,
   lib,
   ...
-}:
-let
-  custom-packages = import ./packages-custom.nix { inherit pkgs lib; };
-in
-{
+}: let
+  custom-packages = import ./packages-custom.nix {inherit pkgs lib;};
+in {
   nixpkgs.overlays = [
     (final: prev: {
-      ouch = prev.ouch.override { enableUnfree = true; };
+      ouch = prev.ouch.override {enableUnfree = true;};
       prismlauncher = prev.prismlauncher.override {
         jdks = with pkgs; [
           graalvmPackages.graalvm-oracle
@@ -18,8 +16,7 @@ in
       };
     })
   ];
-  environment.systemPackages =
-    with pkgs;
+  environment.systemPackages = with pkgs;
     [
       git
       pipewire
@@ -66,7 +63,7 @@ in
       ouch
       trash-cli
       solaar # fixes bug with wireless logitech keyboard
-      (pkgs.epsonscan2.override { withNonFreePlugins = true; })
+      (pkgs.epsonscan2.override {withNonFreePlugins = true;})
       discord
       python3
       matugen
@@ -93,8 +90,8 @@ in
     ++ custom-packages.packages;
   systemd.user.services.firefox-profile-memory-cache = {
     description = "Firefox profile memory cache";
-    wantedBy = [ "default.target" ];
-    path = [ pkgs.rsync ];
+    wantedBy = ["default.target"];
+    path = [pkgs.rsync];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;

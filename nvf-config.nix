@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   vim = {
     utility = {
       multicursors.enable = true;

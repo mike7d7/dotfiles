@@ -1,6 +1,7 @@
-{ pkgs, lib }:
-
-let
+{
+  pkgs,
+  lib,
+}: let
   backup-script = pkgs.writeShellScriptBin "backup-script" ''
     restic -r rclone:o-pi:Restic backup /home/mig/Documents /home/mig/Games/Savefiles --skip-if-unchanged
   '';
@@ -58,8 +59,7 @@ let
       ggtree
     ];
   };
-in
-{
+in {
   packages = [
     # RStudio-with-my-packages
     # pkgs.texlive.combined.scheme-full

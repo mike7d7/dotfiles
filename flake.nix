@@ -31,49 +31,46 @@
       url = "github:samjoshuadud/waylandar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs =
-    inputs@{
-      nixpkgs,
-      home-manager,
-      nvf,
-      custom-kernel,
-      ...
-    }:
-    {
-      packages."x86_64-linux".default =
-        (nvf.lib.neovimConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          modules = [ ./nvf-config.nix ];
-        }).neovim;
-      nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
-        specialArgs.inputs = inputs;
-        system = "x86_64-linux";
-        modules = [
-          {
-            nix.settings.substituters = [ "https://cache.garnix.io" ];
-            nix.settings.trusted-public-keys = [
-              "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-            ];
-          }
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          inputs.nvf.nixosModules.default
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {
-                pkgs-stable = inputs.nixpkgs-stable.legacyPackages."x86_64-linux";
-              };
-              users.mig = {
-                imports = [ ./home-config.nix ];
-              };
+  outputs = inputs @ {
+    nixpkgs,
+    home-manager,
+    nvf,
+    custom-kernel,
+    ...
+  }: {
+    packages."x86_64-linux".default =
+      (nvf.lib.neovimConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        modules = [./nvf-config.nix];
+      }).neovim;
+    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      specialArgs.inputs = inputs;
+      system = "x86_64-linux";
+      modules = [
+        {
+          nix.settings.substituters = ["https://cache.garnix.io"];
+          nix.settings.trusted-public-keys = [
+            "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+          ];
+        }
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+        inputs.nvf.nixosModules.default
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {
+              pkgs-stable = inputs.nixpkgs-stable.legacyPackages."x86_64-linux";
             };
-          }
-        ];
-      };
+            users.mig = {
+              imports = [./home-config.nix];
+            };
+          };
+        }
+      ];
     };
+  };
 }

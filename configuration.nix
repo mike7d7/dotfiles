@@ -5,8 +5,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -16,7 +15,6 @@
   ];
   hardware = {
     bluetooth = {
-
       enable = true; # enables support for bluetooth
       powerOnBoot = false; # powers up the default Bluetooth controller on boot
     };
@@ -29,7 +27,7 @@
       "preempt=full"
       "rcutree.enable_rcu_lazy=1"
     ];
-    kernelModules = [ "ntsync" ];
+    kernelModules = ["ntsync"];
 
     # Bootloader.
     loader.systemd-boot.enable = true;
@@ -69,7 +67,7 @@
     variant = "";
     extraLayouts.latam-code = rec {
       description = "Programmers Colemak with less and greater than mapped to AltGr + z/x";
-      languages = [ "latam" ];
+      languages = ["latam"];
       symbolsFile = builtins.toFile "symbols-latam-code" ''
         partial alphanumeric_keys
         xkb_symbols "latam-code" {
@@ -100,7 +98,7 @@
     ];
     # packages = with pkgs; [ ];
   };
-  users.groups.libvirtd.members = [ "mig" ];
+  users.groups.libvirtd.members = ["mig"];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -138,7 +136,7 @@
     # };
     # linux-enable-ir-emitter.enable = true;
     printing.enable = true;
-    printing.drivers = [ pkgs.epson-escpr2 ];
+    printing.drivers = [pkgs.epson-escpr2];
     avahi = {
       enable = true;
       nssmdns4 = true;
@@ -208,23 +206,24 @@
       ];
     };
     udev = {
-      packages = [
-        (pkgs.writeTextFile {
-          name = "my-rules";
-          text = ''
-            KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
-            SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
-            # Wacom CTH-480
-            KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0302", TAG+="uaccess", TAG+="udev-acl"
-            SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0302", TAG+="uaccess", TAG+="udev-acl"
-          '';
-          destination = "/etc/udev/rules.d/70-opentabletdriver.rules";
-        })
-      ]
-      ++ [
-        pkgs.oversteer
-        pkgs.usb-modeswitch-data
-      ];
+      packages =
+        [
+          (pkgs.writeTextFile {
+            name = "my-rules";
+            text = ''
+              KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
+              SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0374", TAG+="uaccess", TAG+="udev-acl"
+              # Wacom CTH-480
+              KERNEL=="hidraw*", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0302", TAG+="uaccess", TAG+="udev-acl"
+              SUBSYSTEM=="usb", ATTRS{idVendor}=="056a", ATTRS{idProduct}=="0302", TAG+="uaccess", TAG+="udev-acl"
+            '';
+            destination = "/etc/udev/rules.d/70-opentabletdriver.rules";
+          })
+        ]
+        ++ [
+          pkgs.oversteer
+          pkgs.usb-modeswitch-data
+        ];
       extraRules = ''
         ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c294", RUN+="${pkgs.usb-modeswitch}/bin/usb_modeswitch -v 046d -p c294 -m 01 -r 01 -C 03 -M '0f00010142'"
       '';
@@ -403,10 +402,10 @@
         "gnome"
         "gtk"
       ];
-      "org.freedesktop.impl.portal.Access" = [ "gtk" ];
-      "org.freedesktop.impl.portal.Notification" = [ "gtk" ];
-      "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-      "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
+      "org.freedesktop.impl.portal.Access" = ["gtk"];
+      "org.freedesktop.impl.portal.Notification" = ["gtk"];
+      "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+      "org.freedesktop.impl.portal.FileChooser" = ["kde"];
     };
   };
   # services.flatpak.enable = true;
@@ -445,7 +444,7 @@
   '';
   programs.steam = {
     enable = true;
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    extraCompatPackages = with pkgs; [proton-ge-bin];
   };
   hardware.logitech.wireless.enable = true;
   hardware.new-lg4ff.enable = true;

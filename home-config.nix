@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   # The home.stateVersion option does not have a default and must be set
   home.stateVersion = "24.05";
   # home.packages = with pkgs; [];
@@ -24,7 +20,6 @@
         };
       };
     };
-
   };
 
   gtk.enable = true;
@@ -350,8 +345,8 @@
       cursor-theme = "graphite-dark";
     };
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
     };
   };
 
@@ -408,7 +403,7 @@
   xdg.configFile = {
     "matugen/config.toml".source = ./configs/matugen/config.toml;
     "niri/config.kdl".source = ./configs/niri-config.kdl;
-    "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
+    "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
       General.theme = "KvAdaptaDark";
     };
   };
