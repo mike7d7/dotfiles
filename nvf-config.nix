@@ -126,7 +126,6 @@
         enable = true;
         format = {
           enable = true;
-          type = [ "nixfmt" ];
         };
       };
       rust.enable = true;
