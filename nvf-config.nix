@@ -130,7 +130,7 @@
         };
       };
       rust.enable = true;
-      clang.enable = true;
+      # clang.enable = true;
       bash.enable = true;
       python.enable = true;
       typst.enable = true;
