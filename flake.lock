@@ -79,6 +79,26 @@
         "type": "github"
       }
     },
+    "dcal": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783626964,
+        "narHash": "sha256-9VaAN5nSjCfpCU1OdgLDh/aiduTg3IReHVJl0/+VtrQ=",
+        "owner": "AvengeMedia",
+        "repo": "dankcalendar",
+        "rev": "61d0deabe9b328ee5562322948a39f410ec92cfb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dankcalendar",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -381,13 +401,13 @@
     "root": {
       "inputs": {
         "custom-kernel": "custom-kernel",
+        "dcal": "dcal",
         "handy": "handy",
         "home-manager": "home-manager",
         "nix-matlab": "nix-matlab",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
-        "nvf": "nvf",
-        "waylandar": "waylandar"
+        "nvf": "nvf"
       }
     },
     "systems": {
@@ -424,26 +444,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "waylandar": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1782901006,
-        "narHash": "sha256-dm5XryWvH1y00nurS9RTEIDrDAdbgB2CdJ4lsjb48Zo=",
-        "owner": "samjoshuadud",
-        "repo": "waylandar",
-        "rev": "20a6dc3093ae7513345bb35d954c15dbc17234a1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "samjoshuadud",
-        "repo": "waylandar",
         "type": "github"
       }
     }

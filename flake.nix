@@ -23,8 +23,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:cjpais/Handy";
     };
-    waylandar = {
-      url = "github:samjoshuadud/waylandar";
+    dcal = {
+      url = "github:AvengeMedia/dankcalendar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -53,6 +53,7 @@
         ./configuration.nix
         home-manager.nixosModules.home-manager
         inputs.nvf.nixosModules.default
+        inputs.dcal.nixosModules.default
         {
           home-manager = {
             useGlobalPkgs = true;

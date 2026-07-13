@@ -70,7 +70,6 @@ in {
       halloy
       inputs.nix-matlab.packages.x86_64-linux.matlab
       # inputs.handy.packages.x86_64-linux.default
-      inputs.waylandar.packages.x86_64-linux.default
       dgop
       typst
       wineWow64Packages.yabridge # needed for AMS2 mods

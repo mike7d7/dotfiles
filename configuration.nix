@@ -386,6 +386,10 @@
 
       enableCalendarEvents = false;
     };
+    dank-calendar = {
+      enable = true;
+      systemd.enable = true;
+    };
   };
   xdg.portal = {
     enable = true;
