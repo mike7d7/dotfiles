@@ -44,12 +44,6 @@
       specialArgs.inputs = inputs;
       system = "x86_64-linux";
       modules = [
-        {
-          nix.settings.substituters = ["https://cache.garnix.io"];
-          nix.settings.trusted-public-keys = [
-            "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-          ];
-        }
         ./configuration.nix
         home-manager.nixosModules.home-manager
         inputs.nvf.nixosModules.default
