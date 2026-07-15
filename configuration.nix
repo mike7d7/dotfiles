@@ -117,6 +117,7 @@
   ];
   fonts.fontDir.enable = true;
   services = {
+    usbmuxd.enable = true;
     tor = {
       enable = true;
       client.enable = true;
@@ -261,6 +262,13 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   programs = {
+    obs-studio = {
+      enable = true;
+
+      plugins = with pkgs.obs-studio-plugins; [
+        droidcam-obs
+      ];
+    };
     virt-manager.enable = true;
     niri = {
       enable = true;

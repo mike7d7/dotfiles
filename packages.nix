@@ -41,7 +41,6 @@ in {
       transmission_4-gtk
       prismlauncher
       lazygit
-      obs-studio
       kew
       joplin-desktop
       bluetuith
