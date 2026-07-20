@@ -19,10 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:mike7d7/custom-kernel";
     };
-    handy = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:cjpais/Handy";
-    };
     dcal = {
       url = "github:AvengeMedia/dankcalendar";
       inputs.nixpkgs.follows = "nixpkgs";
