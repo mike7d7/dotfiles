@@ -11,7 +11,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [
+  boot.initrd.availableKernelModules = lib.mkForce [
     "xhci_pci"
     "thunderbolt"
     "vmd"
@@ -20,6 +20,47 @@
     "usbhid"
     "sd_mod"
     "rtsx_pci_sdmmc"
+
+    # Previous opions before custom kernel-config
+    # "atkbd"
+    # "autofs"
+    # "efivarfs"
+    # "ehci_hcd"
+    # "ehci_pci"
+    # "ext2"
+    # "ext4"
+    # "hid_apple"
+    # "hid_cherry"
+    # "hid_corsair"
+    # "hid_generic"
+    # "hid_lenovo"
+    # "hid_logitech_dj"
+    # "hid_logitech_hidpp"
+    # "hid_microsoft"
+    # "hid_roccat"
+    # "i8042"
+    # "mmc_block"
+    # "nvme"
+    # "ohci_hcd"
+    # "ohci_pci"
+    # "pata_marvell"
+    # "pcips2"
+    # "rtsx_pci_sdmmc"
+    # "sata_nv"
+    # "sata_sis"
+    # "sata_uli"
+    # "sata_via"
+    # "sd_mod"
+    # "sr_mod"
+    # "thunderbolt"
+    # "tpm-crb"
+    # "tpm-tis"
+    # "uhci_hcd"
+    # "usb_storage"
+    # "usbhid"
+    # "vmd"
+    # "xhci_hcd"
+    # "xhci_pci"
   ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
