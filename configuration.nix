@@ -157,6 +157,7 @@
           "default.clock.quantum" = 128;
           "default.clock.min-quantum" = 32;
           "default.clock.max-quantum" = 256;
+          "default.clock.allowed-rates" = [44100 48000 88200 96000 192000 384000];
         };
       };
       wireplumber.extraConfig."10-bluez" = {
