@@ -117,7 +117,10 @@
   ];
   fonts.fontDir.enable = true;
   services = {
-    usbmuxd.enable = true;
+    usbmuxd = {
+      enable = true;
+      package = pkgs.usbmuxd2;
+    };
     tor = {
       enable = true;
       client.enable = true;
