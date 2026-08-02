@@ -44,6 +44,12 @@
       specialArgs.inputs = inputs;
       system = "x86_64-linux";
       modules = [
+        {
+          nix.settings.substituters = ["http://192.168.0.156:8080/local-cache"];
+          nix.settings.trusted-public-keys = [
+            "local-cache:O/PCKeQbFg7YTsTXxh8J00Wsy0A6SjlVpC/vV2/gQh8="
+          ];
+        }
         ./configuration.nix
         home-manager.nixosModules.home-manager
         inputs.nvf.nixosModules.default
