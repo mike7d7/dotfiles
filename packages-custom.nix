@@ -31,37 +31,8 @@
      touch $link/.unpacked
     fi
   '';
-  RStudio-with-my-packages = pkgs.rstudioWrapper.override {
-    packages = with pkgs.rPackages; [
-      ggplot2
-      dplyr
-      dslabs
-      base64enc
-      digest
-      evaluate
-      highr
-      htmltools
-      jsonlite
-      knitr
-      mime
-      rmarkdown
-      stringi
-      stringr
-      xfun
-      yaml
-      ggrepel
-      ggthemes
-      gridExtra
-      Biostrings
-      DECIPHER
-      ape
-      ade4
-      ggtree
-    ];
-  };
 in {
   packages = [
-    # RStudio-with-my-packages
     # pkgs.texlive.combined.scheme-full
     backup-script
     firefox-sync
