@@ -23,6 +23,10 @@
       url = "github:AvengeMedia/dankcalendar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    custom-rstudio = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:mike7d7/nix-cache-test";
+    };
   };
 
   outputs = inputs @ {

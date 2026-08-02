@@ -68,6 +68,7 @@ in {
       matugen
       halloy
       inputs.nix-matlab.packages.x86_64-linux.matlab
+      inputs.custom-rstudio.packages.x86_64-linux.default
       handy
       dgop
       typst
