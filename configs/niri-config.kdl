@@ -58,7 +58,7 @@ environment {
 }
 
 cursor {
-    xcursor-theme "graphite-dark"
+    xcursor-theme "Custom-Cursors"
     xcursor-size 32
 }
 

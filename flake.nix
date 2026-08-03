@@ -27,6 +27,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:mike7d7/nix-cache-test";
     };
+    custom-cursors = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "git+ssh://git@github.com/mike7d7/custom-cursor";
+    };
   };
 
   outputs = inputs @ {
@@ -59,6 +63,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {
+              inherit inputs;
               pkgs-stable = inputs.nixpkgs-stable.legacyPackages."x86_64-linux";
             };
             users.mig = {

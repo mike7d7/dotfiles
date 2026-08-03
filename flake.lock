@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "custom-cursors": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785723766,
+        "narHash": "sha256-+6nODfKdMURw6WHIoWvq5j4rtgu+yRj+asb1TAaHtdU=",
+        "ref": "refs/heads/main",
+        "rev": "4d5a61411d9fd2d98c0eb256316410380ef12a87",
+        "revCount": 3,
+        "type": "git",
+        "url": "ssh://git@github.com/mike7d7/custom-cursor"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/mike7d7/custom-cursor"
+      }
+    },
     "custom-kernel": {
       "inputs": {
         "nix-cachyos-kernel": "nix-cachyos-kernel",
@@ -327,6 +347,7 @@
     },
     "root": {
       "inputs": {
+        "custom-cursors": "custom-cursors",
         "custom-kernel": "custom-kernel",
         "custom-rstudio": "custom-rstudio",
         "dcal": "dcal",

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # The home.stateVersion option does not have a default and must be set
   home.stateVersion = "24.05";
   # home.packages = with pkgs; [];
@@ -342,7 +346,7 @@
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      cursor-theme = "graphite-dark";
+      cursor-theme = "Custom-Cursors";
     };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
@@ -362,7 +366,7 @@
       ];
       extraConfig = {
         # gtk-application-prefer-dark-theme = 1;
-        gtk-cursor-theme-name = "graphite-dark";
+        gtk-cursor-theme-name = "Custom-Cursors";
       };
       theme = {
         name = "adw-gtk3";
@@ -373,7 +377,7 @@
     gtk4 = {
       extraConfig = {
         # gtk-application-prefer-dark-theme = 1;
-        gtk-cursor-theme-name = "graphite-dark";
+        gtk-cursor-theme-name = "Custom-Cursors";
       };
       theme = {
         name = "adw-gtk3";
@@ -390,8 +394,8 @@
   home.pointerCursor = {
     enable = true;
     gtk.enable = true;
-    name = "graphite-dark";
-    package = pkgs.graphite-cursors;
+    name = "Custom-Cursors";
+    package = inputs.custom-cursors.packages.${pkgs.system}.default;
     size = 32;
   };
   programs.mpv.config = {
