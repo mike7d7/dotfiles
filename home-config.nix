@@ -365,8 +365,8 @@
         gtk-cursor-theme-name = "graphite-dark";
       };
       theme = {
-        name = "fluent-gtk-theme";
-        package = pkgs.fluent-gtk-theme;
+        name = "adw-gtk3";
+        package = pkgs.adw-gtk3;
       };
       extraCss = "@import url(\"dank-colors.css\");";
     };
@@ -376,8 +376,8 @@
         gtk-cursor-theme-name = "graphite-dark";
       };
       theme = {
-        name = "fluent-gtk-theme";
-        package = pkgs.fluent-gtk-theme;
+        name = "adw-gtk3";
+        package = pkgs.adw-gtk3;
       };
       extraCss = "@import url(\"dank-colors.css\");";
     };
