@@ -10,7 +10,7 @@
   # Programs
   programs = {
     bash.enable = true;
-    foot.enable = true;
+    kitty.enable = true;
     mpv.enable = true;
     yazi.enable = true;
 
@@ -28,17 +28,20 @@
 
   gtk.enable = true;
 
-  programs.foot.settings = {
-    main = {
-      font = "liberation mono:size=14";
-      dpi-aware = false;
-      include = "/home/mig/.config/foot/dank-colors.ini";
+  programs.kitty = {
+    font = {
+      name = "Fira Code";
+      size = 14;
     };
-    colors-dark = {
-      blur = true;
-      alpha = 0.7;
-      background = "000000";
+    settings = {
+      background_opacity = 0.7;
+      background_blur = 32;
+      sync_to_monitor = true;
     };
+    extraConfig = ''
+      include dank-tabs.conf
+      include dank-theme.conf
+    '';
   };
 
   programs.yazi = {
@@ -231,7 +234,7 @@
 
         {
           on = "<A-u>";
-          run = "shell 'foot -d none' --orphan";
+          run = "shell 'kitty --detach' --orphan";
         }
 
         {
