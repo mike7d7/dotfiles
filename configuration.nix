@@ -273,7 +273,6 @@
         droidcam-obs
       ];
     };
-    virt-manager.enable = true;
     niri = {
       enable = true;
     };
