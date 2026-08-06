@@ -38,6 +38,10 @@
       background_blur = 32;
       sync_to_monitor = true;
     };
+    keybindings = {
+      "ctrl+tab" = "no_op";
+      "ctrl+shift+tab" = "no_op";
+    };
     extraConfig = ''
       include dank-tabs.conf
       include dank-theme.conf
