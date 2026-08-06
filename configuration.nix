@@ -138,8 +138,10 @@
     #   control = "sufficient";
     # };
     # linux-enable-ir-emitter.enable = true;
-    printing.enable = true;
-    printing.drivers = [pkgs.epson-escpr2];
+    printing = {
+      enable = true;
+      drivers = [pkgs.epson-escpr2];
+    };
     avahi = {
       enable = true;
       nssmdns4 = true;
