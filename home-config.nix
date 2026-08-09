@@ -34,7 +34,7 @@
       size = 14;
     };
     settings = {
-      background_opacity = 0.7;
+      background_opacity = 0.8;
       background_blur = 32;
       sync_to_monitor = true;
     };
