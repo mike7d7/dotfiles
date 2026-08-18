@@ -181,11 +181,6 @@
         }
 
         {
-          on = "<C-k>";
-          run = "shell 'ripdrag \"$@\" -dx 2>/dev/null &' --confirm";
-        }
-
-        {
           on = "C";
           run = "plugin ouch";
           desc = "Compress with ouch";

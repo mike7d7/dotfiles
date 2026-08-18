@@ -57,7 +57,6 @@ in {
       kdePackages.qtstyleplugin-kvantum
       libsForQt5.qtstyleplugin-kvantum
 
-      ripdrag
       jftui
       ouch
       trash-cli
