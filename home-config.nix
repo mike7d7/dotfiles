@@ -282,27 +282,27 @@
       opener = {
         play = [
           {
-            run = "mpv \"$@\"";
+            run = "mpv %s";
             orphan = true;
             for = "unix";
           }
         ];
         edit = [
           {
-            run = "nvim \"$@\"";
+            run = "nvim %s";
             block = true;
             for = "unix";
           }
         ];
         open = [
           {
-            run = "xdg-open \"$@\"";
+            run = "xdg-open %s";
             desc = "Open";
           }
         ];
         extract = [
           {
-            run = "ouch d -y \"$@\"";
+            run = "ouch d -y %s";
             desc = "Extract here with ouch";
             for = "unix";
           }
