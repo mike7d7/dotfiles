@@ -14,7 +14,7 @@
       # intel-media-sdk   # for older GPUs
     ];
   };
-  boot.kernelParams = ["i915.force_probe=a7a0"];
+  boot.kernelParams = ["i915.force_probe=!a7a0" "xe.force_probe=a7a0"];
   boot.kernelModules = ["nvidia_uvm"];
 
   # Load nvidia driver for Xorg and Wayland
