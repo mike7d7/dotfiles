@@ -436,4 +436,12 @@
       General.theme = "KvAdaptaDark";
     };
   };
+
+  xdg.configFile."xdg-desktop-portal-termfilechooser/config" = {
+    force = true;
+    text = ''
+      [filechooser]
+      cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+    '';
+  };
 }

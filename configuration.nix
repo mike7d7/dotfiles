@@ -407,7 +407,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-termfilechooser
       xdg-desktop-portal-gnome
     ];
   };
@@ -421,7 +421,7 @@
       "org.freedesktop.impl.portal.Access" = ["gtk"];
       "org.freedesktop.impl.portal.Notification" = ["gtk"];
       "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
-      "org.freedesktop.impl.portal.FileChooser" = ["kde"];
+      "org.freedesktop.impl.portal.FileChooser" = ["termfilechooser"];
     };
   };
   # services.flatpak.enable = true;
