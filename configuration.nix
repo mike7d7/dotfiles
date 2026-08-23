@@ -147,8 +147,7 @@
       nssmdns4 = true;
       openFirewall = true;
     };
-    pcscd.enable = true;
-    gvfs.enable = true;
+    udisks2.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
