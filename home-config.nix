@@ -53,9 +53,7 @@
     plugins = {
       mount = pkgs.yaziPlugins.mount;
       ouch = pkgs.yaziPlugins.ouch;
-      recycle-bin = pkgs.yaziPlugins.recycle-bin;
     };
-    initLua = "require(\"recycle-bin\"):setup()";
     keymap = {
       mgr.prepend_keymap = [
         {
@@ -162,7 +160,7 @@
         }
 
         {
-          on = "g";
+          on = ["g" "g"];
           run = "tab_create --current";
         }
         {
@@ -235,46 +233,20 @@
           on = "<A-u>";
           run = "shell 'kitty --detach' --orphan";
         }
-
-        {
-          on = [
-            "R"
-            "y"
-          ];
-          run = "plugin recycle-bin -- open";
-        }
-        {
-          on = [
-            "R"
-            "f"
-          ];
-          run = "plugin recycle-bin -- empty";
-        }
-        {
-          on = [
-            "R"
-            "S"
-          ];
-          run = "plugin recycle-bin -- emptyDays";
-        }
-        {
-          on = [
-            "R"
-            "r"
-          ];
-          run = "plugin recycle-bin -- delete";
-        }
-        {
-          on = [
-            "R"
-            "p"
-          ];
-          run = "plugin recycle-bin -- restore";
-        }
       ];
     };
     settings = {
       opener = {
+        trash = [
+          {
+            run = "ya pub trash-restore --list %S";
+            desc = "Restore selected files";
+          }
+          {
+            run = "ya pub trash-empty --list %S";
+            desc = "Empty trash bin";
+          }
+        ];
         play = [
           {
             run = "mpv %s";
@@ -306,13 +278,64 @@
       open = {
         prepend_rules = [
           {
+            mime = "trash/**";
+            use = ["open" "trash"];
+          }
+          {
             mime = "application/zip";
             use = "extract";
           }
         ];
       };
+      confirm = {
+        trash_title = "Trash {n} selected file{s}?";
+        trash_origin = "center";
+        trash_offset = [0 0 70 20];
+      };
       plugin = {
+        prepend_fetchers = [
+          {
+            url = "*/";
+            run = "mime.dir";
+            prio = "high";
+            group = "mime";
+          }
+          {
+            url = "local://*";
+            run = "mime.local";
+            prio = "high";
+            group = "mime";
+          }
+          {
+            url = "trash://*";
+            run = "mime.trash";
+            prio = "high";
+            group = "mime";
+          }
+          {
+            url = "remote://*";
+            run = "mime.remote";
+            prio = "high";
+            group = "mime";
+          }
+        ];
+        prepend_spotters = [
+          {
+            mime = "trash/**";
+            run = "trash";
+          }
+        ];
+        prepend_preloaders = [
+          {
+            mime = "trash/**";
+            run = "trash";
+          }
+        ];
         prepend_previewers = [
+          {
+            mime = "trash/**";
+            run = "trash";
+          }
           {
             mime = "application/*zip";
             run = "ouch";
