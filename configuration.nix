@@ -26,7 +26,6 @@
       "preempt=full"
       "rcutree.enable_rcu_lazy=1"
     ];
-    kernelModules = ["ntsync"];
 
     # Bootloader.
     loader.systemd-boot.enable = true;
@@ -123,18 +122,6 @@
     usbmuxd = {
       enable = true;
       package = pkgs.usbmuxd2;
-    };
-    tor = {
-      enable = true;
-      client.enable = true;
-      settings = {
-        ExitNodes = "{mx}";
-        StrictNodes = true;
-      };
-    };
-    privoxy = {
-      enable = true;
-      enableTor = true;
     };
     # howdy = {
     #   enable = true;
