@@ -49,7 +49,6 @@
       system = "x86_64-linux";
       modules = [
         {
-          nix.settings.substituters = ["http://192.168.0.156:8080/local-cache"];
           nix.settings.trusted-public-keys = [
             "local-cache:O/PCKeQbFg7YTsTXxh8J00Wsy0A6SjlVpC/vV2/gQh8="
           ];
