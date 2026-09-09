@@ -1,5 +1,8 @@
-{
+{pkgs, ...}: {
   vim = {
+    startPlugins = [
+      pkgs.vimPlugins.CopilotChat-nvim
+    ];
     utility = {
       multicursors.enable = true;
     };
