@@ -20,7 +20,7 @@ in {
     [
       git
       pipewire
-      libreoffice-fresh
+      libreoffice-stable
       hunspell
       hunspellDicts.es_MX
       hunspellDicts.en_US
