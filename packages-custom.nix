@@ -6,7 +6,7 @@
     nixos-rebuild switch --elevate=sudo
   '';
   rebuild-local-cache-script = pkgs.writeShellScriptBin "rebuild-local-cache" ''
-    sudo nixos-rebuild switch --option substituters "http://192.168.0.156:8080/local-cache"
+    sudo nixos-rebuild switch --option substituters "http://192.168.0.156:5000"
   '';
   backup-script = pkgs.writeShellScriptBin "backup-script" ''
     restic -r rclone:o-pi:Restic backup /home/mig/Documents /home/mig/Games/Savefiles --skip-if-unchanged

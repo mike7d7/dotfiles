@@ -50,7 +50,7 @@
       modules = [
         {
           nix.settings.trusted-public-keys = [
-            "local-cache:O/PCKeQbFg7YTsTXxh8J00Wsy0A6SjlVpC/vV2/gQh8="
+            "nix-serve.156.local:at2xE4tOn/PdthkEbP4dT1NO2LHaQKbT694wyKjpsWY="
           ];
         }
         ./configuration.nix
