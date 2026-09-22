@@ -219,7 +219,13 @@
           ];
           run = "cd ~/Downloads";
         }
-
+        {
+          on = [
+            "d"
+            "S"
+          ];
+          run = "cd ~/Documents";
+        }
         {
           on = [
             "d"
