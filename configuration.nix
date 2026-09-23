@@ -382,8 +382,6 @@
         enable = true;
         restartIfChanged = true;
       };
-
-      enableCalendarEvents = false;
     };
     dank-calendar = {
       enable = true;
