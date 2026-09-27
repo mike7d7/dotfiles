@@ -326,7 +326,7 @@ binds {
 
     Mod+Shift+W { toggle-column-tabbed-display; }
 
-    Mod+W { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
+    Mod+W { spawn "dms" "ipc" "wallpaperCarousel" "toggle"; }
     Mod+Q { spawn "qalculate-qt"; }
 
     Mod+Space { switch-layout "next"; }
