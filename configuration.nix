@@ -118,6 +118,10 @@
   ];
   fonts.fontDir.enable = true;
   services = {
+    tuned = {
+      enable = true;
+    };
+
     usbmuxd = {
       enable = true;
       package = pkgs.usbmuxd2;
