@@ -14,6 +14,9 @@
       # intel-media-sdk   # for older GPUs
     ];
   };
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
   boot.kernelParams = ["i915.force_probe=!a7a0" "xe.force_probe=a7a0"];
   boot.kernelModules = ["nvidia_uvm"];
 
