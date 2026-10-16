@@ -36,6 +36,9 @@ layout {
     border {
         off
     }
+    struts {
+        top -7
+    }
 
     preset-column-widths {
         proportion 0.33333
@@ -53,6 +56,8 @@ spawn-at-startup "bluetoothctl" "power" "off"
 spawn-at-startup "dbus-update-activation-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri" "DISPLAY"
 spawn-at-startup "solaar" "--window=hide"
 spawn-at-startup "niri" "msg" "action" "switch-layout" "next"
+spawn-at-startup "ashell"
+spawn-at-startup "sweetbgd"
 
 environment {
 }
@@ -196,20 +201,20 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Shift+Return { spawn "kitty"; }
-    Mod+P { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-    Mod+Alt+I { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+P { spawn-sh "kickoff-dot-desktop | kickoff --from-stdin"; }
+    Mod+Alt+I { spawn "swaylock"; }
     Mod+F { spawn "kitty" "yazi"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "2"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "2"; }
-    XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "ashell" "msg" "volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "ashell" "msg" "volume-down"; }
+    XF86AudioMute allow-when-locked=true { spawn "ashell" "msg" "volume-toggle-mute"; }
 
-    XF86AudioNext allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
-    XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
-    XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
+    XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
 
-    XF86MonBrightnessUp { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
-    XF86MonBrightnessDown { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
+    XF86MonBrightnessUp { spawn "ashell" "msg" "brightness-up"; }
+    XF86MonBrightnessDown { spawn "ashell" "msg" "brightness-down"; }
 
     Mod+Escape repeat=false { toggle-overview; }
 
@@ -285,8 +290,8 @@ binds {
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    Mod+TouchpadScrollUp { spawn "dms" "ipc" "call" "audio" "decrement" "2"; }
-    Mod+TouchpadScrollDown { spawn "dms" "ipc" "call" "audio" "increment" "2"; }
+    Mod+TouchpadScrollUp { spawn "ashell" "msg" "volume-up"; }
+    Mod+TouchpadScrollDown { spawn "ashell" "msg" "volume-down"; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
@@ -326,7 +331,7 @@ binds {
 
     Mod+Shift+W { toggle-column-tabbed-display; }
 
-    Mod+W { spawn "dms" "ipc" "wallpaperCarousel" "toggle"; }
+    Mod+W { spawn "matuwall"; }
     Mod+Q { spawn "qalculate-qt"; }
 
     Mod+Space { switch-layout "next"; }

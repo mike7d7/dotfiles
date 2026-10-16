@@ -36,3 +36,31 @@ output_path = '~/.config/qt6ct/colors/matugen.conf'
 [templates.heroic]
 input_path = '~/.config/matugen/templates/heroic.css'
 output_path = '~/.config/heroic/matugen.css'
+
+[templates.niri]
+input_path = '~/.config/matugen/templates/niri-colors.kdl'
+output_path = '~/.config/niri/dms/colors.kdl'
+
+[templates.dmsqt5ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.dmsqt6ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.dmskitty]
+input_path = '~/.config/matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/dank-theme.conf'
+
+[templates.dmskittytabs]
+input_path = '~/.config/matugen/templates/kitty-tabs.conf'
+output_path = '~/.config/kitty/dank-tabs.conf'
+
+[templates.ashell]
+input_path = '~/.config/matugen/templates/ashell.toml'
+output_path = '~/.config/ashell/config.toml'
+
+[templates.kickoff]
+input_path = '~/.config/matugen/templates/kickoff.toml'
+output_path = '~/.config/kickoff/config.toml'

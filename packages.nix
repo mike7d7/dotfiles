@@ -79,6 +79,13 @@ in {
       # rpcs3
 
       winboat
+      ashell
+      kickoff
+      playerctl
+      swaylock
+      inputs.sweetbg.packages.x86_64-linux.sweetbg
+      inputs.matuwall.packages.x86_64-linux.matuwall
+      inputs.kickoff-dot.packages.x86_64-linux.default
     ]
     ++ custom-packages.packages;
   systemd.user.services.firefox-profile-memory-cache = {

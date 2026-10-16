@@ -31,6 +31,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "git+ssh://git@github.com/mike7d7/custom-cursor";
     };
+    sweetbg = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:sweetwm/sweetbg";
+    };
+    matuwall = {
+      url = "github:naurissteins/Matuwall";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    kickoff-dot = {
+      url = "github:j0ru/kickoff-dot-desktop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {

@@ -230,14 +230,8 @@
     };
     upower.enable = true;
 
-    displayManager.dms-greeter = {
+    displayManager.ly = {
       enable = true;
-      compositor.name = "niri";
-      configHome = "/home/mig";
-      logs = {
-        save = false;
-        path = "/tmp/dms-greeter.log";
-      };
     };
   };
 
@@ -378,14 +372,6 @@
     nvf = {
       enable = true;
       settings = import ./nvf-config.nix;
-    };
-    dms-shell = {
-      enable = true;
-
-      systemd = {
-        enable = true;
-        restartIfChanged = true;
-      };
     };
     dank-calendar = {
       enable = true;
