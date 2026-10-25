@@ -9,6 +9,19 @@ in {
   nixpkgs.overlays = [
     (final: prev: {
       ouch = prev.ouch.override {enableUnfree = true;};
+      kickoff = prev.kickoff.overrideAttrs (prev: rec {
+        version = "unstable-2026-10-24";
+
+        src = pkgs.fetchFromGitHub {
+          owner = "mike7d7";
+          repo = "kickoff";
+          rev = "1b519bf015bf4f420f325ccc8a82b060c09e6c10";
+          hash = "sha256-JlUrdOdggSJaCsU84QCtM9c9fs/nPUGsIl4WF2RVETA=";
+        };
+        cargoDeps = pkgs.rustPlatform.importCargoLock {
+          lockFile = "${src}/Cargo.lock";
+        };
+      });
       prismlauncher = prev.prismlauncher.override {
         jdks = with pkgs; [
           graalvmPackages.graalvm-oracle
