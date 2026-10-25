@@ -373,10 +373,6 @@
       enable = true;
       settings = import ./nvf-config.nix;
     };
-    dank-calendar = {
-      enable = true;
-      systemd.enable = true;
-    };
   };
   xdg.portal = {
     enable = true;

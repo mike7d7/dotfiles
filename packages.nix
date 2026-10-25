@@ -71,6 +71,8 @@ in {
       inputs.custom-rstudio.packages.x86_64-linux.default
       handy
       dgop
+      dux-calendar
+      quickshell
       typst
       wineWow64Packages.yabridge # needed for AMS2 mods
       winetricks
