@@ -82,7 +82,7 @@ in {
       halloy
       inputs.custom-rstudio.packages.x86_64-linux.default
       handy
-      dgop
+      dux-gop
       dux-calendar
       quickshell
       typst
