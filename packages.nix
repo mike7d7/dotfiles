@@ -37,7 +37,9 @@ in {
 
       prismlauncher = prev.prismlauncher.override {
         jdks = with pkgs; [
-          graalvmPackages.graalvm-oracle
+          # graalvmPackages.graalvm-oracle
+          temurin-jre-bin-25
+          temurin-jre-bin-21
         ];
       };
     })
