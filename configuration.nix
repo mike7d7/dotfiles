@@ -21,7 +21,14 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packagesFor inputs.custom-kernel.packages."x86_64-linux".default;
+    initrd.kernelModules = ["xe"];
     kernelParams = [
+      "splash"
+      "quiet"
+      "loglevel=3"
+      "udev.log_priority=3"
+      "vt.global_cursor_default=0"
+      "rd.udev.log_level=3"
       "nowatchdog"
       "preempt=full"
       "rcutree.enable_rcu_lazy=1"
@@ -33,6 +40,24 @@
     extraModprobeConfig = ''
       options kvm_intel nested=1
     '';
+
+    # nerv loader stuff (everything down from here)
+    loader.nerv = {
+      enable = true;
+      plymouth.enable = true; # the splash below, optional
+      settings = {
+        timeout = 5;
+        bls-limit = 5;
+      };
+      # entries = [
+      #   {
+      #     title = "SYSTEMD-BOOT";
+      #     subtitle = "fallback menu";
+      #     path = ''\EFI\systemd\systemd-bootx64.efi'';
+      #   }
+      # ];
+    };
+    consoleLogLevel = 3;
   };
 
   networking = {

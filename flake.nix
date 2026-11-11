@@ -35,6 +35,10 @@
       url = "github:j0ru/kickoff-dot-desktop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nerv-boot = {
+      url = "git+https://codeberg.org/GuillotineMelody/nervboot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -60,6 +64,7 @@
         ./configuration.nix
         home-manager.nixosModules.home-manager
         inputs.nvf.nixosModules.default
+        inputs.nerv-boot.nixosModules.default
         {
           home-manager = {
             useGlobalPkgs = true;
