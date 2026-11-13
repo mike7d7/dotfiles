@@ -22,19 +22,6 @@ in {
           lockFile = "${src}/Cargo.lock";
         };
       });
-      digital =
-        prev.digital.overrideAttrs
-        (prev: {
-          version = "unstable-2026-09-25";
-
-          src = pkgs.fetchFromGitHub {
-            owner = "hneemann";
-            repo = "Digital";
-            rev = "1e5d730597897704cc47b0219f908d5b201828b3";
-            hash = "sha256-XSYBHfS5YfhE8itPwv3MrsJzK2o+ZL0fjkfTZIYLEK0=";
-          };
-        });
-
       prismlauncher = prev.prismlauncher.override {
         jdks = with pkgs; [
           # graalvmPackages.graalvm-oracle
@@ -108,9 +95,6 @@ in {
       # rpcs3
 
       winboat
-      digital
-      xorg-server
-      openbox
 
       ashell
       kickoff
