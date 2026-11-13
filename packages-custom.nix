@@ -11,11 +11,6 @@
   backup-script = pkgs.writeShellScriptBin "backup-script" ''
     restic -r rclone:o-pi:Restic backup /home/mig/Documents /home/mig/Games/Savefiles --skip-if-unchanged
   '';
-  digital-script = pkgs.writeShellScriptBin "digital-x11" ''
-    Xephyr :1 -screen 2560x1600 &
-    DISPLAY=:1 openbox &
-    DISPLAY=:1 digital
-  '';
   firefox-sync = pkgs.writeShellScriptBin "firefox-sync" ''
     static=static-$1
     link=$1
@@ -49,7 +44,6 @@ in {
     rebuild-local-cache-script
     backup-script
     firefox-sync
-    digital-script
   ];
   inherit firefox-sync;
 }
