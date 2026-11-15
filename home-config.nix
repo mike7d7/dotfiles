@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   # The home.stateVersion option does not have a default and must be set
   home.stateVersion = "24.05";
   # home.packages = with pkgs; [];
@@ -377,7 +373,7 @@
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      cursor-theme = "Custom-Cursors";
+      cursor-theme = "macOS";
     };
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
@@ -397,7 +393,7 @@
       ];
       extraConfig = {
         # gtk-application-prefer-dark-theme = 1;
-        gtk-cursor-theme-name = "Custom-Cursors";
+        gtk-cursor-theme-name = "macOS";
       };
       theme = {
         name = "adw-gtk3";
@@ -408,7 +404,7 @@
     gtk4 = {
       extraConfig = {
         # gtk-application-prefer-dark-theme = 1;
-        gtk-cursor-theme-name = "Custom-Cursors";
+        gtk-cursor-theme-name = "macOS";
       };
       theme = {
         name = "adw-gtk3";
@@ -425,8 +421,8 @@
   home.pointerCursor = {
     enable = true;
     gtk.enable = true;
-    name = "Custom-Cursors";
-    package = inputs.custom-cursors.packages.${pkgs.system}.default;
+    name = "macOS";
+    package = pkgs.apple-cursor;
     size = 32;
   };
   programs.mpv.config = {

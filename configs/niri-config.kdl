@@ -64,7 +64,7 @@ environment {
 }
 
 cursor {
-    xcursor-theme "Custom-Cursors"
+    xcursor-theme "macOS"
     xcursor-size 32
 }
 

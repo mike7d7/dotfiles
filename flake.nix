@@ -19,10 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:mike7d7/nix-cache-test";
     };
-    custom-cursors = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "git+ssh://git@github.com/mike7d7/custom-cursor";
-    };
     sweetbg = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:sweetwm/sweetbg";
