@@ -298,6 +298,7 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
+      pinentryPackage = pkgs.pinentry-egui;
     };
     dconf.enable = true;
     # Make Firefox use the KDE file picker.
